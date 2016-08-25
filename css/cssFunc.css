@@ -1,0 +1,152 @@
+
+.barColors
+{
+    background-color: black;
+    color: white;
+    font-family: 'Poiret One';
+    margin-top: 0px;
+    
+}
+
+body
+{
+    overflow: hidden;
+    font-family: 'Poiret One';
+    background-color: #A8A8A8;
+}
+
+body, html
+{
+    height:100%;
+}
+
+div.wrap
+{
+    height:100%; overflow:hidden;
+}
+
+.jumbotron
+{
+    background-color: transparent !important;
+    color: white;
+    
+    background-size: cover;
+    background-size: 100% 100%;
+    
+    min-height: 100%;
+    
+    margin-top: -20px;
+    
+    width: 100%;
+    height: auto;
+    
+    position: fixed;
+    
+    z-index: 1;
+    
+}
+
+.divider
+{
+    background: linear-gradient(rgba(0, 0, 0, 0.2), grey, rgba(0, 0, 0, 0.2));;
+    
+    background-size: cover;
+    background-size: 100% 100%;
+    
+    min-height: 100%;
+    
+    margin-top: -20px;
+    
+    width: 100%;
+    height: auto;
+    
+    position: fixed;
+    
+    z-index: -1;
+}
+
+.darkenBack.divider
+{
+    z-index: 2;
+}
+
+.vertical-center
+{
+    min-height: 90%;
+    min-height: 90vh;
+    
+    display: flex;
+    align-items: center;
+}
+
+.page-header
+{
+    box-shadow: 0 0 30px black;
+}
+
+.btn
+{
+    background-color: transparent;
+    border-color: white;
+}
+
+.btn:focus,.btn:active {
+    outline: none !important;
+}
+
+
+.circular-menu
+{
+    width: 250px;
+    height: 250px;
+    margin: 50px auto 0;
+    position: absolute;
+}
+
+.circle
+{
+    
+    width: 250px;
+    height: 250px;
+    opacity: 0;
+    
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -transform: scale(0);
+    
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.open.circle
+{
+    opacity: 1;
+    
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+}
+
+.z-index.circle
+{
+    z-index: 3;
+}
+
+.circle a {
+    text-decoration: none;
+    color: lightgrey;
+    display: block;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    margin-left: -20px;
+    margin-top: -20px;
+    position: absolute;
+    text-align: center;
+    
+}
+
+.circle a:hover {
+    color: ghostwhite;
+}

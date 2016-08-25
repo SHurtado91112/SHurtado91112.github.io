@@ -26,64 +26,15 @@
     <!--Font Link-->
     <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
         
+    <!--CSS Style for Radial Menu-->
+    <link rel="stylesheet" href="css/cssFunc.css">
+    <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
+
+        
 </head>
 
 <style>
     
-    .barColors
-    {
-        background-color: black;
-        color: white;
-        font-family: 'Poiret One';
-        margin-top: 0px;
-    
-    }
-    
-    body
-    {
-        font-family: 'Poiret One';
-        background-color: #A8A8A8;
-    }
-
-    .jumbotron
-    {
-        background-color: transparent !important;
-        color: white;
-        
-        background-size: cover;
-        background-size: 100% 100%;
-        
-        min-height: 100%;
-        
-        margin-top: -20px;
-    
-        width: 100%;
-        height: auto;
-    
-        position: fixed;
-        
-        
-    }
-
-    .vertical-center
-    {
-        min-height: 90%;
-        min-height: 90vh;
-        
-        display: flex;
-        align-items: center;
-    }
-
-    .page-header
-    {
-        box-shadow: 0 0 30px black;
-    }
-
-    .btn
-    {
-        background-color: transparent;
-        border-color: white;
-    }
 
 </style>
 
@@ -101,14 +52,36 @@
         
     </div>
     
+    <div class = "divider">
+    </div>
+    
     <div class="jumbotron jumbotron-fluid vertical-center text-center center-block">
         <div class="container">
+            
             <h1 class="display-3">Hey, I'm Steven</h1>
-            <button class="btn btn-lg target" id = "btnLearn">Learn a little bit about me.</button>
+            
+            <button class="btn btn-lg target trigger" id = "btnLearn">Learn a little bit about me.
+            </button>
+            
         </div>
+        
+        
     </div>
 
+    <nav class = "circle-menu text-center vertical-center center-block">
     
+        <div class = "circle container">
+            <a href="" class="fa fa-close fa-2x"></a>
+            <a href="" class="fa fa-file-code-o fa-2x"></a>
+            <a href="" class="fa fa-folder fa-2x"></a>
+            <a href="" class="fa fa-linkedin fa-2x"></a>
+            <a href="" class="fa fa-github fa-2x"></a>
+            <a href="" class="fa fa-info fa-2x"></a>
+        </div>
+    
+    </nav>
+
+
 </body>
 
 </html>
