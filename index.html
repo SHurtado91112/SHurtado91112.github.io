@@ -36,17 +36,18 @@
         color: white;
         font-family: 'Poiret One';
         margin-top: 0px;
+    
     }
     
     body
     {
         font-family: 'Poiret One';
-        background-color: grey;
+        background-color: silver;
     }
 
     .jumbotron
     {
-        background-color: silver;
+        background-color: transparent !important;
         color: white;
         
         background-size: cover;
@@ -55,7 +56,7 @@
         min-height: 100%;
         
         margin-top: -20px;
-        
+    
         width: 100%;
         height: auto;
     
@@ -64,15 +65,18 @@
         
     }
 
-    .browse .textContainer {
-        height: 430px;
-        line-height: 400px;
+    .vertical-center
+    {
+        min-height: 90%;
+        min-height: 90vh;
+        
+        display: flex;
+        align-items: center;
     }
 
-    .textContainer h2 {
-        font-size: 16 px;
-        vertical-align: middle;
-        display: inline-block;
+    .page-header
+    {
+        box-shadow: 0 0 30px black;
     }
 
 </style>
@@ -82,18 +86,18 @@
     <div class="container-fluid barColors page-header">
         
         <div class="col-xs-6 text-left">
-            <h1>Steven Hurtado</h1>
+            <h1><span class = "text-nowrap">Steven Hurtado</span></h1>
         </div>
         
         <div class="col-xs-6 text-right">
-            <h1><small>Computer Science</small></h1>
+            <h1><span class = "text-nowrap"><small>UF C.S. '19</small></span></h1>
         </div>
         
     </div>
     
     <div class="jumbotron jumbotron-fluid vertical-center text-center center-block">
-        <div class="container textContainer">
-            <h2 class="display-3">Hello, I'm Steven</h2>
+        <div class="container">
+            <h1 class="display-3">Hello, I'm Steven</h1>
             <p class="lead">Learn a little bit about me.</p>
         </div>
     </div>
