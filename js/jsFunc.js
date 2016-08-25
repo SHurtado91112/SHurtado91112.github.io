@@ -14,28 +14,28 @@ window.addEventListener("resize", function(){
                         
                         for(var i = 0, l = items.length; i < l; i++)
                         {
-                        var x; //affects radius of cos func
-                        var y; //affects radius of sin func
+                            var x; //affects radius of cos func
+                            var y; //affects radius of sin func
                         
-                        if ($(window).width() < 768)
-                        {
+                            if ($(window).width() < 768)
+                            {
                         
-                        x = 3;
-                        y = 3;
+                                x = 3;
+                                y = 3;
+                            }
+                            else if ($(window).width() >= 768)
+                            {
+                                x = 5;
+                                y = 5;
+                            }
+                        
+                            console.log("change logged: " + x + ", " + y);
+                        
+                            items[i].style.left = (50 - 25*x*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+                        
+                            items[i].style.top = (50 + 15*y*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
                         }
-                        else if ($(window).width() >= 768)
-                        {
-                        x = 5;
-                        y = 5;
-                        }
-                        
-                        console.log("change logged: " + x + ", " + y);
-                        
-                        items[i].style.left = (50 - 25*x*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
-                        
-                        items[i].style.top = (50 + 15*y*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
-                        }
-                        
+
                         
                         });
 
