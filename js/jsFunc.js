@@ -29,6 +29,8 @@ window.addEventListener("resize", function(){
                                 y = 5;
                             }
                         
+                            console.log("change logged: " + x + ", " + y);
+                        
                             items[i].style.left = (50 - 25*x*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
                         
                             items[i].style.top = (50 + 15*y*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
@@ -61,6 +63,8 @@ window.onload = function(){
             x = 5;
             y = 5;
         }
+        
+        console.log("initial: " + x + ", " + y);
         
         items[i].style.left = (50 - 25*x*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
         
