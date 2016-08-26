@@ -152,7 +152,24 @@ div.wrap
     color: ghostwhite;
 }
 
-.thumbnail
+.container
+{
+    text-align: center;
+    
+    display: inline-block;
+    *display:inline; /* ie7 fix */
+    float: none; /* this is the part that makes it work */
+}
+
+.container-fixed
+{
+    margin: 0 auto;
+    max-width: 200px;
+}
+
+#resume
 {
     
+    margin-top: 5%;
+    position: relative;
 }

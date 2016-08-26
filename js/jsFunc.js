@@ -4,6 +4,7 @@ $( document ).ready(function() {
                     $('.divider').fadeOut(0);
                     $('body').fadeOut(0);
                     $('#portfolio').hide();
+                    $('#resume').hide();
                     });
 
 //on-going listening for resize of window,
@@ -142,7 +143,7 @@ window.onload = function(){
     
     document.querySelector('#back2').onclick = function(e)
     {
-        $('#portfolio').fadeOut(400);
+        $('#resume').fadeOut(400);
         
         $('.divider').fadeIn(400, function()
                              {
