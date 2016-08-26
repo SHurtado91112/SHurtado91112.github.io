@@ -58,7 +58,8 @@ div.wrap
     margin-top: -20px;
     
     width: 100%;
-    height: auto;
+    height: 100%;
+    overflow: hidden;
     
     position: fixed;
     
@@ -149,4 +150,9 @@ div.wrap
 
 .circle a:hover {
     color: ghostwhite;
+}
+
+.thumbnail
+{
+    
 }
