@@ -5,6 +5,8 @@ $( document ).ready(function() {
                     $('body').fadeOut(0);
                     $('#portfolio').hide();
                     $('#resume').hide();
+                    $('#about').hide();
+                    
                     });
 
 //on-going listening for resize of window,
@@ -118,6 +120,30 @@ window.onload = function(){
         e.preventDefault(); document.querySelector('.divider').classList.toggle('darkenBack');
     }
     
+    document.querySelector('a.fa-info').onclick = function(e)
+    {
+        $('.divider').fadeOut(400);
+        
+        $('#home').fadeOut(400, function()
+                           {
+                           $('#home').prop("disabled", true);
+                           
+                           console.log($('#home').prop('disabled'));
+                           
+                           if($('#home').prop('disabled'))
+                           {
+                           
+                           $('#about').fadeIn(400);
+                           }
+                           });
+        
+        
+        e.preventDefault(); document.querySelector('.circle').classList.toggle('open');
+        e.preventDefault(); document.querySelector('.circle').classList.toggle('z-index');
+        e.preventDefault(); document.querySelector('.divider').classList.toggle('darkenBack');
+    }
+
+    
     document.querySelector('#back1').onclick = function(e)
     {
         $('#portfolio').fadeOut(400);
@@ -130,7 +156,6 @@ window.onload = function(){
                            
                            if($('#home').prop('disabled') == false)
                            {
-                           //$('#portfolio').show();
                                 $('#home').fadeIn(400);
                            }
                            });
@@ -153,8 +178,7 @@ window.onload = function(){
                              
                              if($('#home').prop('disabled') == false)
                              {
-                             //$('#portfolio').show();
-                             $('#home').fadeIn(400);
+                                $('#home').fadeIn(400);
                              }
                              });
         
@@ -163,6 +187,30 @@ window.onload = function(){
         e.preventDefault(); document.querySelector('.circle').classList.toggle('z-index');
         e.preventDefault(); document.querySelector('.divider').classList.toggle('darkenBack');
     }
+    
+    document.querySelector('#back3').onclick = function(e)
+    {
+        $('#about').fadeOut(400);
+        
+        $('.divider').fadeIn(400, function()
+                             {
+                             $('#home').prop("disabled", false);
+                             
+                             console.log($('#home').prop('disabled'));
+                             
+                             if($('#home').prop('disabled') == false)
+                             {
+                                $('#home').fadeIn(400);
+                             }
+                             });
+        
+        
+        e.preventDefault(); document.querySelector('.circle').classList.toggle('open');
+        e.preventDefault(); document.querySelector('.circle').classList.toggle('z-index');
+        e.preventDefault(); document.querySelector('.divider').classList.toggle('darkenBack');
+    }
+    
+    
     
     document.querySelector('a.fa-close').onclick = function(e)
     {
