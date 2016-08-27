@@ -178,9 +178,21 @@ div.wrap
     max-width: 200px;
 }
 
+.hover-text
+{
+    margin-top: -10px;
+    padding-top: 10px;
+    font-size: 36px;
+    width: 100%;
+    position: absolute;
+    z-index: 6;
+    color: ghostwhite;
+    height: 50px;
+    
+}
+
 #resume
 {
-    
     margin-top: 5%;
     position: relative;
 }

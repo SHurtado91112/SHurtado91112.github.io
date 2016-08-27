@@ -3,10 +3,11 @@ $( document ).ready(function() {
                     $('#btnLearn').addClass("animated fadeInUp");
                     $('.divider').fadeOut(0);
                     $('body').fadeOut(0);
+                    $('.hover-text').fadeOut(0);
                     $('#portfolio').hide();
                     $('#resume').hide();
                     $('#about').hide();
-                    
+                    $('.hover-text').prop('disabled', false);
                     });
 
 //on-going listening for resize of window,
@@ -74,8 +75,58 @@ window.onload = function(){
         items[i].style.top = (50 + 16*y*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
     }
     
+    $('a.fa-file-code-o').hover(
+                          function(){
+                                if($('.hover-text').prop('disabled') == false)
+                                {
+                                    $('.hover-text').fadeToggle("fast");
+                                }
+                                $('.hover-text').html("Resume");
+                                console.log("Resume");
+                                
+                           });
+    $('a.fa-folder').hover(
+                           function(){
+                                if($('.hover-text').prop('disabled') == false)
+                                {
+                                    $('.hover-text').fadeToggle("fast");
+                                }
+                                $('.hover-text').html("Portfolio");
+                                console.log("Portfolio");
+                           });
+    $('a.fa-linkedin').hover(
+                           function(){
+                                if($('.hover-text').prop('disabled') == false)
+                                {
+                                    $('.hover-text').fadeToggle("fast");
+                                }
+                                $('.hover-text').html("Linked In");
+                                console.log("Linked In");
+                           });
+    $('a.fa-github').hover(
+                           function(){
+                                if($('.hover-text').prop('disabled') == false)
+                                {
+                                    $('.hover-text').fadeToggle("fast");
+                                }
+                                $('.hover-text').html("Github");
+                                console.log("Github");
+                           });
+    $('a.fa-info').hover(
+                           function(){
+                                if($('.hover-text').prop('disabled') == false)
+                                {
+                                    $('.hover-text').fadeToggle("fast");
+                                }
+                                $('.hover-text').html("About Me");
+                                console.log("About");
+                           });
+    
     document.querySelector('a.fa-folder').onclick = function(e)
     {
+        $('.hover-text').fadeOut("fast", function(){
+                                    $('.hover-text').prop('disabled', true);
+                                 });
         $('.divider').fadeOut(400);
     
         $('#home').fadeOut(400, function()
@@ -86,7 +137,6 @@ window.onload = function(){
                            
             if($('#home').prop('disabled'))
             {
-                //$('#portfolio').show();
                 $('#portfolio').fadeIn(400);
             }
         });
@@ -99,6 +149,9 @@ window.onload = function(){
     
     document.querySelector('a.fa-file-code-o').onclick = function(e)
     {
+        $('.hover-text').fadeOut("fast", function(){
+                                 $('.hover-text').prop('disabled', true);
+                                 });
         $('.divider').fadeOut(400);
         
         $('#home').fadeOut(400, function()
@@ -122,6 +175,9 @@ window.onload = function(){
     
     document.querySelector('a.fa-info').onclick = function(e)
     {
+        $('.hover-text').fadeOut("fast", function(){
+                                 $('.hover-text').prop('disabled', true);
+                                 });
         $('.divider').fadeOut(400);
         
         $('#home').fadeOut(400, function()
@@ -143,7 +199,6 @@ window.onload = function(){
         e.preventDefault(); document.querySelector('.divider').classList.toggle('darkenBack');
     }
 
-    
     document.querySelector('#back1').onclick = function(e)
     {
         $('#portfolio').fadeOut(400);
@@ -151,7 +206,7 @@ window.onload = function(){
         $('.divider').fadeIn(400, function()
                            {
                            $('#home').prop("disabled", false);
-                           
+                           $('.hover-text').prop('disabled', false);
                            console.log($('#home').prop('disabled'));
                            
                            if($('#home').prop('disabled') == false)
@@ -173,7 +228,7 @@ window.onload = function(){
         $('.divider').fadeIn(400, function()
                              {
                              $('#home').prop("disabled", false);
-                             
+                             $('.hover-text').prop('disabled', false);
                              console.log($('#home').prop('disabled'));
                              
                              if($('#home').prop('disabled') == false)
@@ -195,7 +250,7 @@ window.onload = function(){
         $('.divider').fadeIn(400, function()
                              {
                              $('#home').prop("disabled", false);
-                             
+                             $('.hover-text').prop('disabled', false);
                              console.log($('#home').prop('disabled'));
                              
                              if($('#home').prop('disabled') == false)
