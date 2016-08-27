@@ -132,11 +132,12 @@ window.onload = function(){
         $('#home').fadeOut(400, function()
         {
             $('#home').prop("disabled", true);
-                           
+            
             console.log($('#home').prop('disabled'));
                            
             if($('#home').prop('disabled'))
             {
+                $('.hover-text').fadeOut(0);
                 $('#portfolio').fadeIn(400);
             }
         });
@@ -162,8 +163,8 @@ window.onload = function(){
                            
                            if($('#home').prop('disabled'))
                            {
-                           
-                           $('#resume').fadeIn(400);
+                                $('.hover-text').fadeOut(0);
+                                $('#resume').fadeIn(400);
                            }
                            });
         
@@ -176,6 +177,7 @@ window.onload = function(){
     document.querySelector('a.fa-info').onclick = function(e)
     {
         $('.hover-text').fadeOut("fast", function(){
+                                 $('.hover-text').hide();
                                  $('.hover-text').prop('disabled', true);
                                  });
         $('.divider').fadeOut(400);
@@ -188,8 +190,8 @@ window.onload = function(){
                            
                            if($('#home').prop('disabled'))
                            {
-                           
-                           $('#about').fadeIn(400);
+                                $('.hover-text').fadeOut(0);
+                                $('#about').fadeIn(400);
                            }
                            });
         
