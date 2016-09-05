@@ -76,12 +76,12 @@ window.onload = function(){
     }
     
     $('a.fa-file-code-o').hover(
-                          function(){
+                          function(event){
                                 if($('.hover-text').prop('disabled') == false)
                                 {
                                     $('.hover-text').fadeToggle("fast");
                                 }
-                                $('.hover-text').html("Resume");
+                                $('.hover-text').html("<h1>Resume</h1>");
                                 console.log("Resume");
                                 
                            });
@@ -91,7 +91,7 @@ window.onload = function(){
                                 {
                                     $('.hover-text').fadeToggle("fast");
                                 }
-                                $('.hover-text').html("Portfolio");
+                                $('.hover-text').html("<h1>Portfolio</h1>");
                                 console.log("Portfolio");
                            });
     $('a.fa-linkedin').hover(
@@ -100,7 +100,7 @@ window.onload = function(){
                                 {
                                     $('.hover-text').fadeToggle("fast");
                                 }
-                                $('.hover-text').html("Linked In");
+                                $('.hover-text').html("<h1>LinkedIn</h1>");
                                 console.log("Linked In");
                            });
     $('a.fa-github').hover(
@@ -109,7 +109,7 @@ window.onload = function(){
                                 {
                                     $('.hover-text').fadeToggle("fast");
                                 }
-                                $('.hover-text').html("Github");
+                                $('.hover-text').html("<h1>Github</h1>");
                                 console.log("Github");
                            });
     $('a.fa-info').hover(
@@ -118,7 +118,7 @@ window.onload = function(){
                                 {
                                     $('.hover-text').fadeToggle("fast");
                                 }
-                                $('.hover-text').html("About Me");
+                                $('.hover-text').html("<h1>About Me</h1>");
                                 console.log("About");
                            });
     

@@ -33,7 +33,7 @@ h2
 
 div.wrap
 {
-    height:100%; overflow:hidden;
+    height:100%;
 }
 
 .jumbotron
@@ -153,7 +153,7 @@ div.wrap
     width: 40px;
     line-height: 40px;
     margin-left: -20px;
-    margin-top: -20px;
+    margin-top: -40px;
     position: absolute;
     text-align: center;
     
@@ -193,6 +193,6 @@ div.wrap
 
 #resume
 {
-    margin-top: 5%;
+    margin-top: -40px;
     position: relative;
 }
