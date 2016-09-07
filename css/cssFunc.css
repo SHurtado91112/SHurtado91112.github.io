@@ -1,4 +1,8 @@
-
+*
+{
+    margin:0;
+    padding:0;
+}
 .barColors
 {
     background-color: black;
@@ -111,8 +115,10 @@ div.wrap
 {
     width: 250px;
     height: 250px;
-    margin: 50px auto 0;
-    position: absolute;
+    /*margin: 50px auto 0;*/
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .circle
@@ -161,6 +167,8 @@ div.wrap
 
 .circle a:hover {
     color: ghostwhite;
+    
+    
 }
 
 .container
@@ -180,15 +188,24 @@ div.wrap
 
 .hover-text
 {
-    margin-top: -10px;
-    padding-top: 10px;
+   /* -webkit-transition: opacity 0.4s ease-out;
+    -moz-transition: opacity 0.4s ease-out;
+    transition: opacity 0.4s ease-out;
+    opacity: 0;*/
+   
+    left: 0px;
+    top: 30%;
+    /*vertical-align: middle;
+    margin-top: -40px;
+    top: 50%;
+    transform: translateY(-50%);*/
+    padding-top: 0px;
     font-size: 36px;
     width: 100%;
     position: absolute;
     z-index: 6;
     color: ghostwhite;
     height: 50px;
-    
 }
 
 #resume

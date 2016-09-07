@@ -75,6 +75,7 @@ window.onload = function(){
         items[i].style.top = (50 + 16*y*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
     }
     
+    
     $('a.fa-file-code-o').hover(
                           function(event){
                                 if($('.hover-text').prop('disabled') == false)
@@ -82,7 +83,7 @@ window.onload = function(){
                                     $('.hover-text').fadeToggle("fast");
                                 }
                                 $('.hover-text').html("<h1>Resume</h1>");
-                                console.log("Resume");
+                                console.log($('.hover-text').position());
                                 
                            });
     $('a.fa-folder').hover(
@@ -92,7 +93,7 @@ window.onload = function(){
                                     $('.hover-text').fadeToggle("fast");
                                 }
                                 $('.hover-text').html("<h1>Portfolio</h1>");
-                                console.log("Portfolio");
+                                console.log();
                            });
     $('a.fa-linkedin').hover(
                            function(){
@@ -101,7 +102,7 @@ window.onload = function(){
                                     $('.hover-text').fadeToggle("fast");
                                 }
                                 $('.hover-text').html("<h1>LinkedIn</h1>");
-                                console.log("Linked In");
+                                console.log("LinkedIn");
                            });
     $('a.fa-github').hover(
                            function(){
@@ -121,6 +122,7 @@ window.onload = function(){
                                 $('.hover-text').html("<h1>About Me</h1>");
                                 console.log("About");
                            });
+
     
     document.querySelector('a.fa-folder').onclick = function(e)
     {
