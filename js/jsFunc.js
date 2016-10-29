@@ -1,13 +1,18 @@
+
 //before completely loaded, these functions will be activated
 $( document ).ready(function() {
                     $('#btnLearn').addClass("animated fadeInUp");
-                    $('.divider').fadeOut(0);
                     $('body').fadeOut(0);
                     $('.hover-text').fadeOut(0);
                     $('#portfolio').hide();
                     $('#resume').hide();
                     $('#about').hide();
                     $('.hover-text').prop('disabled', false);
+                    $('#myCarousel').carousel({
+                                              interval: 1500, //changes the speed
+                                              pause: null
+                                              })
+                    
                     });
 
 //on-going listening for resize of window,
@@ -48,7 +53,10 @@ window.addEventListener("resize", function(){
 window.onload = function(){
     // radial menu demo by http://creative-punch.net
     
-    $('body').fadeIn(1000);
+    
+    $('body').fadeIn(0);
+    
+    //background
     
     var items = document.querySelectorAll('.circle a');
     
@@ -126,164 +134,108 @@ window.onload = function(){
     
     document.querySelector('a.fa-folder').onclick = function(e)
     {
-        $('.hover-text').fadeOut("fast", function(){
-                                    $('.hover-text').prop('disabled', true);
-                                 });
-        $('.divider').fadeOut(400);
+        $('.hover-text').prop('disabled', true);
+        $('.hover-text').fadeOut("fast");
     
-        $('#home').fadeOut(400, function()
+      
+        $('#home').prop("disabled", true);
+        
+        console.log($('#home').prop('disabled'));
+        
+        if($('#home').prop('disabled'))
         {
-            $('#home').prop("disabled", true);
-            
-            console.log($('#home').prop('disabled'));
-                           
-            if($('#home').prop('disabled'))
-            {
-                $('.hover-text').fadeOut(0);
-                $('#portfolio').fadeIn(400);
-            }
-        });
+            $('.hover-text').fadeOut(0);
+            $('#portfolio').fadeIn(400);
+        }
         
         
         e.preventDefault(); document.querySelector('.circle').classList.toggle('open');
         e.preventDefault(); document.querySelector('.circle').classList.toggle('z-index');
-        e.preventDefault(); document.querySelector('.divider').classList.toggle('darkenBack');
     }
     
     document.querySelector('a.fa-file-code-o').onclick = function(e)
     {
-        $('.hover-text').fadeOut("fast", function(){
-                                 $('.hover-text').prop('disabled', true);
-                                 });
-        $('.divider').fadeOut(400);
+        $('.hover-text').prop('disabled', true);
+        $('.hover-text').fadeOut("fast");
+
         
-        $('#home').fadeOut(400, function()
-                           {
-                           $('#home').prop("disabled", true);
-                           
-                           console.log($('#home').prop('disabled'));
-                           
-                           if($('#home').prop('disabled'))
-                           {
-                                $('.hover-text').fadeOut(0);
-                                $('#resume').fadeIn(400);
-                           }
-                           });
+        $('#home').prop("disabled", true);
         
+        console.log($('#home').prop('disabled'));
+        
+        if($('#home').prop('disabled'))
+        {
+            $('.hover-text').fadeOut(0);
+            $('#resume').fadeIn(400);
+        }
         
         e.preventDefault(); document.querySelector('.circle').classList.toggle('open');
         e.preventDefault(); document.querySelector('.circle').classList.toggle('z-index');
-        e.preventDefault(); document.querySelector('.divider').classList.toggle('darkenBack');
     }
     
     document.querySelector('a.fa-info').onclick = function(e)
     {
-        $('.hover-text').fadeOut("fast", function(){
-                                 $('.hover-text').hide();
-                                 $('.hover-text').prop('disabled', true);
-                                 });
-        $('.divider').fadeOut(400);
+        $('.hover-text').prop('disabled', true);
+        $('.hover-text').fadeOut("fast");
+
         
-        $('#home').fadeOut(400, function()
-                           {
-                           $('#home').prop("disabled", true);
+        $('#home').prop("disabled", true);
                            
-                           console.log($('#home').prop('disabled'));
+        console.log($('#home').prop('disabled'));
                            
-                           if($('#home').prop('disabled'))
-                           {
-                                $('.hover-text').fadeOut(0);
-                                $('#about').fadeIn(400);
-                           }
-                           });
-        
+        if($('#home').prop('disabled'))
+        {
+            $('.hover-text').fadeOut(0);
+            $('#about').fadeIn(400);
+        }
         
         e.preventDefault(); document.querySelector('.circle').classList.toggle('open');
         e.preventDefault(); document.querySelector('.circle').classList.toggle('z-index');
-        e.preventDefault(); document.querySelector('.divider').classList.toggle('darkenBack');
     }
 
     document.querySelector('#back1').onclick = function(e)
     {
         $('#portfolio').fadeOut(400);
         
-        $('.divider').fadeIn(400, function()
-                           {
-                           $('#home').prop("disabled", false);
-                           $('.hover-text').prop('disabled', false);
-                           console.log($('#home').prop('disabled'));
-                           
-                           if($('#home').prop('disabled') == false)
-                           {
-                                $('#home').fadeIn(400);
-                           }
-                           });
-        
+        $('.hover-text').prop('disabled', false);
         
         e.preventDefault(); document.querySelector('.circle').classList.toggle('open');
         e.preventDefault(); document.querySelector('.circle').classList.toggle('z-index');
-        e.preventDefault(); document.querySelector('.divider').classList.toggle('darkenBack');
     }
     
     document.querySelector('#back2').onclick = function(e)
     {
         $('#resume').fadeOut(400);
         
-        $('.divider').fadeIn(400, function()
-                             {
-                             $('#home').prop("disabled", false);
-                             $('.hover-text').prop('disabled', false);
-                             console.log($('#home').prop('disabled'));
-                             
-                             if($('#home').prop('disabled') == false)
-                             {
-                                $('#home').fadeIn(400);
-                             }
-                             });
-        
+        $('.hover-text').prop('disabled', false);
         
         e.preventDefault(); document.querySelector('.circle').classList.toggle('open');
         e.preventDefault(); document.querySelector('.circle').classList.toggle('z-index');
-        e.preventDefault(); document.querySelector('.divider').classList.toggle('darkenBack');
     }
     
     document.querySelector('#back3').onclick = function(e)
     {
         $('#about').fadeOut(400);
-        
-        $('.divider').fadeIn(400, function()
-                             {
-                             $('#home').prop("disabled", false);
-                             $('.hover-text').prop('disabled', false);
-                             console.log($('#home').prop('disabled'));
-                             
-                             if($('#home').prop('disabled') == false)
-                             {
-                                $('#home').fadeIn(400);
-                             }
-                             });
-        
+    
+        $('.hover-text').prop('disabled', false);
         
         e.preventDefault(); document.querySelector('.circle').classList.toggle('open');
         e.preventDefault(); document.querySelector('.circle').classList.toggle('z-index');
-        e.preventDefault(); document.querySelector('.divider').classList.toggle('darkenBack');
     }
     
     
     
     document.querySelector('a.fa-close').onclick = function(e)
     {
-        $('.divider').fadeOut(400);
+        $('#home').fadeIn(400);
         e.preventDefault(); document.querySelector('.circle').classList.toggle('open');
         e.preventDefault(); document.querySelector('.circle').classList.toggle('z-index');
-        e.preventDefault(); document.querySelector('.divider').classList.toggle('darkenBack');
     }
     
     document.querySelector('#btnLearn').onclick = function(e)
     {
-        $('.divider').fadeIn(400);
+        $('#home').fadeOut(400);
         e.preventDefault(); document.querySelector('.circle').classList.toggle('open');
         e.preventDefault(); document.querySelector('.circle').classList.toggle('z-index');
-        e.preventDefault(); document.querySelector('.divider').classList.toggle('darkenBack');
     }
 }

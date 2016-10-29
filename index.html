@@ -28,7 +28,7 @@
     
     <!--Favicon-->
     <link rel="shortcut icon" href="resource/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="resource/faviconico" type="image/x-icon">
+        <link rel="icon" href="resource/favicon.ico" type="image/x-icon">
     
     <!--CSS Style for Radial Menu-->
     <link rel="stylesheet" type = "text/css" href="css/cssFunc.css">
@@ -59,7 +59,20 @@
     <div class = "divider">
     </div>
     
+    <div id="background-carousel">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item active" style="background-image: url('resource/headshot.jpg')"></div>
+                <div class="item" style="background-image: url('resource/instructing.jpg')"></div>
+                <div class="item" style="background-image: url('resource/team.jpg')"></div>
+                <div class="item" style="background-image: url('resource/prize.jpg')"></div>
+                <div class="item" style="background-image: url('resource/profile.jpg')"></div>
+            </div>
+        </div>
+    </div>
+    
     <div class="jumbotron jumbotron-fluid vertical-center text-center">
+        
         <div class="container" id="home">
             
             <h1 class="display-3">Hey, I'm Steven</h1>
@@ -68,10 +81,11 @@
             </button>
             
         </div>
+        
         <div class = "container" id="portfolio">
             <div class="row">
                 <div class="col-xs-4">
-                    <div class="thumbnail" style="background-color:#404040">
+                    <div class="thumbnail" style="border-color: #404040; background-color:#404040">
                         <a href="https://github.com/SHurtado91112/BattleDatabase" target="_blank"><img src="resource/bdIcon.png" class="img-fluid" alt="Database of Various Users and their records."></a>
                             <div class="caption">
                                 <h4 style="color:#FF6A33">Battle Database</h4>
@@ -105,10 +119,12 @@
         <div class = "container-fixed" id="resume">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="thumbnail" style="background-color:#000000">
-                        <a href="resource/Hurtado_Steven_Resume.pdf" target="_blank"><img src="resource/Hurtado_Steven_Resume.png" class="img-fluid" alt="Steven Hurtado Resume"></a>
+                    <div class="thumbnail" style="background-color:#ffffff">
+                        <a href="resource/Hurtado_Steven_Resume.pdf" target="_blank"><img src="resource/Hurtado_Steven_Resume.png" class="img-fluid" style="border: 1px solid #00A3DA" alt="Steven Hurtado Resume"></a>
                             <div class="caption">
-                                <h4 style="color: #ffffff">Here's a resume for ants. (Click on the image for a human version<span style="font-family: verdana">!</span>)</h4>
+                                <h4 style="color: #00A3DA">Here's a resume for ants.</h4>
+                                <p></p>
+                                <h5 style="color: #00A3DA">(Click on the image for a human version<span style="font-family: verdana">!</span>)</h5>
                             </div>
                     </div>
                 </div>
