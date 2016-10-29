@@ -9,7 +9,7 @@ $( document ).ready(function() {
                     $('#about').hide();
                     $('.hover-text').prop('disabled', false);
                     $('#myCarousel').carousel({
-                                              interval: 1500, //changes the speed
+                                              interval: 4000, //changes the speed
                                               pause: null
                                               })
                     
