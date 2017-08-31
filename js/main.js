@@ -21,6 +21,48 @@ $(document).ready(function() {
 	$('#selector-overlay-3').css('height', navStyle.height);
 	$('#selector-overlay-3').css('width', navStyle.width);
 	
+	$('.overlay').on('click', function() {
+		console.log($(this));
+		console.log($(this).attr('id'));
+		switch($(this).attr('id')) {
+			case 'ol-langua':
+				window.open('https://github.com/Langua/Langua', '_blank');
+				break;
+			case 'ol-senate':
+				window.open('https://github.com/SHurtado91112/SGSenate', '_blank');
+				break;
+			case 'ol-chirpi':
+				window.open('https://github.com/SHurtado91112/Chirpi', '_blank');
+				break;
+			case 'ol-fiesta':
+				window.open('https://github.com/SHurtado91112/Fiestagram', '_blank');
+				break;
+			case 'ol-foodda':
+				window.open('https://github.com/SHurtado91112/Foodda', '_blank');
+				break;
+			case 'ol-salon':
+				window.open('https://github.com/SHurtado91112/Salon-Invoice-Application', '_blank');
+				break;
+			case 'ol-debug':
+				window.open('https://github.com/SHurtado91112/Mission-Debug', '_blank');
+				break;
+			case 'ol-photag':
+				window.open('https://github.com/SHurtado91112/Photag', '_blank');
+				break;
+			case 'ol-agora':
+				window.open('http://agoraorg.com/', '_blank');
+				break;
+			case 'ol-wahi':
+				window.open('http://www.wahiride.com/', '_blank');
+				break;
+			case 'ol-idtech':
+				window.open('https://www.idtech.com/', '_blank');
+				break;
+			default:
+				break;
+		}
+	});
+	
 	$('#collapsingNavbar').on('show.bs.collapse', function () {
 		$('#selector-overlay-1').hide();
 		$('#selector-overlay-2').hide();
@@ -43,6 +85,15 @@ $(document).ready(function() {
 			lastShown.removeClass('animated fadeIn');
 		});
 	});
+	
+	//hide appropriate lists
+	$('#portfolio').show();
+	$('#experience').hide();
+	$('#resume').hide();
+	
+//	$('#collapsingNavbar').on('hide.bs.collapse', function () {
+//		$('#sec-one-2').css('justify-content', 'center');
+//	});
 	
 	$(window).resize(function() {
 		console.log("Handler for resize()");
@@ -80,13 +131,24 @@ $(document).ready(function() {
 			$('#selector-overlay-1').show();
 
 			if(lastShown.attr('id') !== 'selector-overlay-1')
-			{
+			{	
 				$('#selector-overlay-1').addClass('animated fadeInRight').one(animationEnd, function() {
 						$('#selector-overlay-1').removeClass('animated fadeInRight');
 						clickable = true;
 					});
 
 				if(lastShown.attr('id') === 'selector-overlay-2') {
+					$('#experience').addClass('animated fadeOut').one(animationEnd, function() {
+						$('#experience').removeClass('animated fadeOut');
+						$('#experience').hide();
+						
+						$('#portfolio').show();
+						$('#portfolio').addClass('animated fadeIn').one(animationEnd, function() {
+							$('#portfolio').removeClass('animated fadeIn');
+							clickable = true;
+						});
+					});
+					
 					$('#selector-overlay-2').addClass('animated fadeOutLeft').one(animationEnd, function() {
 						$('#selector-overlay-2').removeClass('animated fadeOutLeft');
 						$('#selector-overlay-2').hide();
@@ -97,6 +159,17 @@ $(document).ready(function() {
 					});
 				}
 				else {
+					$('#resume').addClass('animated fadeOut').one(animationEnd, function() {
+						$('#resume').removeClass('animated fadeOut');
+						$('#resume').hide();
+						
+						$('#portfolio').show();
+						$('#portfolio').addClass('animated fadeIn').one(animationEnd, function() {
+							$('#portfolio').removeClass('animated fadeIn');
+							clickable = true;
+						});
+					});
+					
 					$('#selector-overlay-3').addClass('animated fadeOut').one(animationEnd, function() {
 						$('#selector-overlay-3').removeClass('animated fadeOut');
 						$('#selector-overlay-3').hide();
@@ -134,10 +207,23 @@ $(document).ready(function() {
 			{	
 				console.log(lastShown.attr('id'));
 				if(lastShown.attr('id') === 'selector-overlay-3') {
+					
 					$('#selector-overlay-2').addClass('animated fadeInRight').one(animationEnd, function() {
 						$('#selector-overlay-2').removeClass('animated fadeInRight');
 						clickable = true;
 					});
+					
+					$('#resume').addClass('animated fadeOut').one(animationEnd, function() {
+						$('#resume').removeClass('animated fadeOut');
+						$('#resume').hide();
+						
+						$('#experience').show();
+						$('#experience').addClass('animated fadeIn').one(animationEnd, function() {
+							$('#experience').removeClass('animated fadeIn');
+							clickable = true;
+						});
+					});
+					
 					$('#selector-overlay-3').addClass('animated fadeOutLeft').one(animationEnd, function() {
 						$('#selector-overlay-3').removeClass('animated fadeOutLeft');
 						$('#selector-overlay-3').hide();
@@ -151,6 +237,18 @@ $(document).ready(function() {
 					$('#selector-overlay-2').addClass('animated fadeInLeft').one(animationEnd, function() {
 						$('#selector-overlay-2').removeClass('animated fadeInLeft');
 					});
+					
+					$('#portfolio').addClass('animated fadeOut').one(animationEnd, function() {
+						$('#portfolio').removeClass('animated fadeOut');
+						$('#portfolio').hide();
+						
+						$('#experience').show();
+						$('#experience').addClass('animated fadeIn').one(animationEnd, function() {
+							$('#experience').removeClass('animated fadeIn');
+							clickable = true;
+						});
+					});
+					
 					$('#selector-overlay-1').addClass('animated fadeOutRight').one(animationEnd, function() {
 						$('#selector-overlay-1').removeClass('animated fadeOutRight');
 						$('#selector-overlay-1').hide();
@@ -184,12 +282,23 @@ $(document).ready(function() {
 			$('#selector-overlay-3').show();
 
 			if(lastShown.attr('id') !== 'selector-overlay-3')
-			{	
+			{					
 				$('#selector-overlay-3').addClass('animated fadeInLeft').one(animationEnd, function() {
 						$('#selector-overlay-3').removeClass('animated fadeInLeft');
 						clickable = true;
 					});
 				if(lastShown.attr('id') === 'selector-overlay-1') {
+					$('#portfolio').addClass('animated fadeOut').one(animationEnd, function() {
+						$('#portfolio').removeClass('animated fadeOut');
+						$('#portfolio').hide();
+						
+						$('#resume').show();
+						$('#resume').addClass('animated fadeIn').one(animationEnd, function() {
+							$('#resume').removeClass('animated fadeIn');
+							clickable = true;
+						});
+					});
+					
 					$('#selector-overlay-1').addClass('animated fadeOut').one(animationEnd, function() {
 						$('#selector-overlay-1').removeClass('animated fadeOut');
 						$('#selector-overlay-1').hide();
@@ -200,6 +309,17 @@ $(document).ready(function() {
 					});
 				}
 				else {
+					$('#experience').addClass('animated fadeOut').one(animationEnd, function() {
+						$('#experience').removeClass('animated fadeOut');
+						$('#experience').hide();
+						
+						$('#resume').show();
+						$('#resume').addClass('animated fadeIn').one(animationEnd, function() {
+							$('#resume').removeClass('animated fadeIn');
+							clickable = true;
+						});
+					});
+					
 					$('#selector-overlay-2').addClass('animated fadeOutRight').one(animationEnd, function() {
 						$('#selector-overlay-2').removeClass('animated fadeOutRight');
 						$('#selector-overlay-2').hide();
