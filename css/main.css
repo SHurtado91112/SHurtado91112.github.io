@@ -18,16 +18,15 @@ body {
 #nav-style {
 	box-shadow: 0 0 30px black;
 	background-color: #52658F;
-/*		#3066BE;*/
-/*		rgba(39,45,50,1.00);*/
 	padding-bottom: 16px;
 	padding-top: 16px;
 	margin: 0;
-	font-style: normal;
+	font-style: normal; 
     overflow: hidden;
+    position: fixed;
+    width: 100%;
 	
-	
-/*	font-family: "Avenir Next Bold", "Avenir Next Regular", "Avenir Next Demi Bold", "Avenir Next Ultra Light", "Avenir Next Medium";*/
+    min-height: 80px;
 }
 
 .navbar {
@@ -101,6 +100,7 @@ body {
 	padding: 0;
 	margin: 0;
 	z-index: -1;
+    margin-top: 80px;
 }
 
 h2 {
@@ -186,6 +186,11 @@ h2 {
 	overflow: scroll;
 	padding: 0;
 	margin: 0;
+    overflow-y: scroll;
+    height: 100%;
+    
+    overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
 }
 
 .contentList {
