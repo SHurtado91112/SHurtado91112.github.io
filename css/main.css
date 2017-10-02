@@ -142,7 +142,7 @@ h2 {
 #sec-one-2 {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-evenly;
 	background-color: #52658F;
 	color: #F7F5E6;
 	height: 40vh;
@@ -155,23 +155,23 @@ h2 {
 	font-size: 2.8vmin;
 }
 
-#sec-one-2-links {
+.sec-one-2-links {
 	display: flex;
 	justify-content: space-around;
 	height: fit-content;
 /*	margin-top: -16px;*/
 }
 
-#sec-one-2-links .contentCell {
+.sec-one-2-links .contentCell {
 	background-color: white;
 	border-radius: 50%;
 }
 
-#sec-one-2-links #git img {
+.sec-one-2-links #git img {
 	transform: scale(1.03);
 }
 
-#sec-one-2-links img:hover {
+.sec-one-2-links img:hover {
 	opacity: 0.5;
 }
 
