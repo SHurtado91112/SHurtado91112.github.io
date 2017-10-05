@@ -22,7 +22,7 @@ body {
 	padding-top: 16px;
 	margin: 0;
 	font-style: normal; 
-    overflow: hidden;
+    overflow: scroll;
     position: fixed;
     width: 100%;
 	
@@ -115,6 +115,7 @@ h2 {
 	margin: 0;
 	padding: 0;
 	color: #3C3744;
+    overflow: scroll;
 }
 
 #section-one .contentRow {
