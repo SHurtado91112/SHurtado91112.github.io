@@ -290,7 +290,7 @@ h2 {
 {
     top: 70%;
     opacity: 1.0;
-    height: 20%;
+    height: 21%;
 }
 
 .ol-text {
@@ -330,6 +330,12 @@ h2 {
     
 }
 
+#shell-2017 img
+{
+    filter: drop-shadow(rgba(0, 0, 0, .2) 0px 0px 5px);
+    animation: glow 3s infinite linear;
+}
+
 @media all and (min-width: 960px) {
 .ol-text {
     font-size: 2vw;
@@ -357,4 +363,50 @@ h2 {
 .ending-content {
 	background-color: transparent;
 	height: 160px !important;
+}
+
+@keyframes glow {
+    0% {
+    filter: drop-shadow(0 0 .3em hotpink);
+    }
+
+    30% {
+        filter: drop-shadow(0 0 .3em hotpink);
+    }
+
+    60% {
+        filter: drop-shadow(0 0 .3em hotpink);
+    }
+
+    65% {
+        filter: drop-shadow(0 0 .3em hotpink);
+    }
+
+    78% {
+        filter: drop-shadow(0 0 .3em hotpink);
+    }
+
+    79% {
+        filter: drop-shadow(0 0 0px hotpink);
+    }
+
+    84% {
+        filter: drop-shadow(0 0 .3em hotpink);
+    }
+
+    85% {
+        filter: drop-shadow(0 0 0px hotpink);
+    }
+
+    86% {
+        filter: drop-shadow(0 0 .3em hotpink);
+    }
+
+    96% {
+        filter: drop-shadow(0 0 .3em hotpink);
+    }
+
+    100% {
+        filter: drop-shadow(0 0 .3em hotpink);
+    }
 }

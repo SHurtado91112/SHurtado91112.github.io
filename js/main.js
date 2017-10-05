@@ -27,6 +27,9 @@ $(document).ready(function() {
 		console.log($(this));
 		console.log($(this).attr('id'));
 		switch($(this).attr('id')) {
+            case 'ol-shell-2017':
+               window.open('https://devpost.com/software/reach-relief'); 
+                break;
             case 'ol-rnr':    
                 window.open('https://github.com/ReachAndRelief/Reach-And-Relief-iOS-App');
                 break;
