@@ -1,31 +1,3 @@
-/*styling for general body*/
-h1 {
-	font-family: 'Lato', Arial, "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 64px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 500;
-	line-height: 26.4px;
-    color: #323232
-}
-h2 {
-	font-family: 'Lato', Arial, "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 48px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 500;
-	line-height: 26.4px;
-    color: #323232
-}
-h3 {
-	font-family: 'Lato', Arial, "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 36px;
-	font-style: oblique;
-	font-variant: normal;
-	font-weight: 500;
-	line-height: 15.4px;
-    color: #323232
-}
 h3 span {
     color: red;
 }
@@ -45,13 +17,13 @@ p {
    text-shadow: 0 0 36px black;
    color: transparent;
     
-   transition: color 0.48s ease, text-shadow 0.48s ease;
+   transition: color 1.48s ease, text-shadow 1.48s ease;
 }
 .blurry-text span {
     text-shadow: 0 0 36px red;
     color: transparent;
    
-    transition: color 0.48s ease, text-shadow 0.48s ease;
+    transition: color 1.48s ease, text-shadow 1.48s ease;
 }
 
 h3:hover{
@@ -63,14 +35,14 @@ h3:hover span {
     text-shadow: 0 0 36px transparent;
 }
 
-.title-container {
+.background {
     position: absolute;
     height: 100%;
     width: 100%;
-    background: #d1bfbf; /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover, #fffdf9 0%, #d1bfbf 99%); /* FF3.6-15 */
-    background: -webkit-radial-gradient(center, ellipse cover, #fffdf9 0%, #d1bfbf 99%); /* Chrome10-25,Safari5.1-6 */
-    background: radial-gradient(ellipse at center, #fffdf9 0%, #d1bfbf 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: #dddbdb; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, #fffdf9 0%, #dddbdb 99%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, #fffdf9 0%, #dddbdb 99%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, #fffdf9 0%, #dddbdb 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffdf9', endColorstr='#d1bfbf',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     
     display: flex;
@@ -79,7 +51,36 @@ h3:hover span {
     align-items: center;
 }
 
+.title-container {
+    height: 100%;
+    width: 100%;
+    opacity: 0.0;
+    transition: opacity 1.48s ease;
+}
+
+.title-container.visible {
+    opacity: 1.0;
+}
+
 /*text-container*/
 .text-container h1, .text-container h2, .text-container h3 {
-    margin: 16px;
+    margin: 8px;
+}
+
+#l1 {
+    position: absolute;
+    top: 50%;  /* position the top  edge of the element at the middle of the parent */
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+
+    transform: translate(-50%, -50%); /* This is a shorthand of
+                                         translateX(-50%) and translateY(-50%) */
+}
+
+#l2 {
+    position: absolute;
+    top: 56%;  /* position the top  edge of the element at the middle of the parent */
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+
+    transform: translate(-50%, -50%); /* This is a shorthand of
+                                         translateX(-50%) and translateY(-50%) */
 }
