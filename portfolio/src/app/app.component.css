@@ -86,3 +86,17 @@ h3:hover span {
     transform: translate(-50%, -50%); /* This is a shorthand of
                                          translateX(-50%) and translateY(-50%) */
 }
+
+#nav-btn {
+    margin: 16px;
+    opacity: 0.0;
+    transition: opacity 1.48s ease;
+}
+#nav-btn.visible {
+    opacity: 1.0;
+}
+
+#nav-btn img {
+    width: 75px;
+    height: 75px;
+}

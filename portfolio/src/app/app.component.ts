@@ -49,5 +49,6 @@ export class AppComponent implements AfterViewInit {
         };
         
         parallaxBox.classList.add('visible');
+        document.getElementById ( 'nav-btn' ).classList.add('visible');
     }
 }
