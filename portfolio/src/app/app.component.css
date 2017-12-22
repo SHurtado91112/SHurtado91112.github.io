@@ -69,6 +69,7 @@ h3:hover span {
 
 #l1 {
     position: absolute;
+    width: 100%;
     top: 50%;  /* position the top  edge of the element at the middle of the parent */
     left: 50%; /* position the left edge of the element at the middle of the parent */
 
@@ -78,6 +79,7 @@ h3:hover span {
 
 #l2 {
     position: absolute;
+    width: 100%;
     top: 56%;  /* position the top  edge of the element at the middle of the parent */
     left: 50%; /* position the left edge of the element at the middle of the parent */
 
