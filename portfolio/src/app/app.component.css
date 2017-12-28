@@ -70,7 +70,7 @@ h3:hover span {
 #l1 {
     position: absolute;
     width: 100%;
-    top: 50%;  /* position the top  edge of the element at the middle of the parent */
+    top: 48%;  /* position the top  edge of the element at the middle of the parent */
     left: 50%; /* position the left edge of the element at the middle of the parent */
 
     transform: translate(-50%, -50%); /* This is a shorthand of
@@ -80,7 +80,7 @@ h3:hover span {
 #l2 {
     position: absolute;
     width: 100%;
-    top: 56%;  /* position the top  edge of the element at the middle of the parent */
+    top: 54%;  /* position the top  edge of the element at the middle of the parent */
     left: 50%; /* position the left edge of the element at the middle of the parent */
 
     transform: translate(-50%, -50%); /* This is a shorthand of
@@ -91,12 +91,21 @@ h3:hover span {
     margin: 16px;
     opacity: 0.0;
     transition: opacity 1.48s ease;
+    cursor: pointer;
 }
 #nav-btn.visible {
     opacity: 1.0;
 }
 
-#nav-btn img {
-    width: 75px;
-    height: 75px;
+#nav-btn .img {
+    width: 50px;
+    height: 50px;
+    background: url('../assets/arrow-ill.svg');
+    
+    transition: background 0.36s ease;
+}
+
+
+#nav-btn .img:hover {
+    background: url('../assets/arrow-dark.svg');
 }

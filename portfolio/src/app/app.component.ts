@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +8,23 @@ import { Component, AfterViewInit } from '@angular/core';
 //    '(window:resize)': 'onResize($event)'
   }
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit, AfterViewInit {
     title = 'Steven Hurtado';
     subtitle1 = 'Developer. Musician. '
     subtitle2 = 'Hokage.'
-    
+
+    ngOnInit() {
+        var titleSwitch = document.getElementById ( 'nav-btn' );
+        var titleBool = false
+
+        titleSwitch.addEventListener('click', function() {
+            titleBool = !titleBool;
+            if(titleBool) {
+                console.log("What");
+            }
+        });
+    }
+
     ngAfterViewInit() {        
         var parallaxBox = document.getElementById ( 'box' );
         var c1left = document.getElementById ( 'l1' ).offsetLeft,
