@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { ContentComponent } from './content_holder/app.content_holder';
+import { ContentComponent } from './app.component';
 
 
 @NgModule({
@@ -15,6 +15,6 @@ import { ContentComponent } from './content_holder/app.content_holder';
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent, ContentComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,29 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
+  selector: 'app-content',
+  templateUrl: './content_holder/app.content_holder.html',
+  styleUrls: ['./content_holder/app.content_holder.css'],
+  host: {
+//    '(window:resize)': 'onResize($event)'
+  }
+})
+export class ContentComponent implements OnInit, AfterViewInit {
+
+    title = "Content"
+    links = "Links Links Links Links"
+    left_title = "Experience"
+    right_title = "Portfolio"
+
+    ngOnInit() {
+        console.log("INITED")
+    }
+
+    ngAfterViewInit() {        
+    }
+}
+
+@Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
@@ -8,6 +31,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 //    '(window:resize)': 'onResize($event)'
   }
 })
+
 export class AppComponent implements OnInit, AfterViewInit {
     title = 'Steven Hurtado';
     subtitle1 = 'Developer. Musician. '
