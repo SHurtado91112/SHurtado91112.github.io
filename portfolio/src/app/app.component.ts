@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-content',
@@ -10,13 +10,14 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit, AfterViewInit {
 
-    title = "Content"
-    links = "Links Links Links Links"
-    left_title = "Experience"
-    right_title = "Portfolio"
+    title = "Content";
+    @Input() showContent:boolean = false;
+    links = "Links Links Links Links";
+    left_title = "Experience";
+    right_title = "Portfolio";
 
     ngOnInit() {
-        console.log("INITED")
+        console.log("CHILD INITED")
     }
 
     ngAfterViewInit() {        
@@ -34,19 +35,13 @@ export class ContentComponent implements OnInit, AfterViewInit {
 
 export class AppComponent implements OnInit, AfterViewInit {
     title = 'Steven Hurtado';
-    subtitle1 = 'Developer. Musician. '
-    subtitle2 = 'Hokage.'
+    subtitle1 = 'Developer. Musician. ';
+    subtitle2 = 'Hokage.';
+
+    titleBool:boolean = false;
 
     ngOnInit() {
-        var titleSwitch = document.getElementById ( 'nav-btn' );
-        var titleBool = false
-
-        titleSwitch.addEventListener('click', function() {
-            titleBool = !titleBool;
-            if(titleBool) {
-                console.log("What");
-            }
-        });
+        console.log("PARENT INITED");
     }
 
     ngAfterViewInit() {        

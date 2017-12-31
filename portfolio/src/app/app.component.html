@@ -15,12 +15,12 @@
             </div>
         </div>
         
-        <div id="nav-btn">
+        <div id="nav-btn" (click)="titleBool = !titleBool">
             <a>
                 <div class="img"></div>
             </a>
         </div>
-        <app-content>
+        <app-content [showContent]='titleBool'>
         </app-content>
     </div>
 </div>
