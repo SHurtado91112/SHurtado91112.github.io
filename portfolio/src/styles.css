@@ -11,7 +11,9 @@ h1 {
 	font-variant: normal;
 	font-weight: 500;
 	line-height: 48px;
-    color: #323232
+    color: #323232;
+    
+    transition: font-size 0.48s ease;
 }
 h2 {
 	font-family: 'Lato', Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -20,7 +22,9 @@ h2 {
 	font-variant: normal;
 	font-weight: 500;
 	line-height: 36px;
-    color: #323232
+    color: #323232;
+    
+    transition: font-size 0.48s ease;
 }
 h3 {
 	font-family: 'Lato', Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -29,7 +33,9 @@ h3 {
 	font-variant: normal;
 	font-weight: 500;
 	line-height: 28px;
-    color: #323232
+    color: #323232;
+        
+    transition: font-size 0.48s ease;
 }
 
 
@@ -41,7 +47,7 @@ h3 {
      font-size: 24px;
     }
     h3 {
-     font-size: 16px;
+     font-size: 16px !important;
     }
 }
 @media screen and (min-width: 1200px) {

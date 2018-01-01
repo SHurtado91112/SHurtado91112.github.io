@@ -73,8 +73,8 @@ h3:hover span {
     top: 48%;  /* position the top  edge of the element at the middle of the parent */
     left: 50%; /* position the left edge of the element at the middle of the parent */
 
-    transform: translate(-50%, -50%); /* This is a shorthand of
-                                         translateX(-50%) and translateY(-50%) */
+    transform: translate(-50%, -50%);
+    transition: top 0.48s ease;
 }
 
 #l2 {
@@ -83,15 +83,44 @@ h3:hover span {
     top: 54%;  /* position the top  edge of the element at the middle of the parent */
     left: 50%; /* position the left edge of the element at the middle of the parent */
 
-    transform: translate(-50%, -50%); /* This is a shorthand of
-                                         translateX(-50%) and translateY(-50%) */
+    transform: translate(-50%, -50%); 
+    transition: top 0.48s ease;
+}
+
+#l1.switched {
+    top: 42px;
+}
+#l2.switched {
+    top: 84px;
+}
+#l2.switched h3 {
+    color: #323232;
+    text-shadow: 0 0 36px transparent;
+    font-size: 24px;
+}
+#l2.switched h3 span {
+    color: red;
+    text-shadow: 0 0 36px transparent;
 }
 
 #nav-btn {
-    margin: 16px;
+    position: absolute;
+/*    margin: 16px;*/
     opacity: 0.0;
     transition: opacity 1.48s ease;
     cursor: pointer;
+    top: 84%;
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    transition: top 0.48s ease;
+}
+#nav-btn.switched {
+    top: 132px;
+}
+
+#nav-btn .img.switched {
+    -webkit-transform: matrix(1, 0, 0, -1, 0, 0);
 }
 #nav-btn.visible {
     opacity: 1.0;
