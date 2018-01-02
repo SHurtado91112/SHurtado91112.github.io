@@ -75,6 +75,7 @@ h3:hover span {
 
     transform: translate(-50%, -50%);
     transition: top 0.48s ease;
+    /*  use 0.48s transition when figure out how to ACTUALLY work with this parallax effect  */
 }
 
 #l2 {
@@ -88,10 +89,10 @@ h3:hover span {
 }
 
 #l1.switched {
-    top: 42px;
+    top: 64px;
 }
 #l2.switched {
-    top: 84px;
+    top: 112px;
 }
 #l2.switched h3 {
     color: #323232;
@@ -116,7 +117,7 @@ h3:hover span {
     transition: top 0.48s ease;
 }
 #nav-btn.switched {
-    top: 132px;
+    top: 154px;
 }
 
 #nav-btn .img.switched {
