@@ -34,7 +34,8 @@ export class AppComponent implements OnInit, AfterViewInit {
         var c1 = document.getElementById ( 'l1' ),
         c2 = document.getElementById ( 'l2' ), 
         c3 = document.getElementById( 'nav-btn' ),
-        c4 = c3.getElementsByClassName( 'img' )[0];
+        c4 = c3.getElementsByClassName( 'img' )[0],
+        c5 = document.getElementsByClassName( 'title-container' )[0];
         
         this.titleBool = !this.titleBool;
         setTimeout(()=>{
@@ -43,6 +44,7 @@ export class AppComponent implements OnInit, AfterViewInit {
                 c2.classList.remove('switched');
                 c3.classList.remove('switched');
                 c4.classList.remove('switched');
+                c5.classList.remove('switched');
             }
             else {
                 c1.style.top = '';
@@ -54,6 +56,7 @@ export class AppComponent implements OnInit, AfterViewInit {
                 c2.classList.add('switched');
                 c3.classList.add('switched');
                 c4.classList.add('switched');
+                c5.classList.add('switched');
             }
         },0);
     };
@@ -88,7 +91,7 @@ export class AppComponent implements OnInit, AfterViewInit {
             y = event.clientY - parallaxBox.offsetTop;
 
             mouseParallax ( 'l1', c1left, c1top, x, y, 14 );
-            mouseParallax ( 'l2', c2left, c2top, x, y, 6 );
+            mouseParallax ( 'l2', c2left, c2top, x, y, 9 );
         })
 
         function mouseParallax (id, left, top, mouseX, mouseY, speed ) {

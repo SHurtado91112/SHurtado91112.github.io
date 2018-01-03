@@ -1,7 +1,12 @@
 <div *ngIf="showContent" [@enterAnimation] id="content_holder">
-    {{title}}
-    <div id="links">
-        {{links}}
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="hex-container col-md-3">
+            <div class="hexagon hexagon2"><div class="hexagon-in1"><div class="hexagon-in2"></div></div></div>
+        </div>
+        <div class="col-md-6" id="links">
+            {{links}}
+        </div>
     </div>
     <div class="divider"></div>
     <div class="row">

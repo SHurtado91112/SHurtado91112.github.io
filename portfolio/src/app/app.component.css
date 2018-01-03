@@ -55,7 +55,7 @@ h3:hover span {
     height: 100%;
     width: 100%;
     opacity: 0.0;
-    transition: opacity 1.48s ease;
+    transition: opacity 1.48s ease, height 0.48s ease;
 }
 
 .title-container.visible {
@@ -65,6 +65,10 @@ h3:hover span {
 /*text-container*/
 .text-container h1, .text-container h2, .text-container h3 {
     margin: 8px;
+}
+
+.title-container.switched {
+    height: 0;
 }
 
 #l1 {
@@ -115,6 +119,7 @@ h3:hover span {
     
     transform: translate(-50%, -50%);
     transition: top 0.48s ease;
+    z-index: 1000;
 }
 #nav-btn.switched {
     top: 154px;
