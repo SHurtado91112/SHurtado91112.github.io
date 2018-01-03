@@ -10,7 +10,7 @@ import {style, state, animate, transition, trigger} from '@angular/core';
       'enterAnimation', [
         transition(':enter', [   // :enter is alias to 'void => *'
           style({opacity:0}),
-          animate(1480, style({opacity:1})) 
+          animate(840, style({opacity:1})) 
         ]),
         transition(':leave', [   // :leave is alias to '* => void'
           animate(480, style({opacity:0})) 
@@ -26,9 +26,21 @@ export class ContentComponent implements OnInit, AfterViewInit {
 
     title = "Content";
     @Input() showContent:boolean = false;
-    links = "Links Links Links Links";
+    intro_links = [
+        {"src":"../assets/email-icon-resource.svg",
+        "link":"https://www.google.com", "bg":"#323232"},{"src":"../assets/linked-resource.svg", "bg":"#cbcbcb",
+        "link":"https://www.linkedin.com/in/steven-hurtado"},{"src":"../assets/git-resource.svg",
+        "link":"https://www.github.com/SHurtado91112", "bg":"#cbcbcb"},{"src":"../assets/sound-resource.svg",
+        "link":"https://www.soundcloud.com/steveshidae", "bg":"#323232"}
+    ];
+
     left_title = "Experience";
     right_title = "Portfolio";
+
+    goTo(link) {
+        console.log("GO TO: " + link);
+        window.open(link, "_blank");
+    }
 
     ngOnInit() {
         console.log("CHILD INITED")

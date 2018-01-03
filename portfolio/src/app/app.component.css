@@ -39,16 +39,25 @@ h3:hover span {
     position: absolute;
     height: 100%;
     width: 100%;
-    background: #dddbdb; /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover, #fffdf9 0%, #dddbdb 99%); /* FF3.6-15 */
-    background: -webkit-radial-gradient(center, ellipse cover, #fffdf9 0%, #dddbdb 99%); /* Chrome10-25,Safari5.1-6 */
-    background: radial-gradient(ellipse at center, #fffdf9 0%, #dddbdb 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffdf9', endColorstr='#d1bfbf',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background: #f7f7f7; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, #f7f7f7 24%, #cbcbcb 84%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, #f7f7f7 24%, #cbcbcb 84%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, #f7f7f7 24%, #cbcbcb 84%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#cbcbcb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
+    opacity: 0.0;
+    transition: opacity 4.48s ease;
+    overflow: hidden;
+}
+
+.background.visible {
+    opacity: 1.0;
+    transition: opacity 4.48s ease;
 }
 
 .title-container {
@@ -138,9 +147,13 @@ h3:hover span {
     background: url('../assets/arrow-ill.svg');
     
     transition: background 0.36s ease;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 
 #nav-btn .img:hover {
     background: url('../assets/arrow-dark.svg');
+    background-repeat: no-repeat;
+    background-position: center;
 }

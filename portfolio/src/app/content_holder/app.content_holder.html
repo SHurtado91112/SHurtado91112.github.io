@@ -1,11 +1,12 @@
 <div *ngIf="showContent" [@enterAnimation] id="content_holder">
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="hex-container col-md-3">
+    <div class="row intro-container">
+        <div class="hex-container">
             <div class="hexagon hexagon2"><div class="hexagon-in1"><div class="hexagon-in2"></div></div></div>
         </div>
-        <div class="col-md-6" id="links">
-            {{links}}
+        <div id="links">
+           <div class="link-overlay link" *ngFor="let sq of intro_links" (click)="goTo(sq.link)" [style.backgroundColor]="sq.bg">
+               <img src={{sq.src}}/>
+           </div>
         </div>
     </div>
     <div class="divider"></div>
