@@ -26,6 +26,7 @@ export class ContentComponent implements OnInit, AfterViewInit {
 
     title = "Content";
     @Input() showContent:boolean = false;
+    resumeLink = "../assets/Steven_Hurtado_Resume.pdf"
     intro_links = [
         {"src":"../assets/email-icon-resource.svg",
         "link":"https://www.google.com", "bg":"#323232"},{"src":"../assets/linked-resource.svg", "bg":"#cbcbcb",

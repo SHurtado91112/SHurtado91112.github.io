@@ -1,7 +1,17 @@
 <div *ngIf="showContent" [@enterAnimation] id="content_holder">
     <div class="row intro-container">
         <div class="hex-container">
-            <div class="hexagon hexagon2"><div class="hexagon-in1"><div class="hexagon-in2"></div></div></div>
+            <div class="hexagon hexagon2">
+                <div class="hexagon-in1">
+                    <div class="hexagon-in2">
+                        <div class="insetter">
+                            <a class="effect-underline" (click)="goTo(resumeLink)">
+                                <h4>Resume</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="links">
            <div class="link-overlay link" *ngFor="let sq of intro_links" (click)="goTo(sq.link)" [style.backgroundColor]="sq.bg">
@@ -9,14 +19,16 @@
            </div>
         </div>
     </div>
+    <hr class="divider"/>
     <div class="content-container">
-        <hr class="divider"/>
         <div class="row">
             <div class="col-md-6" id="left_holder">
                 {{left_title}}
+                <left-content></left-content>
             </div>
             <div class="col-md-6" id="right_holder">
                 {{right_title}}
+                <right-content></right-content>
             </div>
         </div>
     </div>

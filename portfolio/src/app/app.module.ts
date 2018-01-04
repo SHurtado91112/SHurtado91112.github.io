@@ -4,11 +4,15 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ContentComponent } from './content_holder/app.content_holder';
+import { LeftComponent } from './content_holder/content_partials/app.left_content';
+import { RightComponent } from './content_holder/content_partials/app.right_content';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContentComponent
+    ContentComponent,
+    LeftComponent,
+    RightComponent
   ],
   imports: [
     BrowserModule,

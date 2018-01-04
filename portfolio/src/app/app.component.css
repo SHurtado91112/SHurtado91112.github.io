@@ -1,5 +1,5 @@
 h3 span {
-    color: red;
+    color: #c10000;
 }
 
 p {
@@ -20,7 +20,7 @@ p {
    transition: color 1.48s ease, text-shadow 1.48s ease;
 }
 .blurry-text span {
-    text-shadow: 0 0 36px red;
+    text-shadow: 0 0 36px #c10000;
     color: transparent;
    
     transition: color 1.48s ease, text-shadow 1.48s ease;
@@ -31,7 +31,7 @@ h3:hover{
     text-shadow: 0 0 36px transparent;
 }
 h3:hover span {
-    color: red;   
+    color: #c10000;   
     text-shadow: 0 0 36px transparent;
 }
 
@@ -113,7 +113,7 @@ h3:hover span {
     font-size: 24px;
 }
 #l2.switched h3 span {
-    color: red;
+    color: #c10000;
     text-shadow: 0 0 36px transparent;
 }
 

@@ -1,0 +1,18 @@
+.page {
+/*    position: absolute;*/
+    width: 500px;
+    height: 500px;
+/*    background-color: aqua;*/
+/*    box-shadow: 0 0 100px #323232; */
+}
+
+#right_content {
+    transform: rotateY(0deg);
+    transition: transform 0.48s ease-in-out;
+/*    perspective-origin: 25% 75%;*/
+    perspective: 500px;
+}
+
+#right_content.perspect  {
+    transform: rotateY(-60deg);
+}
