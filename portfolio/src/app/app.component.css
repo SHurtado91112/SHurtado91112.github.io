@@ -35,14 +35,37 @@ h3:hover span {
     text-shadow: 0 0 36px transparent;
 }
 
-.background {
+.back-container {
+    z-index: -2;
     position: absolute;
     height: 100%;
     width: 100%;
-    background: #f7f7f7; /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover, #f7f7f7 24%, #cbcbcb 84%); /* FF3.6-15 */
-    background: -webkit-radial-gradient(center, ellipse cover, #f7f7f7 24%, #cbcbcb 84%); /* Chrome10-25,Safari5.1-6 */
-    background: radial-gradient(ellipse at center, #f7f7f7 24%, #cbcbcb 84%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: #cbcbcb;/*#cbcbcb;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+    opacity: 0.0;
+    transition: opacity 4.48s ease;
+    overflow: hidden;
+}
+.back-container.visible {
+    opacity: 1.0;
+    transition: opacity 4.48s ease;
+}
+
+.background {
+    z-index: -1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background: #cbcbcb; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, #f7f7f7 0%, #cbcbcb 68%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, #f7f7f7 0%, #cbcbcb 68%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, #f7f7f7 0%, #cbcbcb 68%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#cbcbcb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     
     display: flex;
@@ -123,7 +146,7 @@ h3:hover span {
     opacity: 0.0;
     transition: opacity 1.48s ease;
     cursor: pointer;
-    top: 84%;
+    top: 92%;
     left: 50%;
     
     transform: translate(-50%, -50%);

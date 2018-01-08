@@ -1,6 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-    <div class="background">
+    <div class="back-container">
+        <div class="background" id="background">
+        </div>
         <div class="title-container"  #box id="box">
             <div class="text-container parallax-layer" id="l1">
                 <h1>
@@ -15,6 +17,28 @@
             </div>
         </div>
         
+<!--
+        <div class="row intro-container">
+            <div class="prof-pic">
+                <div class="insetter">
+                    <a class="effect-underline" (click)="goTo(resumeLink)">
+                        <h4>Resume</h4>
+                    </a>
+                </div>
+            </div>
+
+            <div id="links">
+               <div class="link-overlay link" *ngFor="let sq of intro_links"[style.backgroundColor]="sq.bg"
+                    [style.background-image]="'url('+sq.src+')'">
+
+                   <div class="insetter">
+                        <img (click)="goTo(sq.link)" src={{sq.src2}}>
+                   </div>
+
+               </div>
+            </div>
+        </div>
+-->
         <div id="nav-btn" (click)="titleSwitch()">
             <a>
                 <div class="img"></div>

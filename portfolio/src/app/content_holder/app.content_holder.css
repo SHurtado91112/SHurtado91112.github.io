@@ -1,6 +1,6 @@
 :host, #content_holder {
     width: 100%;    
-    margin-top: -100px;
+    margin-top: 100px;
 }
 
 .center-content {
@@ -9,10 +9,22 @@
 
 .intro-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     max-width: 600px;
     margin: auto;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.prof-pic {
+    width: 225px;
+    height: 225px;
+    background-repeat: no-repeat;
+    background-position: 50% 0px;
+    background-image: url(https://i1.sndcdn.com/avatars-000358216370-7fpesg-t500x500.jpg);
+    background-size: 200px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
 }
 
 /* HEXAGON */
@@ -58,10 +70,10 @@
             transform: rotate(-60deg);
 }
 
-.hexagon-in2 .insetter {
+.insetter {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: relative;
     opacity: 0;
     display: flex;
     justify-content: center;
@@ -72,16 +84,51 @@
     right: 0;
     bottom: 0;
     box-shadow: inset 0 0 0 0 transparent;
-    transition: box-shadow 0.48s ease, opacity 0.48s ease;
+    transition: box-shadow 0.48s ease;
 }
-.hexagon-in2 .insetter:hover {
-    box-shadow: inset 0 0 0 100px #c10000;
+
+.link .insetter:hover {
+    box-shadow: inset 0 0 0 50px #c10000;
     opacity: 1.0;
 }
 
-.hexagon-in2 .insetter h4 {
+.insetter:hover {
+    box-shadow: inset 0 0 0 75px #c10000;
+    opacity: 1.0;
+}
+
+.insetter a {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.insetter h4 {
     cursor: pointer;
 }
+
+.effect-underline:after {
+    margin-top: 12px;
+}
+.insetter img {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+/*
+.insetter img:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all .3s linear;
+}
+*/
 
 .hexagon2 {
     width: 125px;
@@ -96,19 +143,10 @@
 /* END HEXAGON */
 
 #links {
-/*
-    width: 100px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-*/
-    
-/*    min-height: 100%;*/
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    box-shadow: 0 0 12px #323232; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
 }
 
 .link {
@@ -118,23 +156,31 @@
     margin: 0;
     padding: 0;
     display: flex; 
-    flex-basis: calc(50% - 40px);  
+/*    flex-basis: calc(50% - 40px);  */
     justify-content: center;
     flex-direction: column;
     cursor: pointer;
+    background-repeat: no-repeat;
+/*    background:*/
+    background-position: center;
+    background-size: 50px 50px;
 }
+
 .link img {
-    height: 100%;
+    height: 50px;
+    width: 50px;
 }
 
 .link-overlay {
     background-color: #cbcbcb;
     opacity: 1.0;   
 }
+/*
 .link-overlay img:hover {
     transition: opacity 0.48s ease;
     opacity: .48;
 }
+*/
 
 .divider {
 	height: 10px;
@@ -159,26 +205,46 @@
 }
 
 @media screen and (max-width: 600px) {
+    .link {
+        background-size: 25px 25px;
+    }
+
+    .link img {
+        height: 25px;
+        width: 25px;
+    }
     #links { 
         width: 100px;
         height: 100px;
+/*        flex-wrap: wrap-reverse;*/
     }
-    .hexagon2 {
+    .prof-pic {
         width: 100px;
-        height: 200px;
+        height: 100px;
+        background-size: 150px;
     }
     .hexagon-in2 {
         background-size: 150px;
     }
 }
 @media screen and (min-width: 600px) {
+    .link {
+        background-size: 50px 50px;
+    }
+
+    .link img {
+        height: 50px;
+        width: 50px;
+    }
    #links { 
+        width: 250px;
+        height: 125px;
+/*        flex-wrap: nowrap;*/
+    }
+    .prof-pic {
         width: 125px;
         height: 125px;
-    }
-    .hexagon2 {
-        width: 125px;
-        height: 225px;
+        background-size: 200px;
     /*    margin: -80px 0 0 20px;*/
     }
     .hexagon-in2 {

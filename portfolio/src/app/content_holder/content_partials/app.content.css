@@ -11,8 +11,9 @@
     transition: transform 0.48s ease-in-out;
 /*    perspective-origin: 25% 75%;*/
     perspective: 500px;
+    perspective-origin: right;
 }
 
 #right_content.perspect  {
-    transform: rotateY(-60deg);
+    transform: rotateY(60deg);;
 }
