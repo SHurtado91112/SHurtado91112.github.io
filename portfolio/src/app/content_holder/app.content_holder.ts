@@ -26,11 +26,25 @@ export class ContentComponent implements OnInit, AfterViewInit {
 
     title = "Content";
     @Input() showContent:boolean = false;
+    @Input() contentSwitch:boolean = true;
+    left_title = "Portfolio";
+    right_title = "Experience";
 
-    left_title = "Experience";
-    right_title = "Portfolio";
-
-//    assignBackground();
+    toggleContent(content) {
+        switch(content) {
+            case 0:
+                
+                this.contentSwitch = true;
+                document.getElementsByClassName("content-switcher")[0].classList.remove("content-switched");
+                break;
+            case 1:
+                this.contentSwitch = false;
+                document.getElementsByClassName("content-switcher")[0].classList.add("content-switched");
+                break;
+            default:
+                break;
+        }
+    }
 
     ngOnInit() {
         console.log("CHILD INITED")

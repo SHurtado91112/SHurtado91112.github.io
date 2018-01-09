@@ -17,7 +17,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     public titleBool:boolean;
     public returnSwitchAnimation:boolean;
     public referenceInstance:AppComponent;
-
+    
+    imgPath = "../assets/arrow-dark.svg"
     resumeLink = "../assets/Steven_Hurtado_Resume.pdf"
     intro_links = [
         {"src":"../assets/email-icon-resource.svg","src2":"../assets/email-icon-resource-hov.svg",
@@ -41,6 +42,9 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.ngAfterViewInit();
     }
 
+    getImgPath() {
+        return this.imgPath;
+    }
     goTo(link) {
         console.log("GO TO: " + link);
         window.open(link, "_blank");
@@ -50,7 +54,6 @@ export class AppComponent implements OnInit, AfterViewInit {
         var c1 = document.getElementById ( 'l1' ),
         c2 = document.getElementById ( 'l2' ), 
         c3 = document.getElementById( 'nav-btn' ),
-        c4 = c3.getElementsByClassName( 'img' )[0],
         c5 = document.getElementsByClassName( 'title-container' )[0];
         
         this.titleBool = !this.titleBool;
@@ -58,7 +61,6 @@ export class AppComponent implements OnInit, AfterViewInit {
             c1.classList.remove('switched');
             c2.classList.remove('switched');
             c3.classList.remove('switched');
-            c4.classList.remove('switched');
             c5.classList.remove('switched');
             setTimeout(()=>{
                 this.ngAfterViewInit();
@@ -74,7 +76,6 @@ export class AppComponent implements OnInit, AfterViewInit {
             c1.classList.add('switched');
             c2.classList.add('switched');
             c3.classList.add('switched');
-            c4.classList.add('switched');
             c5.classList.add('switched');
             this.returnSwitchAnimation = true;
         }

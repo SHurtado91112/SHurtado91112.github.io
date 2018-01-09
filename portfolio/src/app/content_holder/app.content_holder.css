@@ -28,3 +28,62 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cbcbcb', endColorstr='#323232',GradientType=1 );
 */
 }
+
+.content-switcher {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.content-switcher h4 {
+    font-style: normal;
+    color: #323232;
+    margin: 16px;
+    cursor: pointer;
+}
+.content-switcher hr {
+    position: absolute;
+    width: 64px;
+    border-top: 1px solid #323232;
+    margin-left: -60px;
+    transition: margin-left 0.48s ease;
+}
+
+.content-switcher.content-switched hr {
+    margin-left: 48px;
+    width: 80px;
+}
+
+@media screen and (max-width: 360px) {
+    .content-switcher {
+        position: fixed;
+        bottom: 48px;
+        left: 16px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* min-height: 200px; */
+        z-index: 500;
+        margin: 8px;
+    }
+    .content-switcher h4 {
+        font-style: normal;
+        color: #323232;
+        margin: 8px;
+        cursor: pointer;
+    }
+    .content-switcher hr {
+        position: absolute;
+        width: 64px;
+        border-top: 1px solid #323232;
+        margin-left: 0px;
+        margin-top: -8px;
+        transition: margin-left 0.48s ease, margin-top 0.48s ease;
+    }
+
+    .content-switcher.content-switched hr {
+        margin-left: 0px;
+        margin-top: 38px;
+        width: 80px;
+    }
+}

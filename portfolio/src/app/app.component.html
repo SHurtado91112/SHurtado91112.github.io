@@ -16,11 +16,7 @@
                 </h3>
             </div>
         </div>        
-        <div id="nav-btn" (click)="titleSwitch()">
-            <a>
-                <div class="img"></div>
-            </a>
-        </div>
+        <img id="nav-btn" [src]="getImgPath()" (click)="titleSwitch()">
         <app-content [showContent]='titleBool'>
         </app-content>
         <div class="row intro-container">

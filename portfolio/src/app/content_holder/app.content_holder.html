@@ -3,14 +3,19 @@
     <hr class="divider"/>
     <div class="content-container">
         <div class="row">
-            <div class="col-md-6" id="left_holder">
+            <div *ngIf="contentSwitch" class="col-md-12" id="left_holder">
                 {{left_title}}
                 <left-content></left-content>
             </div>
-            <div class="col-md-6" id="right_holder">
+            <div *ngIf="!contentSwitch" class="col-md-12" id="right_holder">
                 {{right_title}}
                 <right-content></right-content>
             </div>
+        </div>
+        <div class="content-switcher">
+                <h4 (click)="toggleContent(0)">{{left_title}}</h4>
+                <h4 (click)="toggleContent(1)">{{right_title}}</h4>
+                <hr>
         </div>
     </div>
 </div>

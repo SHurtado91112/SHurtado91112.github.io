@@ -146,48 +146,40 @@ h3:hover span {
     opacity: 0.0;
     transition: opacity 1.48s ease;
     cursor: pointer;
-    top: 92%;
+    top: 90%;
     left: 50%;
-    
+    width: 50px;
+    height: 50px;
     transform: translate(-50%, -50%);
-    transition: top 0.48s ease;
+    transition: top 0.48s ease, opacity 0.48s ease, transform 0.48s ease;
     z-index: 1000;
+    cursor: pointer;
+    
+    -webkit-transform-origin: center;
+    -moz-transform-origin: center;
+    -o-transform-origin: center;
+    transform-origin: center;
 }
 #nav-btn.switched {
     top: 154px;
-}
-
-#nav-btn .img.switched {
-    -webkit-transform: matrix(1, 0, 0, -1, 0, 0);
+    transform: translate(-50%, -50%) rotate(180deg);
 }
 #nav-btn.visible {
+    opacity: 0.24;
+}
+
+#nav-btn:hover {
     opacity: 1.0;
-}
-
-#nav-btn .img {
-    width: 50px;
-    height: 50px;
-    background: url('../assets/arrow-ill.svg');
-    
-    transition: background 0.36s ease;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-
-#nav-btn .img:hover {
-    background: url('../assets/arrow-dark.svg');
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 /*   INTRO STUFF   */
 .intro-container {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    justify-content: flex-end;
+    align-items: center;
 /*    max-width: 600px;*/
     margin: 32px;
+    margin-bottom: 16px;
     
     position: absolute;
     width: 100%;
@@ -195,13 +187,14 @@ h3:hover span {
 }
 
 .prof-pic {
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
     background-repeat: no-repeat;
     background-position: 50% 0px;
     background-image: url(https://i1.sndcdn.com/avatars-000358216370-7fpesg-t500x500.jpg);
-    background-size: 200px;
+    background-size: 100px;
     box-shadow: 0 0 20px rgba(0,0,0,0.6);
+/*    box-shadow: 0 0 8px 8px #a2a2a2 inset;*/
 }
 
 /* HEXAGON */
@@ -320,11 +313,11 @@ h3:hover span {
 /* END HEXAGON */
 
 #links {
-    margin-right: 64px;
+    
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .link {
@@ -341,7 +334,7 @@ h3:hover span {
     background-repeat: no-repeat;
 /*    background:*/
     background-position: center;
-    background-size: 50px 50px;
+    background-size: 25px 25px;
 }
 
 .link-overlay {
@@ -356,38 +349,43 @@ h3:hover span {
     -webkit-filter: blur(0px) brightness(100.1) contrast(10) grayscale(100)                    hue-rotate(0deg) invert(0.0) opacity(100%) saturate(0.0) sepia(0.0);
 }
 
-@media screen and (max-width: 600px) {
-    .link {
-        background-size: 25px 25px;
+/*css declaration only for Chrome/Safari*/
+@media screen and (-webkit-min-device-pixel-ratio:0)  {
+    #links {
+        margin-right: 40px;
     }
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) and (max-width: 360px) {
+      .prof-pic {
+        margin-right: 40px;
+    }
+}
+
+
+@media screen and (max-width: 360px) {
+    .intro-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+    }
+}
+
+@media screen and (max-width: 720px) {
     #links { 
-        width: 75px;
-        height: 75px;
+        width: 74px;
+        height: 74px;
 /*        flex-wrap: wrap-reverse;*/
-    }
-    .prof-pic {
-        width: 75px;
-        height: 75px;
-        background-size: 100px;
     }
     .hexagon-in2 {
         background-size: 150px;
     }
 }
-@media screen and (min-width: 600px) {
-    .link {
-        background-size: 40px 40px;
-    }
+@media screen and (min-width: 720px) {
+    
    #links { 
         width: 250px;
         height: 100px;
         flex-wrap: nowrap;
-    }
-    .prof-pic {
-        width: 100px;
-        height: 100px;
-        background-size: 150px;
-    /*    margin: -80px 0 0 20px;*/
     }
     .hexagon-in2 {
         background-size: 200px;
