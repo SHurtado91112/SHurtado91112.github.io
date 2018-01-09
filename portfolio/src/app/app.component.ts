@@ -18,6 +18,15 @@ export class AppComponent implements OnInit, AfterViewInit {
     public returnSwitchAnimation:boolean;
     public referenceInstance:AppComponent;
 
+    resumeLink = "../assets/Steven_Hurtado_Resume.pdf"
+    intro_links = [
+        {"src":"../assets/email-icon-resource.svg","src2":"../assets/email-icon-resource-hov.svg",
+        "link":"https://www.google.com", "bg":"#323232","title":"Email Me"},{"src":"../assets/linked-resource.svg","src2":"../assets/linked-resource-hov.svg","bg":"#cbcbcb",
+        "link":"https://www.linkedin.com/in/steven-hurtado","title":"LinkedIn"},{"src":"../assets/git-resource.svg","src2":"../assets/git-resource-hov.svg",
+        "link":"https://www.github.com/SHurtado91112", "bg":"#cbcbcb","title":"GitHub"},{"src":"../assets/sound-resource.svg","src2":"../assets/sound-resource-hov.svg",
+        "link":"https://www.soundcloud.com/steveshidae", "bg":"#323232","title":"SoundCloud"}
+    ];
+
     @HostListener('window:resize', ['$event'])
     onResize(event) {
         if(this.titleBool) {
@@ -30,6 +39,11 @@ export class AppComponent implements OnInit, AfterViewInit {
         l1.style.left = '';
         l2.style.left = '';
         this.ngAfterViewInit();
+    }
+
+    goTo(link) {
+        console.log("GO TO: " + link);
+        window.open(link, "_blank");
     }
 
     titleSwitch = function() {  
@@ -100,7 +114,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
             mouseParallax ( 'l1', c1left, c1top, x, y, 18 );
             mouseParallax ( 'l2', c2left, c2top, x, y, 12 );
-            mouseParallax( 'background' , c6Top, c6Left, x, y, 48 );
+            mouseParallax( 'background' , c6Top, c6Left, x, y, -48 );
         })
 
         function mouseParallax (id, left, top, mouseX, mouseY, speed ) {

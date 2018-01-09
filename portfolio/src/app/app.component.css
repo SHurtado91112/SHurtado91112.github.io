@@ -40,7 +40,7 @@ h3:hover span {
     position: absolute;
     height: 100%;
     width: 100%;
-    background: #cbcbcb;/*#cbcbcb;*/
+    background: #a2a2a2;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -62,11 +62,11 @@ h3:hover span {
     left: 0px;
     height: 100%;
     width: 100%;
-    background: #cbcbcb; /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover, #f7f7f7 0%, #cbcbcb 68%); /* FF3.6-15 */
-    background: -webkit-radial-gradient(center, ellipse cover, #f7f7f7 0%, #cbcbcb 68%); /* Chrome10-25,Safari5.1-6 */
-    background: radial-gradient(ellipse at center, #f7f7f7 0%, #cbcbcb 68%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#cbcbcb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background: #a2a2a2;/*#cbcbcb; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, #f7f7f7 0%, #a2a2a2 70%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, #f7f7f7 0%, #a2a2a2 70%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, #f7f7f7 0%, #a2a2a2 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#a2a2a2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     
     display: flex;
     flex-direction: column;
@@ -179,4 +179,217 @@ h3:hover span {
     background: url('../assets/arrow-dark.svg');
     background-repeat: no-repeat;
     background-position: center;
+}
+
+/*   INTRO STUFF   */
+.intro-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+/*    max-width: 600px;*/
+    margin: 32px;
+    
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+}
+
+.prof-pic {
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: 50% 0px;
+    background-image: url(https://i1.sndcdn.com/avatars-000358216370-7fpesg-t500x500.jpg);
+    background-size: 200px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+/* HEXAGON */
+.hex-container {
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hexagon {
+    overflow: hidden;
+    visibility: hidden;
+    -webkit-transform: rotate(120deg);
+       -moz-transform: rotate(120deg);
+        -ms-transform: rotate(120deg);
+         -o-transform: rotate(120deg);
+            transform: rotate(120deg);
+}
+.hexagon-in1 {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: rotate(-60deg);
+       -moz-transform: rotate(-60deg);
+        -ms-transform: rotate(-60deg);
+         -o-transform: rotate(-60deg);
+            transform: rotate(-60deg);
+}
+.hexagon-in2 {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    background-repeat: no-repeat;
+    background-position: 50% 40px;
+    background-image: url(https://i1.sndcdn.com/avatars-000358216370-7fpesg-t500x500.jpg);
+    background-size: 200px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    visibility: visible;
+    -webkit-transform: rotate(-60deg);
+       -moz-transform: rotate(-60deg);
+        -ms-transform: rotate(-60deg);
+         -o-transform: rotate(-60deg);
+            transform: rotate(-60deg);
+}
+
+.insetter {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 0 0 transparent;
+    transition: box-shadow 0.48s ease;
+}
+
+.link .insetter:hover {
+    box-shadow: inset 0 0 0 50px #c10000;
+    opacity: 1.0;
+}
+
+.insetter:hover {
+    box-shadow: inset 0 0 0 75px #c10000;
+    opacity: 1.0;
+}
+
+.insetter a {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.insetter h4 {
+    cursor: pointer;
+}
+
+.effect-underline:after {
+    margin-top: 12px;
+}
+.insetter img {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+/*
+.insetter img:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all .3s linear;
+}
+*/
+
+.hexagon2 {
+    width: 125px;
+    height: 225px;
+/*    margin: -80px 0 0 20px;*/
+}
+.dodecagon {
+    width: 125px;
+    height: 125px;
+/*    margin: -80px 0 0 20px;*/
+}
+/* END HEXAGON */
+
+#links {
+    margin-right: 64px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.link {
+    width: 50%;
+    height: 50%;
+/*    overflow: hidden;*/
+    margin: 0;
+    padding: 0;
+    display: flex; 
+/*    flex-basis: calc(50% - 40px);  */
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    background-repeat: no-repeat;
+/*    background:*/
+    background-position: center;
+    background-size: 50px 50px;
+}
+
+.link-overlay {
+/*    background-color: #cbcbcb;*/
+    opacity: 1.0;  
+    -webkit-filter: blur(0px) brightness(100.1) contrast(10) grayscale(100)                    hue-rotate(0deg) invert(0.75) opacity(100%) saturate(0.0) sepia(0.0);
+}
+
+.link-overlay:hover {
+    transition: -webkit-filter 0.48s ease;
+/*    opacity: .48;*/
+    -webkit-filter: blur(0px) brightness(100.1) contrast(10) grayscale(100)                    hue-rotate(0deg) invert(0.0) opacity(100%) saturate(0.0) sepia(0.0);
+}
+
+@media screen and (max-width: 600px) {
+    .link {
+        background-size: 25px 25px;
+    }
+    #links { 
+        width: 75px;
+        height: 75px;
+/*        flex-wrap: wrap-reverse;*/
+    }
+    .prof-pic {
+        width: 75px;
+        height: 75px;
+        background-size: 100px;
+    }
+    .hexagon-in2 {
+        background-size: 150px;
+    }
+}
+@media screen and (min-width: 600px) {
+    .link {
+        background-size: 40px 40px;
+    }
+   #links { 
+        width: 250px;
+        height: 100px;
+        flex-wrap: nowrap;
+    }
+    .prof-pic {
+        width: 100px;
+        height: 100px;
+        background-size: 150px;
+    /*    margin: -80px 0 0 20px;*/
+    }
+    .hexagon-in2 {
+        background-size: 200px;
+    }
 }

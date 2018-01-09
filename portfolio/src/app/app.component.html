@@ -15,9 +15,14 @@
                     <span class="">{{subtitle2}}</span>
                 </h3>
             </div>
+        </div>        
+        <div id="nav-btn" (click)="titleSwitch()">
+            <a>
+                <div class="img"></div>
+            </a>
         </div>
-        
-<!--
+        <app-content [showContent]='titleBool'>
+        </app-content>
         <div class="row intro-container">
             <div class="prof-pic">
                 <div class="insetter">
@@ -28,23 +33,10 @@
             </div>
 
             <div id="links">
-               <div class="link-overlay link" *ngFor="let sq of intro_links"[style.backgroundColor]="sq.bg"
-                    [style.background-image]="'url('+sq.src+')'">
-
-                   <div class="insetter">
-                        <img (click)="goTo(sq.link)" src={{sq.src2}}>
-                   </div>
-
+               <div class="link-overlay link" *ngFor="let sq of intro_links"
+                    [style.background-image]="'url('+sq.src+')'" (click)="goTo(sq.link)">
                </div>
             </div>
         </div>
--->
-        <div id="nav-btn" (click)="titleSwitch()">
-            <a>
-                <div class="img"></div>
-            </a>
-        </div>
-        <app-content [showContent]='titleBool'>
-        </app-content>
     </div>
 </div>
