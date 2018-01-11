@@ -3,7 +3,7 @@ h3 span {
 }
 
 p {
-	font-family: 'Lato', Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-family: 'Montserrat', Arial, "Helvetica Neue", Helvetica, sans-serif;
 	font-size: 24px;
 	font-style: normal;
 	font-variant: normal;
@@ -40,7 +40,7 @@ h3:hover span {
     position: absolute;
     height: 100%;
     width: 100%;
-    background: #a2a2a2;
+    background: #cbcbcb;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -62,11 +62,11 @@ h3:hover span {
     left: 0px;
     height: 100%;
     width: 100%;
-    background: #a2a2a2;/*#cbcbcb; /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover, #f7f7f7 0%, #a2a2a2 70%); /* FF3.6-15 */
-    background: -webkit-radial-gradient(center, ellipse cover, #f7f7f7 0%, #a2a2a2 70%); /* Chrome10-25,Safari5.1-6 */
-    background: radial-gradient(ellipse at center, #f7f7f7 0%, #a2a2a2 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#a2a2a2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background: #cbcbcb;/*#cbcbcb; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, #f7f7f7 0%, #cbcbcb 70%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, #f7f7f7 0%, #cbcbcb 70%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, #f7f7f7 0%, #cbcbcb 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#cbcbcb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     
     display: flex;
     flex-direction: column;
@@ -146,7 +146,7 @@ h3:hover span {
     opacity: 0.0;
     transition: opacity 1.48s ease;
     cursor: pointer;
-    top: 90%;
+    top: 92%;
     left: 50%;
     width: 50px;
     height: 50px;
@@ -178,12 +178,14 @@ h3:hover span {
     justify-content: flex-end;
     align-items: center;
 /*    max-width: 600px;*/
-    margin: 32px;
+    margin: 0px;
     margin-bottom: 16px;
     
     position: absolute;
-    width: 100%;
-    bottom: 0%;
+    width: auto;
+    bottom: 0px;
+    right: 8px;
+    z-index: 600;
 }
 
 .prof-pic {
@@ -317,7 +319,7 @@ h3:hover span {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .link {
@@ -352,7 +354,7 @@ h3:hover span {
 /*css declaration only for Chrome/Safari*/
 @media screen and (-webkit-min-device-pixel-ratio:0)  {
     #links {
-        margin-right: 40px;
+/*        margin-right: 40px;*/
     }
 }
 @media screen and (-webkit-min-device-pixel-ratio:0) and (max-width: 360px) {

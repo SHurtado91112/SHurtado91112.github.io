@@ -17,17 +17,9 @@
             </div>
         </div>        
         <img id="nav-btn" [src]="getImgPath()" (click)="titleSwitch()">
-        <app-content [showContent]='titleBool'>
-        </app-content>
+        <app-content-holder [showContent]='titleBool'>
+        </app-content-holder>
         <div class="row intro-container">
-            <div class="prof-pic">
-                <div class="insetter">
-                    <a class="effect-underline" (click)="goTo(resumeLink)">
-                        <h4>Resume</h4>
-                    </a>
-                </div>
-            </div>
-
             <div id="links">
                <div class="link-overlay link" *ngFor="let sq of intro_links"
                     [style.background-image]="'url('+sq.src+')'" (click)="goTo(sq.link)">

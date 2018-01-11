@@ -19,7 +19,7 @@
     height: 400px;
 /*    height: -webkit-fill-available;*/
     width: 100%;
-    overflow: scroll;
+    overflow: hidden;
 /*
     background: #cbcbcb;
     background: -moz-radial-gradient(center, ellipse cover, #cbcbcb 24%, #323232 84%);
@@ -30,6 +30,10 @@
 }
 
 .content-switcher {
+    position: fixed;
+    bottom: 8px;
+    z-index: 500;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,27 +47,25 @@
 }
 .content-switcher hr {
     position: absolute;
-    width: 64px;
+    width: 76px;
     border-top: 1px solid #323232;
-    margin-left: -60px;
-    transition: margin-left 0.48s ease;
+    margin-left: -66px;
+    transition: margin-left 0.48s ease, width 0.48s ease;
 }
 
 .content-switcher.content-switched hr {
-    margin-left: 48px;
-    width: 80px;
+    margin-left: 54px;
+    width: 100px;
 }
 
 @media screen and (max-width: 360px) {
     .content-switcher {
         position: fixed;
-        bottom: 48px;
-        left: 16px;
+        bottom: 8px;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
+        justify-content: flex-start;
         /* min-height: 200px; */
-        z-index: 500;
         margin: 8px;
     }
     .content-switcher h4 {
@@ -74,16 +76,14 @@
     }
     .content-switcher hr {
         position: absolute;
-        width: 64px;
         border-top: 1px solid #323232;
-        margin-left: 0px;
-        margin-top: -8px;
-        transition: margin-left 0.48s ease, margin-top 0.48s ease;
+        margin-left: 8px;
+        margin-top: 38px;
+        transition: margin-left 0.48s ease, margin-top 0.48s ease, width 0.48s ease;
     }
 
     .content-switcher.content-switched hr {
-        margin-left: 0px;
-        margin-top: 38px;
-        width: 80px;
+        margin-left: 8px;
+        margin-top: 82px;
     }
 }

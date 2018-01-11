@@ -2,7 +2,7 @@ import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import {style, state, animate, transition, trigger} from '@angular/core';
 
 @Component({
-  selector: 'app-content',
+  selector: 'app-content-holder',
   templateUrl: './app.content_holder.html',
   styleUrls: ['./app.content_holder.css'],
   animations: [
@@ -10,7 +10,7 @@ import {style, state, animate, transition, trigger} from '@angular/core';
       'enterAnimation', [
         transition(':enter', [   // :enter is alias to 'void => *'
           style({opacity:0}),
-          animate(840, style({opacity:1})) 
+          animate(480, style({opacity:1})) 
         ]),
         transition(':leave', [   // :leave is alias to '* => void'
           animate(480, style({opacity:0})) 
@@ -22,7 +22,7 @@ import {style, state, animate, transition, trigger} from '@angular/core';
   }
 })
 
-export class ContentComponent implements OnInit, AfterViewInit {
+export class ContentHolderComponent implements OnInit, AfterViewInit {
 
     title = "Content";
     @Input() showContent:boolean = false;
@@ -43,6 +43,12 @@ export class ContentComponent implements OnInit, AfterViewInit {
                 break;
             default:
                 break;
+        }
+    }
+
+    init() {
+        if(!this.contentSwitch && this.showContent) {
+            document.getElementsByClassName("content-switcher")[0].classList.add("content-switched");
         }
     }
 
