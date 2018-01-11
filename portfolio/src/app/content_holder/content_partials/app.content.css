@@ -1,10 +1,7 @@
 .container {
-  width: 210px;
-  height: 140px;
-/*
-  width: 500px;
-  height: 46vh;
-*/
+  width: 64%;
+  max-width: 755px;
+  height: 48vh;
   position: relative;
   perspective: 1000px;
 }
@@ -14,17 +11,27 @@
   height: 100%;
   position: absolute;
   transform-style: preserve-3d;
+    -webkit-transition: opacity 0.48s, -webkit-transform 0.48s;
+    -moz-transition: opacity 0.48s, -moz-transform 0.48s;
+    -o-transition: opacity 0.48s, -o-transform 0.48s;
+    transition: opacity 0.48s, transform 0.48s;
 }
 
 #carousel figure {
   margin: 0;
   display: block;
   position: absolute;
-  width: 186px;
-  height: 116px;
-  left: 10px;
-  top: 10px;
+  max-width: 755px;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
   border: 2px solid black;
+  overflow: hidden;
+    -webkit-transition: opacity 0.48s, -webkit-transform 0.48s;
+    -moz-transition: opacity 0.48s, -moz-transform 0.48s;
+    -o-transition: opacity 0.48s, -o-transform 0.48s;
+    transition: opacity 0.48s, transform 0.48s;
 }
 
 #carousel figure:nth-child(1) { transform: rotateY(   0deg ) translateZ( 288px ); }
@@ -36,3 +43,43 @@
 #carousel figure:nth-child(7) { transform: rotateY( 240deg ) translateZ( 288px ); }
 #carousel figure:nth-child(8) { transform: rotateY( 280deg ) translateZ( 288px ); }
 #carousel figure:nth-child(9) { transform: rotateY( 320deg ) translateZ( 288px ); }
+
+figure.frosted:before {
+    content: '';
+    background: inherit; 
+    position: absolute;
+    width: 112%;
+    height: 52vh;
+    left: -25px;
+    right: 0;
+    top: -25px;
+    bottom: 0;
+    z-index: -1;
+    box-shadow: inset 0 0 0 1000px rgba(255,255,255,0.3);
+    filter: blur(10px);
+}
+
+/*  switcher    */
+:host img {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 0.24;
+    transition: opacity 0.48s ease;
+    z-index: 700;
+    top: 50%;
+    cursor: pointer;
+}
+
+:host img:hover {
+    opacity: 1.0;
+}
+
+#turn-right {
+    transform: translate(-50%, -50%);
+    left: 90%;
+}
+#turn-left {
+    transform: translate(-50%, -50%) rotate(180deg);
+    left: 10%;
+}
