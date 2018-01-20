@@ -6,6 +6,16 @@ import {style, state, animate, transition, trigger} from '@angular/core';
   templateUrl: './app.content.html',
   styleUrls: ['./app.content.css'],
   animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [   // :enter is alias to 'void => *'
+          style({opacity:0}),
+          animate(480, style({opacity:1})) 
+        ]),
+        transition(':leave', [   // :leave is alias to '* => void'
+          animate(480, style({opacity:0})) 
+        ])
+      ])
   ],
   host: {
 //    '(window:resize)': 'onResize($event)'
@@ -14,6 +24,7 @@ import {style, state, animate, transition, trigger} from '@angular/core';
 
 export class ContentComponent implements OnInit, AfterViewInit {
     public visible:boolean;
+    public appear:boolean;
     @Input() contentSelector: string = "0";
 
     contentData = [];
@@ -22,7 +33,7 @@ export class ContentComponent implements OnInit, AfterViewInit {
     carousel;
     incr = 0;
     rotation = 0;
-    rotationFn = 'rotateY';
+    rotateFn = 'rotateY';
     theta = 0;
     radius = 0;
 
@@ -41,13 +52,10 @@ export class ContentComponent implements OnInit, AfterViewInit {
         switch(selector) {
             case 0:
                 return "../assets/carousel-switcher.svg";
-                break;
             case 1:
                 return "../assets/carousel-switcher.svg";
-                break;
-            default: 
+            default:
                 return "";
-                break;
         }
     }
 
@@ -55,12 +63,12 @@ export class ContentComponent implements OnInit, AfterViewInit {
         switch(parseInt(this.contentSelector)) {
             case 0:
                 this.contentData = [
-                  {"id" : "Miya", "img" : "..", "color" : "#ff5a5a"}, {"id" : "Autowise", "img" : "..", "color" : "#1bc405"},{"id" : "Reach&Relief", "img" : "..", "color" : "#ffb3b3"}
+                  {"id" : "Miya", "img" : "..", "color" : "#ff5a5a"}, {"id" : "Autowise", "img" : "..", "color" : "#1bc405"},{"id" : "Reach&Relief", "img" : "..", "color" : "#ffb3b3"},{"id" : "Langua", "img" : "..", "color" : "#24f04b"},{"id" : "SGSenate", "img" : "..", "color" : "#24f04b"},{"id" : "Chirpi", "img" : "..", "color" : "#24f04b"},{"id" : "Fiestagram", "img" : "..", "color" : "#24f04b"},{"id" : "Foodda", "img" : "..", "color" : "#24f04b"},{"id" : "Salon Invoice", "img" : "..", "color" : "#24f04b"},{"id" : "Mission: Debug", "img" : "..", "color" : "#24f04b"},{"id" : "Photag", "img" : "..", "color" : "#FFFFFF"}
                 ];
                 break;
             case 1:
                 this.contentData = [
-                  {"id" : "Adobe", "img" : "..", "color" : "#ff0000"}, {"id" : "Disney", "img" : "..", "color" : "#006e99"},{"id" : "Agora", "img" : "..", "color" : "#184C7C"}
+                  {"id" : "Adobe", "img" : "..", "color" : "#ff0000"}, {"id" : "Disney", "img" : "..", "color" : "#006e99"},{"id" : "Agora", "img" : "..", "color" : "#184C7C"},{"id" : "University of Florida", "img" : "..", "color" : "#24f04b"},{"id" : "Wahi Ride", "img" : "..", "color" : "#61b3ff"},{"id" : "iD Tech", "img" : "..", "color" : "#24f04b"}
                 ];
                 break;
             default:
@@ -76,7 +84,7 @@ export class ContentComponent implements OnInit, AfterViewInit {
         }
         
         var increment = this.incr;
-        this.rotation += this.theta * increment * -1;
+        this.rotation = this.theta * increment * -1;
         this.carouselTransform();
     }
 
@@ -90,7 +98,7 @@ export class ContentComponent implements OnInit, AfterViewInit {
         var panelCount = this.contentData.length;
         
         this.carousel = document.getElementById('carousel');
-        var panelSize = carousel.offsetWidth;
+        var panelSize = this.carousel.offsetWidth;
         this.rotateFn = 'rotateY';
         this.theta = 360 / panelCount;
         var theta = this.theta;
@@ -101,7 +109,7 @@ export class ContentComponent implements OnInit, AfterViewInit {
         
         var panel, angle, i;
         for ( i = 0; i < panelCount; i++ ) {
-            panel = carousel.children[i];
+            panel = this.carousel.children[i];
             angle = theta * i;
             panel.style.opacity = 1;
             panel.style.backgroundColor = hexToRgb(this.contentData[i].color);
@@ -132,6 +140,5 @@ export class ContentComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        this.carouselSetUp();
    }
 }

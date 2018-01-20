@@ -9,20 +9,11 @@
 <img id="turn-right" [src]="getImgPath(0)" (click)="turn(0)">
 <img id="turn-left" [src]="getImgPath(1)" (click)="turn(1)">
 <!--[style.backgroundColor]="cont.color"-->
-<section class="container">
+<section class="container" [@enterAnimation]>
     <div id="carousel">
+        {{carouselSetUp()}}
         <figure *ngFor="let cont of contentData">
             {{cont.id}}
         </figure>
-<!--
-        <figure>2</figure>
-        <figure>3</figure>
-        <figure>4</figure>
-        <figure>5</figure>
-        <figure>6</figure>
-        <figure>7</figure>
-        <figure>8</figure>
-        <figure>9</figure>
--->
     </div>
 </section>
