@@ -63,12 +63,12 @@ export class ContentComponent implements OnInit, AfterViewInit {
         switch(parseInt(this.contentSelector)) {
             case 0:
                 this.contentData = [
-                  {"id" : "Miya", "img" : "..", "color" : "#ff5a5a"}, {"id" : "Autowise", "img" : "..", "color" : "#1bc405"},{"id" : "Reach&Relief", "img" : "..", "color" : "#ffb3b3"},{"id" : "Langua", "img" : "..", "color" : "#24f04b"},{"id" : "SGSenate", "img" : "..", "color" : "#24f04b"},{"id" : "Chirpi", "img" : "..", "color" : "#24f04b"},{"id" : "Fiestagram", "img" : "..", "color" : "#24f04b"},{"id" : "Foodda", "img" : "..", "color" : "#24f04b"},{"id" : "Salon Invoice", "img" : "..", "color" : "#24f04b"},{"id" : "Mission: Debug", "img" : "..", "color" : "#24f04b"},{"id" : "Photag", "img" : "..", "color" : "#FFFFFF"}
+                  {"id" : "Miya", "img" : "../assets/Miya-Logo.svg", "color" : "#ff5a5a"}, {"id" : "Zippy Contact", "img" : "../assets/zippy-logo-opc.svg", "color" : "#1bc405"},{"id" : "Autowise", "img" : "../assets/Autowise-Logo.svg", "color" : "#1bc405"},{"id" : "Langua", "img" : "../assets/langua-logo.png", "color" : "#24f04b"},{"id" : "SGSenate", "img" : "..", "color" : "#24f04b"},{"id" : "Chirpi", "img" : "../assets/chirpi-logo.png", "color" : "#24f04b"},{"id" : "Fiestagram", "img" : "../assets/fiestagram-logo.png", "color" : "#24f04b"},{"id" : "Foodda", "img" : "../assets/foodda-logo.png", "color" : "#24f04b"}
                 ];
                 break;
             case 1:
                 this.contentData = [
-                  {"id" : "Adobe", "img" : "..", "color" : "#ff0000"}, {"id" : "Disney", "img" : "..", "color" : "#006e99"},{"id" : "Agora", "img" : "..", "color" : "#184C7C"},{"id" : "University of Florida", "img" : "..", "color" : "#24f04b"},{"id" : "Wahi Ride", "img" : "..", "color" : "#61b3ff"},{"id" : "iD Tech", "img" : "..", "color" : "#24f04b"}
+                  {"id" : "Adobe", "img" : "..", "color" : "#ff0000"}, {"id" : "Disney", "img" : "..", "color" : "#006e99"},{"id" : "Agora", "img" : "../assets/agora-logo.svg", "color" : "#184C7C"},{"id" : "University of Florida", "img" : "..", "color" : "#24f04b"},{"id" : "Wahi Ride", "img" : "..", "color" : "#61b3ff"},{"id" : "iD Tech", "img" : "..", "color" : "#24f04b"}
                 ];
                 break;
             default:
@@ -112,7 +112,7 @@ export class ContentComponent implements OnInit, AfterViewInit {
             panel = this.carousel.children[i];
             angle = theta * i;
             panel.style.opacity = 1;
-            panel.style.backgroundColor = hexToRgb(this.contentData[i].color);
+            //panel.style.backgroundColor = hexToRgb(this.contentData[i].color);
             // rotate panel, then push it out in 3D space
             panel.style.transform = this.rotateFn + '(' + angle + 'deg) translateZ(' + radius + 'px)';
             panel.classList.add('frosted')

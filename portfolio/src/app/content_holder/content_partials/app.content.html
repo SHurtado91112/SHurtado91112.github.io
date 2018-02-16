@@ -6,14 +6,14 @@
     </div>
 </div>
 -->
-<img id="turn-right" [src]="getImgPath(0)" (click)="turn(0)">
-<img id="turn-left" [src]="getImgPath(1)" (click)="turn(1)">
+<img class="turner" id="turn-right" [src]="getImgPath(0)" (click)="turn(0)">
+<img class="turner" id="turn-left" [src]="getImgPath(1)" (click)="turn(1)">
 <!--[style.backgroundColor]="cont.color"-->
 <section class="container" [@enterAnimation]>
     <div id="carousel">
         {{carouselSetUp()}}
         <figure *ngFor="let cont of contentData">
-            {{cont.id}}
+            <img class="logos" [src]="cont.img"/>
         </figure>
     </div>
 </section>

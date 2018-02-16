@@ -165,7 +165,7 @@ h3:hover span {
     transform: translate(-50%, -50%) rotate(180deg);
 }
 #nav-btn.visible {
-    opacity: 0.24;
+    opacity: 0.48;
 }
 
 #nav-btn:hover {
