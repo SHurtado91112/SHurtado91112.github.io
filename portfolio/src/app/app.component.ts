@@ -118,30 +118,38 @@ export class AppComponent implements OnInit, AfterViewInit {
         console.log('scrolling up');
         var scrollSections = Array.from(document.getElementsByClassName("scroll-sec"));
         scrollSections.forEach((element, index)=> {
-           if(parseInt(element.style.top) + 100 == 0) 
-                element.classList.add("inwindow");
-            else 
-                element.classList.remove("inwindow");
-            
+           
+            //reshuffle
             element.style.top = parseInt(element.style.top) + 100 +"%";
             if(parseInt(element.style.top) > 99 *(scrollSections.length-1)) {
                 element.style.top = -100 + "%";
             }
+            
+            //visibility check
+            if(parseInt(element.style.top) == 0) 
+                element.classList.add("inwindow");
+            else 
+                element.classList.remove("inwindow");
+            
         });
     }
     scrollDown() {
         console.log('scrolling down');
         var scrollSections = Array.from(document.getElementsByClassName("scroll-sec"));
         scrollSections.forEach((element, index)=> {
-           if(parseInt(element.style.top) - 100 == 0) 
-                element.classList.add("inwindow");
-            else 
-                element.classList.remove("inwindow");
+            console.log(parseInt(element.style.top) - 100);
             
+            //shuffle
             element.style.top = parseInt(element.style.top) - 100 +"%";
             if(parseInt(element.style.top) < -100) {
                 element.style.top = 100 * (scrollSections.length-2) + "%";
             }
+            
+            //visibility check
+            if(parseInt(element.style.top) == 0) 
+                element.classList.add("inwindow");
+            else 
+                element.classList.remove("inwindow");
         });
     }
     scrollRight() {
