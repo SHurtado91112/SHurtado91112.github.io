@@ -6,8 +6,8 @@
     </div>
 </div>
 -->
-<img class="turner" id="turn-right" [src]="getImgPath(0)" (click)="turn(0)">
-<img class="turner" id="turn-left" [src]="getImgPath(1)" (click)="turn(1)">
+<div class="turner-r" (click)="turn(0)"></div>
+<div class="turner-l" (click)="turn(1)"></div>
 <!--[style.backgroundColor]="cont.color"-->
 <section class="container" [@enterAnimation]>
     <div id="carousel">

@@ -1,30 +1,33 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-    <div class="back-container">
-        <div class="background" id="background">
-        </div>
-        <div class="title-container"  #box id="box">
-            <div class="text-container parallax-layer" id="l1">
-                <h1>
-                    {{title}}
-                </h1>
+<div  [@enterAnimation] class="row loop js-loop">
+    <div id="title-content" class="scroll-sec">
+        <div id="title-holder" class="dark">
+            <div class="title row">
+                <h1 class="blurry-text await">{{title}}</h1>
             </div>
-            <div class="text-container parallax-layer" id="l2">
-                <h3 class="blurry-text">
+            <div class="subtitle row">
+                <h3 class="blurry-text await">
                     {{subtitle1}}
-                    <span class="">{{subtitle2}}</span>
                 </h3>
-            </div>
-        </div>        
-        <img id="nav-btn" [src]="getImgPath()" (click)="titleSwitch()">
-        <app-content-holder [showContent]='titleBool'>
-        </app-content-holder>
-        <div class="row intro-container">
-            <div id="links">
-               <div class="link-overlay link" *ngFor="let sq of intro_links"
-                    [style.background-image]="'url('+sq.src+')'" (click)="goTo(sq.link)">
-               </div>
+                <h3 class="blurry-text await">
+                    {{subtitle2}}
+                </h3>
+                <h3 class="blurry-text await">
+                    {{subtitle3}}
+                </h3>
+                <div class="filler">
+                    <hr class="await">
+                </div>
             </div>
         </div>
     </div>
+    <app-content-holder></app-content-holder>
+    <div class="row intro-container">
+        <div id="links">
+           <div class="link-overlay link" *ngFor="let sq of intro_links"
+                [style.background-image]="'url('+sq.src+')'" (click)="goTo(sq.link)">
+           </div>
+        </div>
+    </div>
+    <a href="https://icons8.com" class="adv-icons"> Icon pack by Icons8</a>
 </div>

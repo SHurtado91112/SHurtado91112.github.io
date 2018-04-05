@@ -25,9 +25,7 @@ import {style, state, animate, transition, trigger} from '@angular/core';
 export class ContentComponent implements OnInit, AfterViewInit {
     public visible:boolean;
     public appear:boolean;
-    @Input() contentSelector: string = "0";
-
-    contentData = [];
+    @Input() contentData = [];
 
     // carousel attributes
     carousel;
@@ -48,23 +46,11 @@ export class ContentComponent implements OnInit, AfterViewInit {
         return cont.id;
     }
 
-    getImgPath(selector) {
-        switch(selector) {
-            case 0:
-                return "../assets/carousel-switcher.svg";
-            case 1:
-                return "../assets/carousel-switcher.svg";
-            default:
-                return "";
-        }
-    }
-
     getContentData() {
+        
         switch(parseInt(this.contentSelector)) {
             case 0:
-                this.contentData = [
-                  {"id" : "Miya", "img" : "../assets/Miya-Logo.svg", "color" : "#ff5a5a"}, {"id" : "Zippy Contact", "img" : "../assets/zippy-logo-opc.svg", "color" : "#1bc405"},{"id" : "Autowise", "img" : "../assets/Autowise-Logo.svg", "color" : "#1bc405"},{"id" : "Langua", "img" : "../assets/langua-logo.png", "color" : "#24f04b"},{"id" : "SGSenate", "img" : "..", "color" : "#24f04b"},{"id" : "Chirpi", "img" : "../assets/chirpi-logo.png", "color" : "#24f04b"},{"id" : "Fiestagram", "img" : "../assets/fiestagram-logo.png", "color" : "#24f04b"},{"id" : "Foodda", "img" : "../assets/foodda-logo.png", "color" : "#24f04b"}
-                ];
+                this.contentData 
                 break;
             case 1:
                 this.contentData = [
@@ -134,9 +120,8 @@ export class ContentComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         this.visible = false;
-        console.log("SELECTOR: " + this.contentSelector);
         
-        this.getContentData();
+        //this.getContentData();
     }
 
     ngAfterViewInit() {

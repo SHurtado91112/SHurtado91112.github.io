@@ -1,5 +1,4 @@
-:host, #content_holder {
-    width: 100%;    
+:host, #content_holder {   
     margin-top: 100px;
 }
 
@@ -33,7 +32,6 @@
     position: fixed;
     bottom: 8px;
     z-index: 500;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

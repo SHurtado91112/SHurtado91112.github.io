@@ -1,21 +1,5 @@
-<div *ngIf="showContent" [@enterAnimation] id="content_holder">
-    {{init()}}
-    <hr class="divider"/>
-    <div class="content-container">
-        <div class="row">
-            <div *ngIf="contentSwitch" class="col-md-12" id="left_holder">
-                {{left_title}}
-                <content [contentSelector]="0"></content>
-            </div>
-            <div *ngIf="!contentSwitch" class="col-md-12" id="right_holder">
-                {{right_title}}
-                <content [contentSelector]="1"></content>
-            </div>
-        </div>
-        <div class="content-switcher">
-                <h4 (click)="toggleContent(0)">{{left_title}}</h4>
-                <h4 (click)="toggleContent(1)">{{right_title}}</h4>
-                <hr>
-        </div>
-    </div>
+<div *ngFor="let sec of contentSections" class="content-container scroll-sec">
+    <content [contentData]="sec"></content>
+</div>
+<div class="content-container scroll-sec" style="background: red;">
 </div>
