@@ -10,6 +10,16 @@
 
 /*SWIPE HINT OVERLAY*/
 #hint-overlay {
+    z-index: -1;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+#hint-overlay {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -54,17 +64,21 @@
 
 @keyframes intro-appear {
   0% {
+    z-index: 1000;
     opacity: 0;
   }
   25% {
+    z-index: 1000;
     opacity: 0;
   }
 
   50% {
+    z-index: 1000;
     opacity: 1;
   }
 
   100% {
+    z-index: 1000;
     opacity: 0;
   }
 }
@@ -154,7 +168,7 @@
 .subtitle hr {
     margin-top: 12px;
     margin-bottom: 0;
-    width: 1px;
+    width: 0px;
     border-top: 1px solid #f4f4f4;
     transition: all 0.48s ease;
 }
