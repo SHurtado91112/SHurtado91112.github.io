@@ -200,28 +200,34 @@ export class AppComponent implements OnInit, AfterViewInit {
               else if (touch.clientX < lastTouch.clientX) {
                 sharedInstance.scrollRight();
               }  
-              else { //touch.clientX < lastTouch.clientX
+              else { //touch.clientX > lastTouch.clientX
                 sharedInstance.scrollLeft();
               }
               lastTouch = touch;
             });
         }
         else {
-            document.getElementsByClassName("loop")[0].addEventListener("wheel", function(e) {
-               console.log("I'M SCROLLING"); 
-              if (e.deltaY < 0) {
+            var lastTouch;
+            document.getElementsByClassName("loop")[0].addEventListener("mousedown", function(e){
+                lastTouch = e;
+            });
+            document.getElementsByClassName("loop")[0].addEventListener("mouseup", function(e) {
+              console.log("I'M SCROLLING"); 
+                console.log(e);
+              
+              if (e.clientY > lastTouch.clientY) {
                 sharedInstance.scrollUp();
               }
-              else if (e.deltaY > 0) {
+              else if (e.clientY < lastTouch.clientY) {
                 sharedInstance.scrollDown();
               }
-              else if (e.deltaX > 0) {
+              else if (e.clientX < lastTouch.clientX) {
                 sharedInstance.scrollRight();
               }  
-              else { //e.delta X < 0
+              else { //e.clientX > lastTouch.clientX
                 sharedInstance.scrollLeft();
               }
-
+              lastTouch = e;
             });
         }
         

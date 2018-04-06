@@ -8,6 +8,69 @@
   -webkit-overflow-scrolling: touch;
 }
 
+/*SWIPE HINT OVERLAY*/
+#hint-overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.48);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    animation: intro-appear 5s 1;
+    opacity: 0;
+}
+.finger-hint {
+    animation: rotateSwipe 2s 3;
+}
+.arrow-hint {
+  animation: swell 2s 3;
+}
+@keyframes rotateSwipe {
+    0% {
+        transform: rotate(-60deg) scale(0.8);
+    }
+    50% {
+        transform: rotate(30deg) scale(1.2) translate(48px, -48px);
+    }
+    100% {
+        transform: rotate(-60deg) scale(0.8);
+    }
+}
+@keyframes swell {
+  0% {
+    transform: scale(0.4);
+  }
+
+  50% {
+    transform: scale(0.6);
+  }
+
+  100% {
+    transform: scale(0.4);
+  }
+}
+
+@keyframes intro-appear {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+
 ::scrollbar {
   display: none;
 }
@@ -39,6 +102,13 @@
     color: transparent;    
     line-height: 64px;
     margin: 0;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
 .blurry-text {
@@ -61,6 +131,14 @@
     background-position: 0 -100%;*/
     color: transparent; 
     margin-right: 8px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+    
     transition: all 0.48s ease;
 }
 
