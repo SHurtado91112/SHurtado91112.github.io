@@ -175,9 +175,8 @@ h4 {
 .adv-icons {
     position: fixed;
     bottom: 4px;
-    right: 16px;
     font-size: 12px;
-
+    left: 8px;
     color: #cbcbcb;
     font-family: -apple-system, BlinkMacSystemFont, 'Montserrat', Arial, "Helvetica Neue", Helvetica, sans-serif;
 }

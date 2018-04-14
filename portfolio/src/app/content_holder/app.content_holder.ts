@@ -4,7 +4,7 @@ import {style, state, animate, transition, trigger} from '@angular/core';
 @Component({
   selector: 'app-content-holder',
   templateUrl: './app.content_holder.html',
-  styleUrls: ['../app.component.css','./app.content_holder.css']
+  styleUrls: ['../app.component.css','./app.content_holder.css'],
   animations: [
     trigger(
       'enterAnimation', [
