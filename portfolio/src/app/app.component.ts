@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, AfterViewInit, HostListener } from '@angular/core';
-import {style, state, animate, transition, trigger} from '@angular/core';
+import {style, state, animate, keyframes, transition, trigger} from '@angular/core';
 declare var jquery:any;
 declare var $ :any;
 
@@ -12,22 +12,40 @@ declare var $ :any;
       'enterAnimation', [
         transition(':enter', [   // :enter is alias to 'void => *'
           style({opacity:0}),
-          animate(840, style({opacity:1})) 
+          animate(840, style({opacity: 1})) 
         ]),
         transition(':leave', [   // :leave is alias to '* => void'
           animate(840, style({opacity:0})) 
         ])
       ]),
     trigger(
-      'enterAnimationLong', [
+      'enterAnimationLonger', [
         transition(':enter', [   // :enter is alias to 'void => *'
           style({opacity:0}),
-          animate(3680, style({opacity:1})) 
+          animate(3680, keyframes([
+              style({ opacity: 0, offset: 0 }),
+              style({ opacity: 0, offset: 0.9 }),
+              style({ opacity: 0.48, offset: 1 })
+          ])) 
         ]),
         transition(':leave', [   // :leave is alias to '* => void'
           animate(3680, style({opacity:0})) 
         ])
-      ])  
+      ]),
+    trigger(
+      'enterAnimationLong', [
+        transition(':enter', [   // :enter is alias to 'void => *'
+          style({opacity:0}),
+          animate(3680, keyframes([
+              style({ opacity: 0, offset: 0 }),
+              style({ opacity: 0, offset: 0.6 }),
+              style({ opacity: 1, offset: 1 })
+          ])) 
+        ]),
+        transition(':leave', [   // :leave is alias to '* => void'
+          animate(3680, style({opacity:0})) 
+        ])
+      ]) 
   ],
   host: {
 //    '(window:resize)': 'onResize($event)'
@@ -147,17 +165,18 @@ export class AppComponent implements OnInit, AfterViewInit {
         console.log('scrolling up');
         var scrollSections = Array.from(document.getElementsByClassName("scroll-sec"));
         scrollSections.forEach((element, index)=> {           
+            var elem = <HTMLElement>element;
             //reshuffle
-            element.style.top = parseInt(element.style.top) + 100 +"%";
-            if(parseInt(element.style.top) > 99 *(scrollSections.length-1)) {
-                element.style.top = -100 + "%";
+            elem.style.top = parseInt(elem.style.top) + 100 +"%";
+            if(parseInt(elem.style.top) > 99 *(scrollSections.length-1)) {
+                elem.style.top = -100 + "%";
             }
             
             //visibility check
-            if(parseInt(element.style.top) == 0) 
-                element.classList.add("inwindow");
+            if(parseInt(elem.style.top) == 0) 
+                elem.classList.add("inwindow");
             else 
-                element.classList.remove("inwindow");
+                elem.classList.remove("inwindow");
             
         });
         this.updateNavigation(-1);
@@ -166,19 +185,19 @@ export class AppComponent implements OnInit, AfterViewInit {
         console.log('scrolling down');
         var scrollSections = Array.from(document.getElementsByClassName("scroll-sec"));
         scrollSections.forEach((element, index)=> {
-            console.log(parseInt(element.style.top) - 100);
+            var elem = <HTMLElement>element;
             
             //shuffle
-            element.style.top = parseInt(element.style.top) - 100 +"%";
-            if(parseInt(element.style.top) < -100) {
-                element.style.top = 100 * (scrollSections.length-2) + "%";
+            elem.style.top = parseInt(elem.style.top) - 100 +"%";
+            if(parseInt(elem.style.top) < -100) {
+                elem.style.top = 100 * (scrollSections.length-2) + "%";
             }
             
             //visibility check
-            if(parseInt(element.style.top) == 0) 
-                element.classList.add("inwindow");
+            if(parseInt(elem.style.top) == 0) 
+                elem.classList.add("inwindow");
             else 
-                element.classList.remove("inwindow");
+                elem.classList.remove("inwindow");
         });
         this.updateNavigation(1);
     }
@@ -208,26 +227,23 @@ export class AppComponent implements OnInit, AfterViewInit {
         var navItems = Array.from(document.getElementsByClassName("nav-item"));
         navItems.forEach((element, index) => {
             //this dont work, find out how to do it
-            element.removeEventListener()
+//            element.removeEventListener()
         });
     }
     scrollSetUp(sharedInstance) {
         var scrollSections = Array.from(document.getElementsByClassName("scroll-sec"));
         scrollSections.forEach((element, index)=> {
+            var elem = <HTMLElement>element;
             if(index*100 == 0) 
-                element.classList.add("inwindow");
+                elem.classList.add("inwindow");
             else 
-                element.classList.remove("inwindow");
+                elem.classList.remove("inwindow");
             
-            element.style.top = (index * 100)+"%";
+            elem.style.top = (index * 100)+"%";
             
             //reshuffle sections
-            console.log(parseInt(element.style.top));
-            console.log(parseInt(window.innerHeight));
-            console.log((scrollSections.length-1));
-            
-            if(parseInt(element.style.top) > 99 *(scrollSections.length-1)) {
-                element.style.top = -100 + "%";
+            if(parseInt(elem.style.top) > 99 *(scrollSections.length-1)) {
+                elem.style.top = -100 + "%";
             }
         });
         

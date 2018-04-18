@@ -47,19 +47,6 @@ export class ContentComponent implements OnInit, AfterViewInit {
     }
 
     getContentData() {
-        
-        switch(parseInt(this.contentSelector)) {
-            case 0:
-                this.contentData 
-                break;
-            case 1:
-                this.contentData = [
-                  {"id" : "Adobe", "img" : "..", "color" : "#ff0000"}, {"id" : "Disney", "img" : "..", "color" : "#006e99"},{"id" : "Agora", "img" : "../assets/agora-logo.svg", "color" : "#184C7C"},{"id" : "University of Florida", "img" : "..", "color" : "#24f04b"},{"id" : "Wahi Ride", "img" : "..", "color" : "#61b3ff"},{"id" : "iD Tech", "img" : "..", "color" : "#24f04b"}
-                ];
-                break;
-            default:
-                break;
-        }
     }
 
     turn(dir) {
