@@ -2,7 +2,7 @@ import { Component, Input, OnInit, AfterViewInit, HostListener } from '@angular/
 import {style, state, animate, keyframes, transition, trigger} from '@angular/core';
 declare var jquery:any;
 declare var $ :any;
-
+//declare var WheelIndicator:any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -208,8 +208,6 @@ export class AppComponent implements OnInit, AfterViewInit {
         console.log('scrolling left');
     }
     GoToSelected(ind, indP, sharedInstance) {
-        console.log(ind);
-        console.log("'" + indP);
         var delta = ind - indP;
         for(var i = 0; i < Math.abs(delta); i++)
         {
@@ -247,67 +245,43 @@ export class AppComponent implements OnInit, AfterViewInit {
             }
         });
         
-        //position scroll-secs by index;
-        if(mobilecheck())
-        {
-            var lastTouch;
-            document.getElementsByClassName("loop")[0].addEventListener("touchstart", function(e) {
-                lastTouch = e.touches[0];
-            });
-            
-            document.getElementsByClassName("loop")[0].addEventListener("touchend", function(e) {
-              
-              var touch = e.changedTouches[0];
-              console.log(e);
-              console.log("I'M SCROLLING MOBILE"); 
-              if (touch.clientY > lastTouch.clientY) {
-                sharedInstance.scrollUp();
-              }
-              else if (touch.clientY < lastTouch.clientY) {
-                sharedInstance.scrollDown();
-              }
-              else if (touch.clientX < lastTouch.clientX) {
-                sharedInstance.scrollRight();
-              }  
-              else { //touch.clientX > lastTouch.clientX
-                sharedInstance.scrollLeft();
-              }
-              lastTouch = touch;
-            });
-        }
-        else {
-//            var lastTouch;
-//            document.getElementsByClassName("loop")[0].addEventListener("mousedown", function(e){
-//                lastTouch = e;
-//            });
-//            document.getElementsByClassName("loop")[0].addEventListener("mouseup", function(e) {
-//              console.log("I'M SCROLLING"); 
-//                console.log(e);
-//              
-//              if (e.clientY > lastTouch.clientY) {
-//                sharedInstance.scrollUp();
-//              }
-//              else if (e.clientY < lastTouch.clientY) {
-//                sharedInstance.scrollDown();
-//              }
-//              else if (e.clientX < lastTouch.clientX) {
-//                sharedInstance.scrollRight();
-//              }  
-//              else { //e.clientX > lastTouch.clientX
-//                sharedInstance.scrollLeft();
-//              }
-//              lastTouch = e;
-//            });
-        }
+        //BY TOUCH
+        var lastTouch;
+        document.getElementsByClassName("loop")[0].addEventListener("touchstart", function(e) {
+            lastTouch = e.touches[0];
+        });
+
+        document.getElementsByClassName("loop")[0].addEventListener("touchend", function(e) {
+
+          var touch = e.changedTouches[0];
+          console.log(e);
+          console.log("I'M SCROLLING MOBILE"); 
+          if (touch.clientY > lastTouch.clientY) {
+            sharedInstance.scrollUp();
+          }
+          else if (touch.clientY < lastTouch.clientY) {
+            sharedInstance.scrollDown();
+          }
+          else if (touch.clientX < lastTouch.clientX) {
+            sharedInstance.scrollRight();
+          }  
+          else { //touch.clientX > lastTouch.clientX
+            sharedInstance.scrollLeft();
+          }
+          lastTouch = touch;
+        });
         
-        //nav functionality
-        var navItems = Array.from(document.getElementsByClassName("nav-item"));
-        navItems.forEach((element, index) => {
-            element.addEventListener("click", function() {
-               var selected = document.getElementsByClassName("selected")[0];
-               var indPrime = navItems.indexOf(selected);
-                sharedInstance.GoToSelected(index, indPrime, sharedInstance);
-           }) 
+        //BY SWIPE (WEB)
+        var WheelSwipe = require('wheel-swipe');
+ 
+        var ws = new WheelSwipe();
+
+        window.addEventListener('wheeldown', function(e) { 
+            sharedInstance.scrollUp();
+        });
+
+        window.addEventListener('wheelup', function(e) { 
+            sharedInstance.scrollDown();
         });
         
         //mobile check
