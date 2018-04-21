@@ -241,6 +241,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         
         //BY TOUCH
         var lastTouch;
+        
         document.getElementsByClassName("loop")[0].addEventListener("touchstart", function(e) {
             lastTouch = e.touches[0];
         });
@@ -248,11 +249,14 @@ export class AppComponent implements OnInit, AfterViewInit {
         document.getElementsByClassName("loop")[0].addEventListener("touchend", function(e) {
 
           var touch = e.changedTouches[0];
-          
-          if (touch.clientY > lastTouch.clientY) {
+          var threshold = 20; 
+          var deltaY = Math.abs(touch.clientY - lastTouch.clientY);
+          var deltaX = Math.abs(touch.clientX - lastTouch.clientX);
+            
+          if (touch.clientY > lastTouch.clientY && deltaY > threshold && deltaY > deltaX) {
             sharedInstance.scrollUp();
           }
-          else if (touch.clientY < lastTouch.clientY) {
+          else if (touch.clientY < lastTouch.clientY && deltaY > threshold && deltaY > deltaX) {
             sharedInstance.scrollDown();
           }
           lastTouch = touch;

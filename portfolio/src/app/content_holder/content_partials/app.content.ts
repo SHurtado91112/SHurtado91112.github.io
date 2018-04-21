@@ -80,18 +80,23 @@ export class ContentComponent implements OnInit, AfterViewInit {
         var lastTouch;
         this.carousel.addEventListener("touchstart", function(e) {
             lastTouch = e.touches[0];
+            console.log("touch start");
         });
 
         this.carousel.addEventListener("touchend", function(e) {
 
           var touch = e.changedTouches[0];
-          
-          if (touch.clientX < lastTouch.clientX) {
+          var threshold = 20; 
+          var deltaY = Math.abs(touch.clientY - lastTouch.clientY);
+          var deltaX = Math.abs(touch.clientX - lastTouch.clientX);
+            
+          console.log("touch end");
+          if (touch.clientX < lastTouch.clientX && deltaX > threshold && deltaX > deltaY) {
             //right
               console.log("right");
               sharedInstance.turn(0);
           }  
-          else if (touch.clientX > lastTouch.clientX) {
+          else if (touch.clientX > lastTouch.clientX && deltaX > threshold && deltaX > deltaY) {
             //left
               console.log("left");
               sharedInstance.turn(1);
@@ -135,7 +140,6 @@ export class ContentComponent implements OnInit, AfterViewInit {
         this.rotation = Math.round( this.rotation / theta ) * theta;
         var rotation = this.rotation;
         this.carouselTransform();
-        this.carouselSwipeSetUp();
     }
 
     constructor(){}
@@ -184,7 +188,9 @@ export class ContentComponent implements OnInit, AfterViewInit {
                 // Start observing the target node for configured mutations
                 console.log("NATIVE ELEMENT TO OBSERVE");
                 console.log(elementInstance);
+                this.carousel = elem.querySelector("#carousel");
                 observer.observe(elem, config);
+                this.carouselSwipeSetUp();
             }
             
         });
@@ -199,6 +205,5 @@ export class ContentComponent implements OnInit, AfterViewInit {
              }
              return false;
         }
-        
    }
 }
