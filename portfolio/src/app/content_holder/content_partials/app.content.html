@@ -9,9 +9,8 @@
 <div class="turner-r" (click)="turn(0)"></div>
 <div class="turner-l" (click)="turn(1)"></div>
 <!--[style.backgroundColor]="cont.color"-->
-<section class="container" [@enterAnimation]>
+<section #carouselContent class="carouselContent" [@enterAnimation]>
     <div id="carousel">
-        {{carouselSetUp()}}
         <figure *ngFor="let cont of contentData">
             <img class="logos" [src]="cont.img"/>
         </figure>

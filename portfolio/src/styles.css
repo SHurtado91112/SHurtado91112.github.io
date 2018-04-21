@@ -173,7 +173,7 @@ h4 {
 }
 
 .adv-icons {
-    position: fixed;
+    position: absolute;
     bottom: 4px;
     font-size: 12px;
     left: 8px;

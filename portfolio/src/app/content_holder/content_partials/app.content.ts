@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, ViewChild, HostListener } from '@angular/core';
 import {style, state, animate, transition, trigger} from '@angular/core';
 
 @Component({
@@ -26,14 +26,26 @@ export class ContentComponent implements OnInit, AfterViewInit {
     public visible:boolean;
     public appear:boolean;
     @Input() contentData = [];
+    @ViewChild('carouselContent') carouselContent;
 
     // carousel attributes
     carousel;
+    carouselTarget;
     incr = 0;
     rotation = 0;
     rotateFn = 'rotateY';
     theta = 0;
     radius = 0;
+
+    @HostListener('window:resize', ['$event'])
+    onResize(event) {
+        console.log("RESIZING");
+//        this.scrollClear(this.referenceInstance);
+//        this.scrollSetUp(this.referenceInstance);
+        if(this.carouselTarget != null) {
+            this.carouselSetUp(this.carouselTarget);
+        }
+    }
 
     enter() {
         this.visible = true;
@@ -44,9 +56,6 @@ export class ContentComponent implements OnInit, AfterViewInit {
 
     trackData(index, cont) {
         return cont.id;
-    }
-
-    getContentData() {
     }
 
     turn(dir) {
@@ -64,13 +73,44 @@ export class ContentComponent implements OnInit, AfterViewInit {
     carouselTransform() {
         this.carousel.style.transform = 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)';
     }
+
+    carouselSwipeSetUp() {
+        //BY TOUCH
+        var sharedInstance = this;
+        var lastTouch;
+        this.carousel.addEventListener("touchstart", function(e) {
+            lastTouch = e.touches[0];
+        });
+
+        this.carousel.addEventListener("touchend", function(e) {
+
+          var touch = e.changedTouches[0];
+          
+          if (touch.clientX < lastTouch.clientX) {
+            //right
+              console.log("right");
+              sharedInstance.turn(0);
+          }  
+          else if (touch.clientX > lastTouch.clientX) {
+            //left
+              console.log("left");
+              sharedInstance.turn(1);
+          }
+          else {
+              //ignore
+              console.log("OTHER");
+          }
+          lastTouch = touch;
+        });
+    }
         
-    carouselSetUp() {
+    carouselSetUp(target) {
         
         //set up for carousel js
         var panelCount = this.contentData.length;
-        
-        this.carousel = document.getElementById('carousel');
+        this.carouselTarget = target;
+        this.carousel = target.querySelector("#carousel");
+        //document.getElementById('carousel');
         var panelSize = this.carousel.offsetWidth;
         this.rotateFn = 'rotateY';
         this.theta = 360 / panelCount;
@@ -95,15 +135,10 @@ export class ContentComponent implements OnInit, AfterViewInit {
         this.rotation = Math.round( this.rotation / theta ) * theta;
         var rotation = this.rotation;
         this.carouselTransform();
-        
-        function hexToRgb(hex) {
-            var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-            var r = parseInt(result[1], 16),
-                g = parseInt(result[2], 16),
-                b = parseInt(result[3], 16);
-            return 'rgba('+ r + ', '+ g + ', ' + b + ', 0.72)';
-        }
+        this.carouselSwipeSetUp();
     }
+
+    constructor(){}
 
     ngOnInit() {
         this.visible = false;
@@ -112,5 +147,58 @@ export class ContentComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
+        //listener and set up for enter detection of content
+        var config = { attributes: true };
+        var sharedInstance = this;
+        // Callback function to execute when mutations are observed
+        var callback = function(mutationsList) {
+            for(var mutation of mutationsList) {
+                if (mutation.type == 'attributes') {
+                    console.log('The ' + mutation.attributeName + ' attribute was modified.');
+                    if(mutation.attributeName == 'style')
+                        {
+                            sharedInstance.carouselSetUp(mutation.target);    
+//                            console.log("MUTANT");
+//                            console.log(mutation.target);
+//                            console.log(mutation.target);
+                        }
+                        
+                }
+            }
+        };
+        
+        var elementInstance = this.carouselContent.nativeElement;
+          
+        var carouselView =
+        Array.from(document.getElementsByClassName("content-container")); 
+        carouselView.forEach((element) => {
+           var elem = <HTMLElement>element;
+            console.log("HOIIIYA");
+            console.log(elem);
+            
+            if(isDescendant(elem, elementInstance))
+            {
+                console.log("isMEEE");
+                // Create an observer instance linked to the callback function
+                var observer = new MutationObserver(callback);
+                // Start observing the target node for configured mutations
+                console.log("NATIVE ELEMENT TO OBSERVE");
+                console.log(elementInstance);
+                observer.observe(elem, config);
+            }
+            
+        });
+
+        function isDescendant(parent, child) {
+             var node = child.parentNode;
+             while (node != null) {
+                 if (node == parent) {
+                     return true;
+                 }
+                 node = node.parentNode;
+             }
+             return false;
+        }
+        
    }
 }

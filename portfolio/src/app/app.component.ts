@@ -84,12 +84,6 @@ export class AppComponent implements OnInit, AfterViewInit {
         "link":"https://www.soundcloud.com/steveshidae", "bg":"#323232","title":"SoundCloud"}
     ];
 
-    @HostListener('window:resize', ['$event'])
-    onResize(event) {
-        console.log("RESIZING");
-//        this.scrollClear(this.referenceInstance);
-//        this.scrollSetUp(this.referenceInstance);
-    }
     @HostListener('scroll', ['$event']) private onScroll($event:Event):void {
         console.log($event.srcElement.scrollLeft, $event.srcElement.scrollTop);
     };
@@ -254,19 +248,12 @@ export class AppComponent implements OnInit, AfterViewInit {
         document.getElementsByClassName("loop")[0].addEventListener("touchend", function(e) {
 
           var touch = e.changedTouches[0];
-          console.log(e);
-          console.log("I'M SCROLLING MOBILE"); 
+          
           if (touch.clientY > lastTouch.clientY) {
             sharedInstance.scrollUp();
           }
           else if (touch.clientY < lastTouch.clientY) {
             sharedInstance.scrollDown();
-          }
-          else if (touch.clientX < lastTouch.clientX) {
-            sharedInstance.scrollRight();
-          }  
-          else { //touch.clientX > lastTouch.clientX
-            sharedInstance.scrollLeft();
           }
           lastTouch = touch;
         });
@@ -282,6 +269,16 @@ export class AppComponent implements OnInit, AfterViewInit {
 
         window.addEventListener('wheelup', function(e) { 
             sharedInstance.scrollDown();
+        });
+        
+        //nav functionality
+        var navItems = Array.from(document.getElementsByClassName("nav-item"));
+        navItems.forEach((element, index) => {
+            element.addEventListener("click", function() {
+               var selected = document.getElementsByClassName("selected")[0];
+               var indPrime = navItems.indexOf(selected);
+                sharedInstance.GoToSelected(index, indPrime, sharedInstance);
+           }) 
         });
         
         //mobile check

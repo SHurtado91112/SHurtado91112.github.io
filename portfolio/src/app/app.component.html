@@ -22,17 +22,16 @@
         </div>
     </div>
     <app-content-holder></app-content-holder>
-    <div id="hint-overlay">
-        <a class="arr-up" (click)="scrollUp()">
-            <i class="arr-1"></i>
-            <i class="arr-2"></i>
-        </a>
-        <a class="arr-down" (click)="scrollDown()">
-            <i class="arr-1"></i>
-            <i class="arr-2"></i>
-        </a>
-    </div>
+    <a class="arr-up hint-overlay" (click)="scrollUp()">
+        <i class="arr-1"></i>
+        <i class="arr-2"></i>
+    </a>
+    <a class="arr-down hint-overlay" (click)="scrollDown()">
+        <i class="arr-1"></i>
+        <i class="arr-2"></i>
+    </a>
 </div>
+
 <div class="row intro-container" [@enterAnimationLong]>
     <div id="links">
        <div class="link-overlay link" *ngFor="let sq of intro_links"
@@ -41,7 +40,7 @@
     </div>
 </div>
 <a href="https://icons8.com" class="adv-icons" [@enterAnimationLong]> Icon pack by Icons8</a>
-<div id="nav-toggle" (click)="ToggleNav()" [@enterAnimationLonger]>
+<div id="nav-toggle" (click)="ToggleNav()" class="await">
     <span></span>
     <span></span>
     <span></span>

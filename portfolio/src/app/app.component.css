@@ -1,6 +1,8 @@
 
 .loop {
   position: absolute;
+  display: flex;
+  justify-content: center;
   height: 100%;
   left: 0;
   right: 48px;
@@ -113,7 +115,7 @@
 /*    max-width: 600px;*/
     margin: 0px;
     left: 8px;
-    position: fixed;
+    position: absolute;
     width: auto;
     bottom: 16px;
     z-index: 600;
@@ -166,6 +168,7 @@
 }
 
 /*NAV OVERLAY*/
+/*old nav
 #nav-overlay {
     position: absolute;
     display: flex;
@@ -180,6 +183,26 @@
     width: 48px;
     background: #1a1a1a;
     transition: all 0.48s ease;
+}
+*/
+/*new nav*/
+#nav-overlay {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    right: 16px;
+    top: 48px;
+    bottom: 48px;
+    padding: 0;
+    z-index: 1000;
+    height: auto;
+    width: 48px;
+    margin: 0;
+    background: rgba(49, 49, 49, 0.84);
+    transition: all 0.48s ease;
+    border: solid 1px #f4f4f4;
 /*    background: white;*/
 }
 .nav-item-holder {
@@ -209,6 +232,7 @@
     background-repeat: no-repeat;
     opacity: 1.0;  
     -webkit-filter: blur(0px) brightness(100.1) contrast(10) grayscale(100)                    hue-rotate(0deg) invert(0.48) opacity(100%) saturate(0.0) sepia(0.0);
+    transition: all 0.48s ease;
     
 }
 
@@ -242,12 +266,15 @@
     opacity: 0;
     cursor: pointer;
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 16px;
+    right: 24px;
     transition: all 0.48s ease;
     z-index: 800;
     width: 32px;
     height: 32px;
+}
+#nav-toggle.open {
+    top: 56px;
 }
 #nav-toggle span {
   display: block;
@@ -267,7 +294,7 @@
   -o-transition: .25s ease-in-out;
   transition: .25s ease-in-out;
 }
-#nav-toggle:hover {
+#nav-toggle:hover, #nav-toggle.enter:hover {
     opacity: 0.48;
 }
 
@@ -321,52 +348,49 @@
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }
-#hint-overlay {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-/*    background: rgba(0, 0, 0, 0.48);*/
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-#hint-overlay a {
+
+a.hint-overlay {
+  position: absolute;
   display: flex;
   justify-content: space-between;
-  margin: 16px;
+  margin: 16px 0 16px 0;
   height: 40px;
   width: 40px;
   cursor: pointer;
   transition: opacity 0.48s ease;
 }
-#hint-overlay a i {
+a.hint-overlay i {
     position: relative;
     border: solid 0px #f4f4f4;
     border-right-width: 2px;
     width: 40px;
 }
-#hint-overlay a i.arr-1 {
+a.hint-overlay i.arr-1 {
     transform: rotate(135deg);
     left: 2.6px;
     
 }
-#hint-overlay a i.arr-2 {
+a.hint-overlay i.arr-2 {
     transform: rotate(45deg);
     right: 2.6px;
 }
-#hint-overlay a:hover {
+a.hint-overlay:hover {
     opacity: 0.48;
 }
-#hint-overlay a i.arr-1 {
+a.hint-overlay i.arr-1 {
     animation-name: arr-hover-1;
     animation-duration: 1.84s;
-}#hint-overlay a i.arr-2 {
+}
+a.hint-overlay i.arr-2 {
     animation-name: arr-hover-2;
     animation-duration: 1.84s;
 }
 .arr-up {
     transform: rotate(180deg);
+    top: 16px;
+}
+.arr-down {
+    bottom: 16px;
 }
 @keyframes arr-hover-1 {
     
@@ -457,16 +481,19 @@
     }
 } 
 @media screen and (max-width: 400px) {
-    #nav-toggle {
+    #nav-toggle.enter {
         z-index: 1020;
         opacity: 1;
     }
+    
     #nav-overlay {
-        top: -100%;
+        top: -10%;
+        bottom: 110%;
         opacity: 0;
     }
     #nav-overlay.open {
-        top: 0;
+        top: 48px;
+        bottom: 48px;
         opacity: 1;
     }
     .loop {
@@ -543,5 +570,11 @@
     }
     .hexagon-in2 {
         background-size: 200px;
+    }
+}
+
+@media screen and (min-width: 848px) {
+    #nav-overlay {
+        right: 84px;
     }
 }
