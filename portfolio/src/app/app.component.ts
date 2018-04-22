@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, AfterViewInit, HostListener } from '@angular/core';
 import {style, state, animate, keyframes, transition, trigger} from '@angular/core';
+import * as WheelIndicator from 'wheel-indicator';
 declare var jquery:any;
 declare var $ :any;
 //declare var WheelIndicator:any;
@@ -84,6 +85,13 @@ export class AppComponent implements OnInit, AfterViewInit {
         "link":"https://www.soundcloud.com/steveshidae", "bg":"#323232","title":"SoundCloud"}
     ];
 
+    @HostListener('window:resize', ['$event'])
+    onResize(event) {
+        if(window.innerWidth <= 400 ) {
+            var el = document.getElementById("nav-overlay");
+            el.classList.remove("show");
+        }
+    }
     @HostListener('scroll', ['$event']) private onScroll($event:Event):void {
         console.log($event.srcElement.scrollLeft, $event.srcElement.scrollTop);
     };
@@ -195,12 +203,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         });
         this.updateNavigation(1);
     }
-    scrollRight() {
-        console.log('scrolling right');
-    }
-    scrollLeft() {
-        console.log('scrolling left');
-    }
+
     GoToSelected(ind, indP, sharedInstance) {
         var delta = ind - indP;
         for(var i = 0; i < Math.abs(delta); i++)
@@ -213,15 +216,7 @@ export class AppComponent implements OnInit, AfterViewInit {
             }
         }
     }
-    scrollClear(sharedInstance) {
-        //clear all previous listeners
-        //nav functionality
-        var navItems = Array.from(document.getElementsByClassName("nav-item"));
-        navItems.forEach((element, index) => {
-            //this dont work, find out how to do it
-//            element.removeEventListener()
-        });
-    }
+    
     scrollSetUp(sharedInstance) {
         var scrollSections = Array.from(document.getElementsByClassName("scroll-sec"));
         scrollSections.forEach((element, index)=> {
@@ -263,16 +258,19 @@ export class AppComponent implements OnInit, AfterViewInit {
         });
         
         //BY SWIPE (WEB)
-        var WheelSwipe = require('wheel-swipe');
- 
-        var ws = new WheelSwipe();
-
-        window.addEventListener('wheeldown', function(e) { 
-            sharedInstance.scrollUp();
-        });
-
-        window.addEventListener('wheelup', function(e) { 
-            sharedInstance.scrollDown();
+        //var WheelSwipe = require('wheel-swipe');
+        var ws = new WheelIndicator({
+            elem: window,
+            callback: function(e) {
+                switch(e.direction) {
+                    case "up":
+                        sharedInstance.scrollUp();
+                        break;
+                    case "down":
+                        sharedInstance.scrollDown();
+                        break;
+                }                                  
+            }
         });
         
         //nav functionality
@@ -325,15 +323,11 @@ export class AppComponent implements OnInit, AfterViewInit {
         
         var self = this.referenceInstance;
         this.scrollSetUp(self);    
-//        window.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....
-//           var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-//           if (st > lastScrollTop){
-//               // downscroll code
-//           } else {
-//              // upscroll code
-//           }
-//           lastScrollTop = st;
-//        }, false);
-//        
+        
+        //window check to present navoverlay intro
+        if(window.innerWidth > 400 ) {
+            var el = document.getElementById("nav-overlay");
+            el.classList.add("show");
+        }
     }
 }

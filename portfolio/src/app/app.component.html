@@ -46,8 +46,8 @@
     <span></span>
     <span></span>
 </div>
-<ul id="nav-overlay" [@enterAnimationLong] >
-    <div *ngFor="let page of pages; let first = first; let last = last" class="nav-item-holder">
+<ul id="nav-overlay">
+    <div *ngFor="let page of pages; let first = first; let last = last" class="nav-item-holder" [@enterAnimationLong]>
         <li class="nav-item" [class]="first ? 'selected nav-item' : 'nav-item'">
             <h3 class="nav-text">
                 {{page.name}}

@@ -205,6 +205,30 @@
     border: solid 1px #f4f4f4;
 /*    background: white;*/
 }
+#nav-overlay.show {
+    animation: openUp 2.84s 1;
+}
+@keyframes openUp {
+    0% {
+        opacity: 0;
+        top: 50%;
+        bottom: 50%;
+    }
+    50% {
+        opacity: 0;
+        top: 50%;
+        bottom: 50%;
+    }
+    60% {
+        top: 50%;
+        bottom: 50%;
+    }
+    100% {
+        opacity: 1;
+        top: 48px;
+        bottom: 48px;
+    }
+}
 .nav-item-holder {
     display: flex;
     flex-direction: column;
@@ -338,7 +362,7 @@
 
 
 /*SWIPE HINT OVERLAY*/
-#hint-overlay, .arrow-hint {
+.arrow-hint {
 /*    z-index: -1;*/
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
