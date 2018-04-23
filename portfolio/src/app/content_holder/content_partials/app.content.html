@@ -1,14 +1,3 @@
-<!--
-<div (mouseenter)="enter()" (mouseleave)="leave()" class="container">
-    CONTENT OVER HERE
-    <div *ngIf="visible">
-        {{contentSelector}}
-    </div>
-</div>
--->
-<div class="turner-r" (click)="turn(0)"></div>
-<div class="turner-l" (click)="turn(1)"></div>
-<!--[style.backgroundColor]="cont.color"-->
 <section #carouselContent class="carouselContent" [@enterAnimation]>
     <div id="carousel">
         <figure *ngFor="let cont of contentData">
@@ -16,3 +5,6 @@
         </figure>
     </div>
 </section>
+<div class="slidecontainer">
+  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+</div>
