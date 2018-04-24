@@ -31,6 +31,7 @@ export class ContentComponent implements OnInit, AfterViewInit {
     // carousel attributes
     carousel;
     carouselTarget;
+    slideElement;
     incr = 0;
     rotation = 0;
     rotateFn = 'rotateY';
@@ -39,12 +40,20 @@ export class ContentComponent implements OnInit, AfterViewInit {
 
     @HostListener('window:resize', ['$event'])
     onResize(event) {
-        console.log("RESIZING");
-//        this.scrollClear(this.referenceInstance);
-//        this.scrollSetUp(this.referenceInstance);
         if(this.carouselTarget != null) {
             this.carouselSetUp(this.carouselTarget);
         }
+    }
+    SliderInit(e) {
+        this.slideElement = e;
+    }
+    SliderUpdated(e) {
+        this.slideElement = e.target;
+        var value = Math.trunc(this.slideElement.value);
+        
+        this.incr = value - 1;
+        this.rotation = this.theta * this.incr * -1;
+        this.carouselTransform();
     }
 
     enter() {
@@ -66,6 +75,11 @@ export class ContentComponent implements OnInit, AfterViewInit {
         }
         
         var increment = this.incr;
+        var limiter = this.contentData.length;
+        var mod = (increment+1)%limiter;
+        if(mod <= 0)
+            mod += limiter;
+        this.slideElement.value = mod;
         this.rotation = this.theta * increment * -1;
         this.carouselTransform();
     }
@@ -80,7 +94,6 @@ export class ContentComponent implements OnInit, AfterViewInit {
         var lastTouch;
         this.carousel.addEventListener("touchstart", function(e) {
             lastTouch = e.touches[0];
-            console.log("touch start");
         });
 
         this.carousel.addEventListener("touchend", function(e) {
@@ -89,21 +102,38 @@ export class ContentComponent implements OnInit, AfterViewInit {
           var threshold = 20; 
           var deltaY = Math.abs(touch.clientY - lastTouch.clientY);
           var deltaX = Math.abs(touch.clientX - lastTouch.clientX);
-            
-          console.log("touch end");
+          
           if (touch.clientX < lastTouch.clientX && deltaX > threshold && deltaX > deltaY) {
             //right
-              console.log("right");
               sharedInstance.turn(0);
           }  
           else if (touch.clientX > lastTouch.clientX && deltaX > threshold && deltaX > deltaY) {
             //left
-              console.log("left");
               sharedInstance.turn(1);
           }
-          else {
-              //ignore
-              console.log("OTHER");
+          lastTouch = touch;
+        });
+    
+        //FOR WEB
+        var carouselParent = this.carousel.parentNode;
+        carouselParent.addEventListener("mousedown", function(e) {
+            lastTouch = e;
+        });
+
+        carouselParent.addEventListener("mouseup", function(e) {
+
+          var touch = e;
+          var threshold = 20; 
+          var deltaY = Math.abs(touch.clientY - lastTouch.clientY);
+          var deltaX = Math.abs(touch.clientX - lastTouch.clientX);
+            
+          if (touch.clientX < lastTouch.clientX && deltaX > threshold && deltaX > deltaY) {
+            //right
+              sharedInstance.turn(0);
+          }  
+          else if (touch.clientX > lastTouch.clientX && deltaX > threshold && deltaX > deltaY) {
+            //left
+              sharedInstance.turn(1);
           }
           lastTouch = touch;
         });

@@ -1,10 +1,11 @@
 <section #carouselContent class="carouselContent" [@enterAnimation]>
     <div id="carousel">
         <figure *ngFor="let cont of contentData">
-            <img class="logos" [src]="cont.img"/>
+            <img class="logos" [src]="cont.img" draggable="false"/>
         </figure>
     </div>
 </section>
 <div class="slidecontainer">
-  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+  <input #slider type="range" min="1" max="{{contentData.length}}" value="1" class="slider" id="myRange" step="0.1" (input)="SliderUpdated($event)">
+    {{SliderInit(slider)}}
 </div>

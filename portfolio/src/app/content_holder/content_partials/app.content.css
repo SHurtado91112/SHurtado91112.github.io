@@ -84,15 +84,7 @@ figure.frosted:before {
     cursor: pointer;
 }
 
-img.logos, figure {
-    /*    z-index: -1;*/
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+.carouselContent {
     cursor: pointer;
 }
 
@@ -100,6 +92,14 @@ img.logos {
     width: 80%;
     max-width: 300px;
     padding: 8px;
+    
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
 :host img.turner:hover {
@@ -130,13 +130,14 @@ img.logos {
 .slider {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
-    width: 100%; /* Full-width */
-    height: 25px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
+    width: 80%;
+    height: 1px; /* Specified height */
+    
+    background: #f4f4f4; /* Grey background */
     outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
+    opacity: 0.48; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: all .48s ease ; /* 0.2 seconds transition on hover */
+    transition: all .48s ease;
 }
 
 /* Mouse-over effects */
@@ -148,16 +149,27 @@ img.logos {
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #4CAF50; /* Green background */
+    width: 24px; /* Set a specific slider handle width */
+    height: 24px; /* Slider handle height */
+    border-radius: 50%;
+    border-width: 1px;
+    border-color: #f4f4f4;
+    border-style: solid;
+    overflow: hidden;
+    background: #313131;
     cursor: pointer; /* Cursor on hover */
+    transition: all 0.48s ease;
+}
+.slider::-webkit-slider-thumb:hover{
+    border-width: 18px;
 }
 
 .slider::-moz-range-thumb {
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
-    background: #4CAF50; /* Green background */
+    
+    border-radius: 50%;
+    background: #313131;
     cursor: pointer; /* Cursor on hover */
 }
 
