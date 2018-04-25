@@ -27,8 +27,12 @@ export class ContentHolderComponent implements OnInit, AfterViewInit {
     title = "Content";
     @Input() showContent:boolean = false;
     @Input() contentSwitch:boolean = true;
-    left_title = "Portfolio";
-    right_title = "Experience";
+    skillTitle = "Skills";
+    skills = {
+        "Mobile" : ["iOS", "Android", "Swift", "Obj-C", "CocoaPods", "AFNetworking", "OneSignal", "Android Studio"],
+        "Web" : ["HTML", "CSS", "JavaScript", "JQuery", "Angular 5", "Node.js", "npm", ".NET", "ASP .NET Core 2.0", ".NET MVC", "C#", "Front-End", "Back-End"]
+    };
+
     contentSections = [];
 
     toggleContent(content) {
@@ -54,10 +58,15 @@ export class ContentHolderComponent implements OnInit, AfterViewInit {
     }
 
     initSections() {
-        this.contentSections = [
-                  [{"id" : "Miya", "img" : "../assets/Miya-Logo.svg", "color" : "#ff5a5a"}, {"id" : "Zippy Contact", "img" : "../assets/zippy-logo-opc.svg", "color" : "#1bc405"},{"id" : "Autowise", "img" : "../assets/Autowise-Logo.svg", "color" : "#1bc405"},{"id" : "Langua", "img" : "../assets/langua-logo.png", "color" : "#24f04b"},{"id" : "SGSenate", "img" : "../assets/sgsenate-logo.png", "color" : "#24f04b"},{"id" : "Chirpi", "img" : "../assets/chirpi-logo.png", "color" : "#24f04b"},{"id" : "Fiestagram", "img" : "../assets/fiestagram-logo.png", "color" : "#24f04b"}],
-                    [{"id" : "Adobe", "img" : "../assets/adobe-logo.svg", "color" : "#ff0000"}, {"id" : "Disney", "img" : "../assets/Disney_Logo.png", "color" : "#006e99"},{"id" : "Agora", "img" : "../assets/agora-logo.svg", "color" : "#184C7C"},{"id" : "University of Florida", "img" : "../assets/uf-logo.png", "color" : "#24f04b"},{"id" : "Wahi Ride", "img" : "../assets/wahi-logo.png", "color" : "#61b3ff"},{"id" : "iD Tech", "img" : "../assets/id-logo.png", "color" : "#24f04b"}]
-                ];
+        this.contentSections = 
+        [{
+            "title": "Portfolio", 
+            "items":[{"id" : "Miya", "img" : "../assets/Miya-Logo.svg", "color" : "#ff5a5a"}, {"id" : "Zippy Contact", "img" : "../assets/zippy-logo-opc.svg", "color" : "#1bc405"},{"id" : "Autowise", "img" : "../assets/Autowise-Logo.svg", "color" : "#1bc405"},{"id" : "Langua", "img" : "../assets/langua-logo.png", "color" : "#24f04b"},{"id" : "SGSenate", "img" : "../assets/sgsenate-logo.png", "color" : "#24f04b"},{"id" : "Chirpi", "img" : "../assets/chirpi-logo.png", "color" : "#24f04b"},{"id" : "Fiestagram", "img" : "../assets/fiestagram-logo.png", "color" : "#24f04b"}]
+        },
+        {
+            "title": "Experience", 
+            "items":[{"id" : "Adobe", "img" : "../assets/adobe-logo.svg", "color" : "#ff0000"}, {"id" : "Disney", "img" : "../assets/Disney_Logo.png", "color" : "#006e99"},{"id" : "Agora", "img" : "../assets/agora-logo.svg", "color" : "#184C7C"},{"id" : "University of Florida", "img" : "../assets/uf-logo.png", "color" : "#24f04b"},{"id" : "Wahi Ride", "img" : "../assets/wahi-logo.png", "color" : "#61b3ff"},{"id" : "iD Tech", "img" : "../assets/id-logo.png", "color" : "#24f04b"}]
+        }];
     }
 
     ngOnInit() {

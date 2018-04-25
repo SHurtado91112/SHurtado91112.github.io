@@ -1,4 +1,11 @@
+<div class="contentTitle">
+    <h3>
+        {{titleData}}
+    </h3>
+</div>
+
 <section #carouselContent class="carouselContent" [@enterAnimation]>
+    
     <div id="carousel">
         <figure *ngFor="let cont of contentData">
             <img class="logos" [src]="cont.img" draggable="false"/>

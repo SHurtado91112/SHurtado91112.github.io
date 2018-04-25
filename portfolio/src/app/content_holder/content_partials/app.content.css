@@ -130,7 +130,7 @@ img.logos {
 .slider {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
-    width: 80%;
+    width: 60%;
     height: 1px; /* Specified height */
     
     background: #f4f4f4; /* Grey background */
@@ -167,20 +167,44 @@ img.logos {
 .slider::-moz-range-thumb {
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
-    
     border-radius: 50%;
     background: #313131;
     cursor: pointer; /* Cursor on hover */
 }
 
+.contentTitle {
+    z-index: 3000;
+    position: absolute;
+    top: 96px;
+    left: 16px;
+    border-bottom: 1px solid #f4f4f4;
+    opacity: 0.48;
+    transition: all 0.48s ease;
+}
+.contentTitle h3 {
+    color: #f4f4f4;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 100;
+    transition: all 0.48s ease;
+}
+
 @media screen and (min-width: 480px) {
     :host {
         padding: 124px;
-    }    
+    }   
 }
 @media screen and (min-width: 648px) {
     :host {
         padding: 148px;
+    }
+    .contentTitle {
+        top: 72px;
+        left: 32px;
+    }
+    .contentTitle h3 {
+        font-size: 24px;
+        line-height: 24px;
     }
 }
 @media screen and (max-width: 424px) {

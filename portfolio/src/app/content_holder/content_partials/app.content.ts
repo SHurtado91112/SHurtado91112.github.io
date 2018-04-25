@@ -26,6 +26,7 @@ export class ContentComponent implements OnInit, AfterViewInit {
     public visible:boolean;
     public appear:boolean;
     @Input() contentData = [];
+    @Input() titleData:string;
     @ViewChild('carouselContent') carouselContent;
 
     // carousel attributes

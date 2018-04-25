@@ -5,12 +5,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ContentHolderComponent } from './content_holder/app.content_holder';
 import { ContentComponent } from './content_holder/content_partials/app.content';
+import { ContentSkillComponent } from './content_holder/content_partials/app.content_skill';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContentHolderComponent,
-    ContentComponent
+    ContentComponent,
+      ContentSkillComponent
   ],
   imports: [
     BrowserModule,

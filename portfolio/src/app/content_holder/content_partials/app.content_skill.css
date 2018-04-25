@@ -1,0 +1,10 @@
+#searchInput {
+    background: none;
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid #f4f4f4;
+    color: #f4f4f4;
+    font-family: -apple-system, BlinkMacSystemFont, 'Montserrat', Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 36px;
+    font-weight: 100;
+}

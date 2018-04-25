@@ -1,5 +1,6 @@
 <div *ngFor="let sec of contentSections" class="content-container scroll-sec">
-    <content [contentData]="sec" class="host-content"></content>
+    <content [titleData]="sec.title" [contentData]="sec.items" class="host-content"></content>
 </div>
-<div class="content-container scroll-sec" style="background: red;">
+<div class="content-container scroll-sec">
+    <content-skill [titleData]="skillTitle"[featureList]="skills"></content-skill>
 </div>
