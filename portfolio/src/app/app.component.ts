@@ -1,11 +1,13 @@
 import { Component, Input, OnInit, AfterViewInit, HostListener } from '@angular/core';
+import { Router, NavigationStart, NavigationEnd, NavigationError, NavigationCancel, RoutesRecognized } from '@angular/router';
+
 import {style, state, animate, keyframes, transition, trigger} from '@angular/core';
 import * as WheelIndicator from 'wheel-indicator';
 declare var jquery:any;
 declare var $ :any;
 //declare var WheelIndicator:any;
 @Component({
-  selector: 'app-root',
+  selector: 'app-home',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
     animations: [
@@ -58,8 +60,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     subtitle1 = 'Student.';
     subtitle2 = 'Developer.';
     subtitle3 = 'Musician.';
-
+    
     public titleBool:boolean;
+    public stop:boolean = true;
+    public instantiated:boolean = false;
     public nav_opened:boolean = false;
     public returnSwitchAnimation:boolean;
     public referenceInstance:AppComponent;
@@ -136,12 +140,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
 
     goTo(link) {
-        console.log("GO TO: " + link);
         window.open(link, "_blank");
     }
 
     ngOnInit() {
-        console.log("PARENT INITED");
         this.referenceInstance = this;
     }
 
@@ -149,6 +151,9 @@ export class AppComponent implements OnInit, AfterViewInit {
         var navItems = Array.from(document.getElementsByClassName("nav-item"));
         
         var selected = document.getElementsByClassName("selected")[0];
+        if(selected == null) {
+            return;
+        }
         selected.classList.remove("selected");
         
         var indPrime = navItems.indexOf(selected);
@@ -164,6 +169,12 @@ export class AppComponent implements OnInit, AfterViewInit {
          var setTo = document.getElementsByClassName("nav-item")[index];     setTo.classList.add("selected");
     }
     scrollUp() {
+        if(this.stop)
+        {
+            return;    
+        }
+        var self = this.referenceInstance;
+        
         console.log('scrolling up');
         var scrollSections = Array.from(document.getElementsByClassName("scroll-sec"));
         scrollSections.forEach((element, index)=> {           
@@ -176,19 +187,39 @@ export class AppComponent implements OnInit, AfterViewInit {
             
             //visibility check
             if(parseInt(elem.style.top) == 0) 
+            {
                 elem.classList.add("inwindow");
+                
+                console.log(elem);
+                var child = <HTMLElement>elem.getElementsByTagName("content-skill")[0];
+                if(child != null) {
+                    console.log("child exists: " + child);
+                    //add focus to searchInput
+                    setTimeout( function() {
+                       (<HTMLInputElement>document.getElementById("searchInput")).focus();
+                    }, 480); 
+                }
+            }
             else 
+            {
                 elem.classList.remove("inwindow");
+            }
             
         });
         this.updateNavigation(-1);
     }
     scrollDown() {
+        if(this.stop)
+        {
+            return;    
+        }
+        var self = this.referenceInstance;
+        
         console.log('scrolling down');
         var scrollSections = Array.from(document.getElementsByClassName("scroll-sec"));
         scrollSections.forEach((element, index)=> {
             var elem = <HTMLElement>element;
-            
+            console.log(elem);
             //shuffle
             elem.style.top = parseInt(elem.style.top) - 100 +"%";
             if(parseInt(elem.style.top) < -100) {
@@ -197,9 +228,21 @@ export class AppComponent implements OnInit, AfterViewInit {
             
             //visibility check
             if(parseInt(elem.style.top) == 0) 
+            {
                 elem.classList.add("inwindow");
+                var child = <HTMLElement>elem.getElementsByTagName("content-skill")[0];
+                if(child != null) {
+                    console.log("child exists: " + child);
+                    //add focus to searchInput
+                   setTimeout( function() {
+                       (<HTMLInputElement>document.getElementById("searchInput")).focus();
+                   }, 480); 
+                }
+            }
             else 
+            {
                 elem.classList.remove("inwindow");
+            }
         });
         this.updateNavigation(1);
     }
@@ -221,10 +264,16 @@ export class AppComponent implements OnInit, AfterViewInit {
         var scrollSections = Array.from(document.getElementsByClassName("scroll-sec"));
         scrollSections.forEach((element, index)=> {
             var elem = <HTMLElement>element;
+
             if(index*100 == 0) 
-                elem.classList.add("inwindow");
+            {
+               elem.classList.add("inwindow");
+            } 
             else 
-                elem.classList.remove("inwindow");
+            {
+               elem.classList.remove("inwindow");
+            }
+                
             
             elem.style.top = (index * 100)+"%";
             
@@ -236,12 +285,45 @@ export class AppComponent implements OnInit, AfterViewInit {
         
         //BY TOUCH
         var lastTouch;
-        
-        document.getElementsByClassName("loop")[0].addEventListener("touchstart", function(e) {
-            lastTouch = e.touches[0];
-        });
+        if(!sharedInstance.instantiated)
+        {
+            document.getElementsByClassName("loop")[0].addEventListener("touchstart", TouchStart);
+                                                                       
+            document.getElementsByClassName("loop")[0].addEventListener("touchend", TouchEnd);         
+            
+            //BY SWIPE (WEB)
+            //var WheelSwipe = require('wheel-swipe');
+            var ws = new WheelIndicator({
+                elem: window,
+                callback: function(e) {
+                    switch(e.direction) {
+                        case "up":
+                            sharedInstance.scrollUp();
+                            break;
+                        case "down":
+                            sharedInstance.scrollDown();
+                            break;
+                    }     
+                }
+            });
 
-        document.getElementsByClassName("loop")[0].addEventListener("touchend", function(e) {
+            //nav functionality
+            var navItems = Array.from(document.getElementsByClassName("nav-item"));
+            navItems.forEach((element, index) => {
+                element.addEventListener("click", function() {
+                       var selected = document.getElementsByClassName("selected")[0];
+                       var indPrime = navItems.indexOf(selected);
+                        sharedInstance.GoToSelected(index, indPrime, sharedInstance);
+                   });
+            });
+            sharedInstance.instantiated = true;
+        }
+
+        function TouchStart(e) {
+            lastTouch = e.touches[0];
+        }
+        
+        function TouchEnd(e) {
 
           var touch = e.changedTouches[0];
           var threshold = 20; 
@@ -255,33 +337,7 @@ export class AppComponent implements OnInit, AfterViewInit {
             sharedInstance.scrollDown();
           }
           lastTouch = touch;
-        });
-        
-        //BY SWIPE (WEB)
-        //var WheelSwipe = require('wheel-swipe');
-        var ws = new WheelIndicator({
-            elem: window,
-            callback: function(e) {
-                switch(e.direction) {
-                    case "up":
-                        sharedInstance.scrollUp();
-                        break;
-                    case "down":
-                        sharedInstance.scrollDown();
-                        break;
-                }                                  
-            }
-        });
-        
-        //nav functionality
-        var navItems = Array.from(document.getElementsByClassName("nav-item"));
-        navItems.forEach((element, index) => {
-            element.addEventListener("click", function() {
-               var selected = document.getElementsByClassName("selected")[0];
-               var indPrime = navItems.indexOf(selected);
-                sharedInstance.GoToSelected(index, indPrime, sharedInstance);
-           }) 
-        });
+        }
         
         //mobile check
         function mobilecheck() {
@@ -305,10 +361,23 @@ export class AppComponent implements OnInit, AfterViewInit {
         }
     }
 
+
+    constructor(router:Router) {
+      router.events.forEach((event) => {
+        if(event instanceof NavigationEnd) {
+        }
+        // NavigationStart
+        // NavigationEnd
+        // NavigationCancel
+        // NavigationError
+        // RoutesRecognized
+      });
+    }
+
     ngAfterViewInit() {
-        var stop = false
+        var self = this.referenceInstance;
         setTimeout(()=>{
-            stop = true
+           
            var awaited = Array.from(document.getElementsByClassName("await")); 
             awaited.forEach((element) => {
                element.classList.add("enter"); 
@@ -318,10 +387,12 @@ export class AppComponent implements OnInit, AfterViewInit {
             awaited.forEach((element) => {
                element.classList.add("enter"); 
             });
-//           
+            
+            setTimeout(()=>{
+                self.stop = false;
+            }, 840);
         }, 840);
         
-        var self = this.referenceInstance;
         this.scrollSetUp(self);    
         
         //window check to present navoverlay intro

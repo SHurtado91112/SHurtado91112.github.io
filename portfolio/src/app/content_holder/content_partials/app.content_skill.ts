@@ -1,10 +1,12 @@
 import { Component, Input, OnInit, AfterViewInit, ViewChild, HostListener } from '@angular/core';
 import {style, state, animate, transition, trigger} from '@angular/core';
+import * as WheelIndicator from 'wheel-indicator';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'content-skill',
   templateUrl: './app.content_skill.html',
-  styleUrls: ['./app.content_skill.css', './app.content.css'],
+  styleUrls: ['./app.content.css', './app.content_skill.css'],
   animations: [
     trigger(
       'enterAnimation', [
@@ -26,47 +28,89 @@ export class ContentSkillComponent implements OnInit, AfterViewInit {
     @Input() featureList = {};
     @Input() resultList = [];
     @Input() titleData:string;
+    resumeLink = "../assets/Steven_Hurtado_Resume.pdf";
     inputElement;
-
-    InitSearchInput(sharedInstance){
+    initSearchInput(sharedInstance){
         
         this.inputElement = document.getElementById("searchInput");
         
         this.inputElement.addEventListener("keyup", function(e) {
-            var resultList = sharedInstance.resultList;
-            var featureList = sharedInstance.featureList;
-            
-            //clear result list
             var target = e.target;
-            resultList = [];
-            console.log(target);
-            var input = target.value;
-            const keys = Object.keys(featureList);
             
-            var ind;
-            for(ind in keys) {
-                var key = keys[ind].toLowerCase();
-                if(key.includes(input.toLowerCase())) {
-                    var list = featureList[key];
-                    console.log(list);
-                    resultList.push.apply(resultList, list);
-                    console.log("ADD ME");
-                    console.log(resultList.length);
-                }
-                    
+            if ((<KeyboardEvent>event).keyCode === 13) {
+                 sharedInstance.activateSpecialInput(target.value);
             }
-            console.log(resultList);
-            console.log(featureList);
-        });
+            
+            sharedInstance.searchThis(target.value);
+        });    
     }
 
-    constructor(){}
+    activateSpecialInput(skill) {
+        switch(skill.toLowerCase()) {
+            case "resume":
+                window.open(this.resumeLink);
+                break;
+            case "music":
+                var router = this.router;
+                var flash = document.getElementById("loader-flash");
+                
+                flash.classList.add("active");
+                
+                setTimeout(function() {
+                    router.navigate(['music']);
+                    flash.classList.remove("out");
+                    flash.classList.remove("active");
+                }, 480);
+                
+                break;
+            default:
+                break;
+        }           
+    }
+
+    searchThis(skill) {
+        var sharedInstance = this;
+        this.inputElement.value = skill;
+        
+        var resultList = sharedInstance.resultList;
+        var featureList = sharedInstance.featureList;
+
+        //clear result list
+        resultList = [];
+        var input = skill;
+        if(input == "")
+        {
+            sharedInstance.resultList = [];
+            return;
+        }
+
+        const keys = Object.keys(featureList);
+
+        var ind;
+        for(ind in keys) {
+            var key = keys[ind];
+            if(key.toLowerCase().includes(input.toLowerCase())) {
+                var list = featureList[key];
+                resultList.push.apply(resultList, list);
+            }
+        }
+
+        sharedInstance.resultList = resultList;
+    }
+
+    setUpSearchWall(self)
+    {
+        
+    }
+
+    constructor(private route:ActivatedRoute,private router:Router) { }
 
     ngOnInit() {
     }
 
     ngAfterViewInit() {
         var sharedInstance = this;
-        this.InitSearchInput(sharedInstance);
+        this.initSearchInput(sharedInstance);
+        this.setUpSearchWall(sharedInstance);
    }
 }

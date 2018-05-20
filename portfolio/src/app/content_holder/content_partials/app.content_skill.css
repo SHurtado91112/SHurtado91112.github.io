@@ -1,3 +1,12 @@
+:host {
+    flex-direction: column;
+    padding: 32px !important;
+}
+.searchContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 #searchInput {
     background: none;
     outline: none;
@@ -7,4 +16,56 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Montserrat', Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 36px;
     font-weight: 100;
+    max-width: 100%;
+}
+
+.searchResult {
+    color: #f4f4f4;
+    opacity: 0.48;
+    font-family: -apple-system, BlinkMacSystemFont, 'Montserrat', Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 100;
+    padding: 8px;
+    border-bottom: 1px solid transparent;
+    transition: all 0.48s ease;
+    animation: 0.84s enterResult 1;
+    cursor: pointer;
+}
+.searchResult:hover {
+    opacity: 1;
+    font-size: 24px;
+    line-height: 24px;
+    border-bottom: 1px solid #f4f4f4;
+}
+@keyframes enterResult {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.48;
+    }
+}
+.searchWall {
+    padding: 32px 0 0 0;    
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 320px;
+    max-width: 480px;
+    width: 100%;
+    transition: all 0.48s ease;
+}
+@media screen and (max-width: 400px) 
+{
+    .searchResult {
+        font-size: 16px;
+        line-height: 16px;
+    }
+    .searchResult:hover {
+        font-size: 18px;
+        line-height: 18px;
+    }
 }

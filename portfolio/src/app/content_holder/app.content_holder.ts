@@ -1,8 +1,12 @@
-import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import {style, state, animate, transition, trigger} from '@angular/core';
+import { InViewportModule } from 'ng-in-viewport';
+// Remember to import `intersection-observer` polyfill to support all major browsers
+import 'intersection-observer';
 
 @Component({
   selector: 'app-content-holder',
+  encapsulation: ViewEncapsulation.None,
   templateUrl: './app.content_holder.html',
   styleUrls: ['../app.component.css','./app.content_holder.css'],
   animations: [
@@ -27,10 +31,41 @@ export class ContentHolderComponent implements OnInit, AfterViewInit {
     title = "Content";
     @Input() showContent:boolean = false;
     @Input() contentSwitch:boolean = true;
+    visible = {};
     skillTitle = "Skills";
     skills = {
-        "Mobile" : ["iOS", "Android", "Swift", "Obj-C", "CocoaPods", "AFNetworking", "OneSignal", "Android Studio"],
-        "Web" : ["HTML", "CSS", "JavaScript", "JQuery", "Angular 5", "Node.js", "npm", ".NET", "ASP .NET Core 2.0", ".NET MVC", "C#", "Front-End", "Back-End"]
+        "Mobile" : ["iOS", "Android", "Swift", "Obj-C", "Android Studio", "XCode", "Xamarin", "Full-Stack", "Adobe", "Disney"],
+        "Web" : ["HTML", "CSS", "JavaScript", "JQuery", "Angular", "Node.js", "npm", ".NET", "ASP .NET Core 2.0", ".NET MVC", "C#", "Front-End", "Back-End", "Full-Stack", "Disney"],
+        "iOS" : ["Obj-C", "Swift", "CocoaPods", "AFNetworking", "OneSignal", "AutoLayout", "UITouch", "Apple Pencil", "ARKit", "XCode", "iBeacon"],
+        "Obj-C" : ["iOS", "Mobile", "UITouch", "CocoaPods", "AutoLayout", "OneSignal", "Apple Pencil"],
+        "Swift" : ["iOS", "Mobile", "UITouch", "CocoaPods", "AutoLayout", "ARKit", "AFNetworking", "Apple Pencil", "Frameworks"],
+        "iBeacon" : ["iOS", "Bluetooth", "Positioning", "ARKit"],
+        "ARKit" : ["Miya", "3D", "iOS", "Mobile"],
+        "UITouch" : ["Apple Pencil", "Force Sensitivity", "Altitude", "Azimuth", "Texturing", "iOS", "Mobile"],
+        "Apple Pencil" : ["UITouch", "iOS", "Mobile"],
+        "Android" : ["Java", "Android Studio", "Firebase", "XML"],
+        "Front-End" : ["Design", "CSS", "JavaScript", "JQuery", "Angular", "Adobe", "InDesign", "Illustrator", "Photoshop", "Animate", "Flexbox", "Bootstrap"],
+        "Back-End" : [".NET", "Firebase", "JSON", "JSON.NET", "Database", "SQL", "MS SQL Server", "Oracle", "Java", "C#", "Angular", "REST", "SOAP", "Security"],
+        "Design" : ["Adobe", "InDesign", "Illustrator", "Photoshop", "Animate", "Front-End", "Storyboards", "UX", "3D", "2D"],
+        "2D" : ["Awesome Island", "GameMaker"],
+        "3D" : ["Awesome Island 2018", "Blender", "Unreal Engine"],
+        "Adobe" : ["Summer 2018", "iOS", "Apple Pencil", "InDesign", "Illustrator", "Photoshop", "Animate", "Front-End", "Back-End", "Full-Stack"],
+        "Disney" : ["Spring 2018", "Xamarin", "C#", ".NET", "ASP .NET Core 2.0", ".NET MVC", "JSON.NET", "SQL", "Front-End", "Back-End", "Full-Stack"],
+        "Full-Stack" : ["Front-End", "Back-End", "Mobile", "Web", "Adobe", "Disney"],
+        "Database" : ["SQL", "MS SQL Server", "Oracle"],
+        "SQL" : ["Database", "MS SQL Server", "Oracle", "JSON Support"],
+        "Frameworks" : [".NET", "AFNetworking", "UITouch", "ARKit", "Angular", "JSON.NET", "Firebase", "Xamarin", "Twitter API", "Facebook API"],
+        "Xamarin" : ["Hybrid", "Mobile", "iOS", "Android", "C#"],
+        "JSON" : ["JSON.NET", "Newtonsoft", "REST"],
+        "Java" : ["Back-End", "Android", "Mobile"],
+        "C#" : ["Xamarin", ".NET", ".NET MVC", "ASP .NET Core 2.0", "Back-End", "Security"],
+        "Security" : ["OAuth", "Authentication", "Back-End"],
+        "Internships" : ["Check out the 'Experience' tab!"],
+        "Experience" : ["Check out the 'Experience' tab!"],
+        "Projects" : ["Check out the 'Portfolio' tab!"],
+        "Portfolio" : ["Check out the 'Portfolio' tab!"],
+        "Resume" : ["Press Enter."],
+        "Music" : ["Press Enter."]
     };
 
     contentSections = [];

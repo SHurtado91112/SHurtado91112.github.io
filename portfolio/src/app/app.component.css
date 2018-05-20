@@ -30,6 +30,9 @@
 .scroll-sec.enter {
     transition: all 0.48s ease;
 }
+.scroll-sec.exiting {
+    opacity: 0;
+}
 
 #title-content {
     display: flex;

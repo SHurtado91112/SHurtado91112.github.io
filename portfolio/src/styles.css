@@ -180,3 +180,21 @@ h4 {
     color: #cbcbcb;
     font-family: -apple-system, BlinkMacSystemFont, 'Montserrat', Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
+
+
+#loader-flash {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #f4f4f4;
+    opacity: 0;
+    transition: all 0.48s ease;
+    z-index: -1;
+}
+#loader-flash.out {
+    display: none;
+}
+#loader-flash.active {
+    opacity: 1;
+    display: block;
+    z-index: 4000;
+}

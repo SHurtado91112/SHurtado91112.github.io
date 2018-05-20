@@ -117,12 +117,19 @@ export class ContentComponent implements OnInit, AfterViewInit {
     
         //FOR WEB
         var carouselParent = this.carousel.parentNode;
+        var startedSwipe = false;
         carouselParent.addEventListener("mousedown", function(e) {
+            startedSwipe = true;
             lastTouch = e;
         });
 
-        carouselParent.addEventListener("mouseup", function(e) {
-
+        document.addEventListener("mouseup", function(e) {
+            
+          if(!startedSwipe)
+          {
+              return;
+          }
+          startedSwipe = false;    
           var touch = e;
           var threshold = 20; 
           var deltaY = Math.abs(touch.clientY - lastTouch.clientY);
@@ -161,7 +168,6 @@ export class ContentComponent implements OnInit, AfterViewInit {
             panel = this.carousel.children[i];
             angle = theta * i;
             panel.style.opacity = 1;
-            //panel.style.backgroundColor = hexToRgb(this.contentData[i].color);
             // rotate panel, then push it out in 3D space
             panel.style.transform = this.rotateFn + '(' + angle + 'deg) translateZ(' + radius + 'px)';
             panel.classList.add('frosted')
@@ -177,8 +183,6 @@ export class ContentComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         this.visible = false;
-        
-        //this.getContentData();
     }
 
     ngAfterViewInit() {
@@ -189,15 +193,10 @@ export class ContentComponent implements OnInit, AfterViewInit {
         var callback = function(mutationsList) {
             for(var mutation of mutationsList) {
                 if (mutation.type == 'attributes') {
-                    console.log('The ' + mutation.attributeName + ' attribute was modified.');
                     if(mutation.attributeName == 'style')
                         {
                             sharedInstance.carouselSetUp(mutation.target);    
-//                            console.log("MUTANT");
-//                            console.log(mutation.target);
-//                            console.log(mutation.target);
                         }
-                        
                 }
             }
         };
@@ -208,17 +207,12 @@ export class ContentComponent implements OnInit, AfterViewInit {
         Array.from(document.getElementsByClassName("content-container")); 
         carouselView.forEach((element) => {
            var elem = <HTMLElement>element;
-            console.log("HOIIIYA");
-            console.log(elem);
             
             if(isDescendant(elem, elementInstance))
             {
-                console.log("isMEEE");
                 // Create an observer instance linked to the callback function
                 var observer = new MutationObserver(callback);
                 // Start observing the target node for configured mutations
-                console.log("NATIVE ELEMENT TO OBSERVE");
-                console.log(elementInstance);
                 this.carousel = elem.querySelector("#carousel");
                 observer.observe(elem, config);
                 this.carouselSwipeSetUp();
