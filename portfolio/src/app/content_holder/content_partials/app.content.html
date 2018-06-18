@@ -7,8 +7,8 @@
 <section #carouselContent class="carouselContent" [@enterAnimation]>
     
     <div id="carousel">
-        <figure *ngFor="let cont of contentData">
-            <img class="logos" [src]="cont.img" draggable="false"/>
+        <figure *ngFor="let cont of contentData; let ind = index">
+            <img class="logos" [src]="cont.img" draggable="false" [routerLink]="['/detail', this.index, ind]"/>
         </figure>
     </div>
 </section>

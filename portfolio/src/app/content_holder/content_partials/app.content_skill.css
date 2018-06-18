@@ -11,16 +11,29 @@
     background: none;
     outline: none;
     border: 0;
-    border-bottom: 1px solid #f4f4f4;
-    color: #f4f4f4;
+    border-bottom: 1px solid var(--main-light-color);
+    color: var(--main-light-color);
     font-family: -apple-system, BlinkMacSystemFont, 'Montserrat', Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 36px;
     font-weight: 100;
     max-width: 100%;
+    transition: all 0.48s ease;
+}
+#searchInput.blur {
+   text-shadow: var(--text-shadow-default);
+   color: transparent;
+}
+#searchInput::-webkit-input-placeholder {
+  opacity: 1;
+  color: var(--secondary-light-color);
+  -webkit-transition: all 0.48s ease;
+}
+#searchInput.blur::-webkit-input-placeholder {
+  opacity: 0;
 }
 
 .searchResult {
-    color: #f4f4f4;
+    color: var(--main-light-color);
     opacity: 0.48;
     font-family: -apple-system, BlinkMacSystemFont, 'Montserrat', Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 20px;
@@ -36,7 +49,7 @@
     opacity: 1;
     font-size: 24px;
     line-height: 24px;
-    border-bottom: 1px solid #f4f4f4;
+    border-bottom: 1px solid var(--main-light-color);
 }
 @keyframes enterResult {
     0% {

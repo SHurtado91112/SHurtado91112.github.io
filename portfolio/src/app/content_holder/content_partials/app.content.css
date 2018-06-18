@@ -69,7 +69,7 @@ figure.frosted:before {
     bottom: 0;
     z-index: -1;
     box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.48);
-    filter: blur(10px);
+    filter: blur(0px);
 }
 
 /*  switcher    */
@@ -154,9 +154,11 @@ img.logos {
     border-radius: 50%;
     border-width: 1px;
     border-color: #f4f4f4;
+    border-color: var(--main-light-color);
     border-style: solid;
     overflow: hidden;
-    background: #313131;
+    background: #7a7979;
+    background: var(--main-bg-color);
     cursor: pointer; /* Cursor on hover */
     transition: all 0.48s ease;
 }
@@ -168,7 +170,8 @@ img.logos {
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
     border-radius: 50%;
-    background: #313131;
+    background: #7a7979;
+    background: var(--main-bg-color);
     cursor: pointer; /* Cursor on hover */
 }
 
@@ -177,13 +180,13 @@ img.logos {
     position: absolute;
     top: 96px;
     left: 16px;
-    border-bottom: 1px solid #f4f4f4;
-    opacity: 0.48;
+    border-bottom: 1px solid var(--main-light-color, #f4f4f4);
     transition: all 0.48s ease;
 }
 .contentTitle h3 {
-    color: #f4f4f4;
+    color: var(--main-light-color, #f4f4f4);
     font-size: 20px;
+    text-shadow: var(--text-shadow-default);
     line-height: 20px;
     font-weight: 100;
     transition: all 0.48s ease;

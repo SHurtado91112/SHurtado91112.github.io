@@ -19,7 +19,7 @@
 }
 #start-music i {
     position: absolute;
-    border: ridge 0px #f4f4f4;
+    border: ridge 0px var(--main-light-color);
     border-right-width: 4px;
     height: 40px;
 }

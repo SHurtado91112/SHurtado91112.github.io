@@ -26,6 +26,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 export class ContentSkillComponent implements OnInit, AfterViewInit {
     @Input() featureList = {};
+    @Input() highlightList = {};
     @Input() resultList = [];
     @Input() titleData:string;
     resumeLink = "../assets/Steven_Hurtado_Resume.pdf";
@@ -43,6 +44,35 @@ export class ContentSkillComponent implements OnInit, AfterViewInit {
             
             sharedInstance.searchThis(target.value);
         });    
+        
+        
+        var interv = 0;
+        setTimeout(updatePlaceholder, 2240);
+        
+        function updatePlaceholder() {
+            
+            if(sharedInstance.inputElement == null)
+            {
+                return;
+            }
+           
+            if(sharedInstance.inputElement.value == "") {
+                sharedInstance.inputElement.classList.add("blur");
+            }
+            
+            setTimeout(function() {  
+                if(sharedInstance.inputElement.value == "")
+                {
+                    sharedInstance.inputElement.placeholder = "Try '" + sharedInstance.highlightList[interv++] + "'";
+                }
+                
+                if(interv >= sharedInstance.highlightList.length)
+                {
+                    interv = 0;
+                } sharedInstance.inputElement.classList.remove("blur");
+                setTimeout(updatePlaceholder, 1760);
+            }, 480);
+        }
     }
 
     activateSpecialInput(skill) {

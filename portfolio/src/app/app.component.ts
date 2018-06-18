@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, AfterViewInit, HostListener } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd, NavigationError, NavigationCancel, RoutesRecognized } from '@angular/router';
+import {DetailService} from './app.detail_service';
 
 import {style, state, animate, keyframes, transition, trigger} from '@angular/core';
 import * as WheelIndicator from 'wheel-indicator';

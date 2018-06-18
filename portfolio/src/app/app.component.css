@@ -44,6 +44,7 @@
     font-size: 72px;
     color: transparent;    
     line-height: 64px;
+    
     margin: 0;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -55,7 +56,7 @@
 }
 
 .blurry-text {
-   text-shadow: 0 0 36px #f4f4f4;
+   text-shadow: 0 0 36px var(--main-light-color);
    color: transparent;
     
    transition: color 1.48s ease, text-shadow 1.48s ease;
@@ -86,19 +87,21 @@
 }
 
 .subtitle h3.selected {
-    color: #f4f4f4;
+    color: var(--main-light-color);
     background-position: 0 0;
 }
 .subtitle h3.enter, .title h1.enter {
-    color: #f4f4f4;
-    text-shadow: 0 0 36px transparent;
+    color: var(--main-light-color);
+    text-shadow: var(--text-shadow-default);
 }
 
 .subtitle hr {
     margin-top: 12px;
     margin-bottom: 0;
+    text-shadow: 0 0 36px transparent;
     width: 0px;
     border-top: 1px solid #f4f4f4;
+    border-top: 1px solid var(--main-light-color);
     transition: all 0.48s ease;
 }
 
@@ -151,17 +154,19 @@
 .link-overlay {
 /*    background-color: #cbcbcb;*/
     opacity: 1.0;  
-    -webkit-filter: blur(0px) brightness(100.1) contrast(10) grayscale(100)                    hue-rotate(0deg) invert(0.0) opacity(100%) saturate(0.0) sepia(0.0);
+    -webkit-filter: blur(0px) brightness(100.1) contrast(10) grayscale(100) hue-rotate(0deg) invert(0.0) opacity(100%) saturate(0.0) sepia(0.0) drop-shadow(1px 1px 2px rgba(0,0,0,0.48));
+    
+/*    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.64));*/
 }
 
 .link-overlay:hover {
     transition: -webkit-filter 0.48s ease;
 /*    opacity: .48;*/
-    -webkit-filter: blur(0px) brightness(100.1) contrast(10) grayscale(100)                    hue-rotate(0deg) invert(0.48) opacity(100%) saturate(0.0) sepia(0.0);
+    -webkit-filter: blur(0px) brightness(100.1) contrast(10) grayscale(100) hue-rotate(0deg) invert(0.48) opacity(100%) saturate(0.0) sepia(0.0) drop-shadow(8px 8px 12px rgba(0,0,0,0.24));
 }
 
 .dark {
-    background: rgba(49, 49, 49, 0.92);
+/*    background: rgba(49, 49, 49, 0.92);*/
     padding: 4px;
 }
 
@@ -203,9 +208,10 @@
     height: auto;
     width: 48px;
     margin: 0;
-    background: rgba(49, 49, 49, 0.84);
+    background: var(--main-bg-color);
     transition: all 0.48s ease;
     border: solid 1px #f4f4f4;
+    border: solid 1px var(--main-light-color);
 /*    background: white;*/
 }
 #nav-overlay.show {
@@ -244,7 +250,9 @@
 #nav-overlay li .nav-text {
     font-size: 20px;
     font-variant: all-small-caps;
+    text-shadow: var(--text-shadow-default);
     color: #c3c3c3;
+    color: var(--secondary-light-color);
 /*    color: gray;*/
     padding: 0 8px 0 8px;
     transition: all 0.24s ease;
@@ -258,7 +266,7 @@
     background-position: center;
     background-repeat: no-repeat;
     opacity: 1.0;  
-    -webkit-filter: blur(0px) brightness(100.1) contrast(10) grayscale(100)                    hue-rotate(0deg) invert(0.48) opacity(100%) saturate(0.0) sepia(0.0);
+    -webkit-filter: blur(0px) brightness(100.1) contrast(10) grayscale(100) hue-rotate(0deg) invert(0.24) opacity(100%) saturate(0.0) sepia(0.0) drop-shadow(8px 8px 12px rgba(0,0,0,0.24));
     transition: all 0.48s ease;
     
 }
@@ -266,7 +274,7 @@
 #nav-overlay li .nav-icon:hover, #nav-overlay li.selected .nav-icon {
     transition: -webkit-filter 0.48s ease;
 /*    opacity: .48;*/
-    -webkit-filter: blur(0px) brightness(100.1) contrast(10) grayscale(100)                    hue-rotate(0deg) invert(0.0) opacity(100%) saturate(0.0) sepia(0.0);
+    -webkit-filter: blur(0px) brightness(100.1) contrast(10) grayscale(100) hue-rotate(0deg) invert(0.0) opacity(100%) saturate(0.0) sepia(0.0) drop-shadow(1px 1px 2px rgba(0,0,0,0.48));
 }
 
 #nav-overlay .vertical-sep {

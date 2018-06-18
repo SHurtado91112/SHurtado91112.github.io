@@ -33,6 +33,7 @@ export class ContentHolderComponent implements OnInit, AfterViewInit {
     @Input() contentSwitch:boolean = true;
     visible = {};
     skillTitle = "Skills";
+    highlights = ["Mobile", "Resume", "Music", "iOS", "Web"];
     skills = {
         "Mobile" : ["iOS", "Android", "Swift", "Obj-C", "Android Studio", "XCode", "Xamarin", "Full-Stack", "Adobe", "Disney"],
         "Web" : ["HTML", "CSS", "JavaScript", "JQuery", "Angular", "Node.js", "npm", ".NET", "ASP .NET Core 2.0", ".NET MVC", "C#", "Front-End", "Back-End", "Full-Stack", "Disney"],
@@ -105,7 +106,6 @@ export class ContentHolderComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-        console.log("CHILD INITED")
         this.initSections();
     }
 

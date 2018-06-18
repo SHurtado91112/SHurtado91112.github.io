@@ -1,5 +1,6 @@
-import { Component, Input, OnInit, AfterViewInit, ViewChild, HostListener } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, AfterViewInit, ViewChild, HostListener } from '@angular/core';
 import {style, state, animate, transition, trigger} from '@angular/core';
+import {DetailService} from '../../app.detail_service';
 
 @Component({
   selector: 'content',
@@ -22,10 +23,12 @@ import {style, state, animate, transition, trigger} from '@angular/core';
   }
 })
 
-export class ContentComponent implements OnInit, AfterViewInit {
+export class ContentComponent implements OnInit, AfterViewInit, OnDestroy {
     public visible:boolean;
     public appear:boolean;
     @Input() contentData = [];
+    @Input() contentSections = [];
+    @Input() index = 0;
     @Input() titleData:string;
     @ViewChild('carouselContent') carouselContent;
 
@@ -179,10 +182,16 @@ export class ContentComponent implements OnInit, AfterViewInit {
         this.carouselTransform();
     }
 
-    constructor(){}
+    constructor(public detailService: DetailService)
+    {
+    }
 
     ngOnInit() {
         this.visible = false;
+    }
+    
+    ngOnDestroy() {
+        this.detailService.content = this.contentSections;
     }
 
     ngAfterViewInit() {
