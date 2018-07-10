@@ -27,15 +27,19 @@ export class ContentDetailComponent implements OnInit, AfterViewInit {
             this.index = params['ind'];
         });
         
-        if(!this.detailService || !this.detailService.content || this.index >= this.detailService.content.length)
+        if(!this.detailService || !this.detailService.content)
         {
             this.router.navigate(['home']);
         }
         
         this.sections = this.detailService.content;
         console.log(this.sections);
-        
-        this.currentItem = this.sections[this.section]['items'][this.index];
+        if(this.index >= this.sections[this.section].length)
+        {
+            this.router.navigate(['home']);
+        }
+        this.currentItem = this.sections[this.section]
+        ['items'][this.index];
         console.log(this.currentItem);
     }
 

@@ -35,14 +35,13 @@ export class ContentHolderComponent implements OnInit, AfterViewInit {
     skillTitle = "Skills";
     highlights = ["Mobile", "Resume", "Music", "iOS", "Web"];
     skills = {
-        "Mobile" : ["iOS", "Android", "Swift", "Obj-C", "Android Studio", "XCode", "Xamarin", "Full-Stack", "Adobe", "Disney"],
+        "Mobile" : ["iOS", "Android", "Swift", "Objective-C", "Android Studio", "XCode", "Xamarin", "Full-Stack", "Adobe", "Disney"],
         "Web" : ["HTML", "CSS", "JavaScript", "JQuery", "Angular", "Node.js", "npm", ".NET", "ASP .NET Core 2.0", ".NET MVC", "C#", "Front-End", "Back-End", "Full-Stack", "Disney"],
-        "iOS" : ["Obj-C", "Swift", "CocoaPods", "AFNetworking", "OneSignal", "AutoLayout", "UITouch", "Apple Pencil", "ARKit", "XCode", "iBeacon"],
-        "Obj-C" : ["iOS", "Mobile", "UITouch", "CocoaPods", "AutoLayout", "OneSignal", "Apple Pencil"],
+        "iOS" : ["Objective-C", "Swift", "CocoaPods", "AFNetworking", "OneSignal", "AutoLayout", "UITouch", "Apple Pencil", "ARKit", "XCode", "CoreML"],
+        "Objective-C" : ["iOS", "Mobile", "UITouch", "CocoaPods", "AutoLayout", "OneSignal", "Apple Pencil", "CoreML"],
         "Swift" : ["iOS", "Mobile", "UITouch", "CocoaPods", "AutoLayout", "ARKit", "AFNetworking", "Apple Pencil", "Frameworks"],
-        "iBeacon" : ["iOS", "Bluetooth", "Positioning", "ARKit"],
         "ARKit" : ["Miya", "3D", "iOS", "Mobile"],
-        "UITouch" : ["Apple Pencil", "Force Sensitivity", "Altitude", "Azimuth", "Texturing", "iOS", "Mobile"],
+        "UITouch" : ["Apple Pencil", "Force Sensitivity", "Texturing", "iOS", "Mobile"],
         "Apple Pencil" : ["UITouch", "iOS", "Mobile"],
         "Android" : ["Java", "Android Studio", "Firebase", "XML"],
         "Front-End" : ["Design", "CSS", "JavaScript", "JQuery", "Angular", "Adobe", "InDesign", "Illustrator", "Photoshop", "Animate", "Flexbox", "Bootstrap"],
@@ -55,7 +54,7 @@ export class ContentHolderComponent implements OnInit, AfterViewInit {
         "Full-Stack" : ["Front-End", "Back-End", "Mobile", "Web", "Adobe", "Disney"],
         "Database" : ["SQL", "MS SQL Server", "Oracle"],
         "SQL" : ["Database", "MS SQL Server", "Oracle", "JSON Support"],
-        "Frameworks" : [".NET", "AFNetworking", "UITouch", "ARKit", "Angular", "JSON.NET", "Firebase", "Xamarin", "Twitter API", "Facebook API"],
+        "Frameworks" : [".NET", "AFNetworking", "UITouch", "ARKit", "CoreML", "Angular", "JSON.NET", "Firebase", "Xamarin", "Twitter API", "Facebook API"],
         "Xamarin" : ["Hybrid", "Mobile", "iOS", "Android", "C#"],
         "JSON" : ["JSON.NET", "Newtonsoft", "REST"],
         "Java" : ["Back-End", "Android", "Mobile"],
@@ -97,7 +96,79 @@ export class ContentHolderComponent implements OnInit, AfterViewInit {
         this.contentSections = 
         [{
             "title": "Portfolio", 
-            "items":[{"id" : "Miya", "img" : "../assets/Miya-Logo.svg", "color" : "#ff5a5a"}, {"id" : "Zippy Contact", "img" : "../assets/zippy-logo-opc.svg", "color" : "#1bc405"},{"id" : "Autowise", "img" : "../assets/Autowise-Logo.svg", "color" : "#1bc405"},{"id" : "Langua", "img" : "../assets/langua-logo.png", "color" : "#24f04b"},{"id" : "SGSenate", "img" : "../assets/sgsenate-logo.png", "color" : "#24f04b"},{"id" : "Chirpi", "img" : "../assets/chirpi-logo.png", "color" : "#24f04b"},{"id" : "Fiestagram", "img" : "../assets/fiestagram-logo.png", "color" : "#24f04b"}]
+            "items":[
+            {
+                "id" : "Miya", 
+                "img" : "../assets/Miya-Logo.svg", 
+                "color" : "#ff5a5a", 
+                "bio":"Miya is a personal research application for interactive AR-based home automation and indoor positioning. Tools and technology currently being used include: Swift iOS, Raspberry Pi, and Firebase by Google.", 
+                "images" : ["../assets/miya-1.jpeg", "../assets/miya-2.jpeg", "../assets/miya-3.jpg"], 
+                "links" : [
+                    {"link" : "github.com/SHurtado91112", 
+                     "img" : "../assets/web.png"}]
+            }, 
+            {
+                "id" : "Zippy Contact", 
+                "img" : "../assets/zippy-logo-opc.svg", 
+                "color" : "#1bc405",
+                "bio":"Zippy Contact is an iOS application that will allow you to save time in making a phone call by assigning a unique gesture to listed contacts in your phone.", 
+                "images" : ["../assets/zippy-1.png", "../assets/zippy-2.png"],
+                "links" : [
+                    {"link" : "https://github.com/SHurtado91112/Zippy-Contact", 
+                     "img" : "../assets/github.png"},
+                    {"link" : "https://devpost.com/software/zippy-contact", 
+                     "img" : "../assets/web.png"}]
+            }, 
+            {
+                "id" : "Autowise Loan Tracker", 
+                "img" : "../assets/Autowise-Logo.svg", 
+                "color" : "#1bc405",
+                "bio":"This application is intended as the paperless replacement for loan applications for Autowise, a used-card dealership in Tallahassee, Florida. It also provides Autowise's customers the ability to track their application details, so they can login online whenever they want, and check their application and comments (updates, requests for more information) instead of flooding the phone lines.", 
+                "images" : ["../assets/auto-1.png", "../assets/auto-2.png", "../assets/auto-3.png"],
+                "links" : [
+                    {"link" : "https://github.com/MEAN-Script-Org/Autowise-Loan-Tracker", 
+                     "img" : "../assets/github.png"}]
+            }, 
+            {
+                "id" : "Langua", 
+                "img" : "../assets/langua-logo.png", 
+                "color" : "#1bc405",
+                "bio":"Language learning application that provides mentors, resources, and courses for learning clients. Final project for CodePath University's iOS boot camp. Includes: course registration, chat features with a live feed of who’s online, and database supported through Firebase by Google.",
+                "images" : ["../assets/lang-1.png", "../assets/lang-2.png", "../assets/lang-3.png", "../assets/lang-4.png", "../assets/lang-5.png"],
+                "links" : [
+                    {"link" : "https://github.com/Langua/Langua", 
+                     "img" : "../assets/github.png"}]
+            }, 
+            {
+                "id" : "SGSenate", 
+                "img" : "../assets/sgsenate-logo.png", 
+                "color" : "#1bc405",
+                "bio":"SGSenate is an iOS application made for the University of Florida's Student Government senate hearings in order to replace their 100% paper system. Functionality includes: displaying SG’s agenda, bills, and miscellaneous items, a live queue for public debates, a voting system on concurrent bills, and admin features.", 
+                "images" : [],
+                "links" : [
+                    {"link" : "https://github.com/SHurtado91112/SGSenate", 
+                     "img" : "../assets/github.png"}]
+            }, 
+            {
+                "id" : "Chirpi", 
+                "img" : "../assets/chirpi-logo.png", 
+                "color" : "#1bc405",
+                "bio":"Chirpi is a basic twitter app to read and compose tweets using the Twitter API. This was one of many clone applications made to further iOS development skills for Code Path University's iOS boot camp.", 
+                "images" : ["../assets/chirp-1.png", "../assets/chirp-2.png", "../assets/chirp-3.png", "../assets/chirp-4.png"],
+                "links" : [
+                    {"link" : "https://github.com/SHurtado91112/Chirpi", 
+                     "img" : "../assets/github.png"}]
+            },
+            {
+                "id" : "Fiestagram", 
+                "img" : "../assets/fiestagram-logo.png", 
+                "color" : "#1bc405",
+                "bio":"Fiestagram is a photo sharing app using Parse as its backend. No real party inside. Simply an Instagram clone. With lots of confetti. This was one of many clone applications made to further iOS development skills for Code Path University's iOS boot camp.", 
+                "images" : ["../assets/fiesta-1.png", "../assets/fiesta-2.png", "../assets/fiesta-3.png", "../assets/fiesta-4.png"],
+                "links" : [
+                    {"link" : "https://github.com/SHurtado91112/Fiestagram", 
+                     "img" : "../assets/github.png"}]
+            }]
         },
         {
             "title": "Experience", 

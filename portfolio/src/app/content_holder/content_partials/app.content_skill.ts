@@ -30,13 +30,14 @@ export class ContentSkillComponent implements OnInit, AfterViewInit {
     @Input() resultList = [];
     @Input() titleData:string;
     resumeLink = "../assets/Steven_Hurtado_Resume.pdf";
-    inputElement;
+    @Input() inputElement:any;
+    
     initSearchInput(sharedInstance){
         
         this.inputElement = document.getElementById("searchInput");
         
-        this.inputElement.addEventListener("keyup", function(e) {
-            var target = e.target;
+        this.inputElement.addEventListener("keyup", function(event) {
+            var target = event.target;
             
             if ((<KeyboardEvent>event).keyCode === 13) {
                  sharedInstance.activateSpecialInput(target.value);

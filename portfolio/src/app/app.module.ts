@@ -13,6 +13,7 @@ import {DetailService} from './app.detail_service';
 
 // Remember to import `intersection-observer` polyfill to support all major browsers
 import 'intersection-observer';
+import { SafePipe } from './content_holder/content_partials/content_music/safe.pipe';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
     ContentComponent,
     ContentSkillComponent,
     ContentMusicComponent,
-    ContentDetailComponent
+    ContentDetailComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

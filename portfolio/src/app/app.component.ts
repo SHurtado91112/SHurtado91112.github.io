@@ -65,6 +65,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     public titleBool:boolean;
     public stop:boolean = true;
     public instantiated:boolean = false;
+    public ws:any;
     public nav_opened:boolean = false;
     public returnSwitchAnimation:boolean;
     public referenceInstance:AppComponent;
@@ -262,6 +263,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
     
     scrollSetUp(sharedInstance) {
+        
         var scrollSections = Array.from(document.getElementsByClassName("scroll-sec"));
         scrollSections.forEach((element, index)=> {
             var elem = <HTMLElement>element;
@@ -294,7 +296,8 @@ export class AppComponent implements OnInit, AfterViewInit {
             
             //BY SWIPE (WEB)
             //var WheelSwipe = require('wheel-swipe');
-            var ws = new WheelIndicator({
+            
+            sharedInstance.ws = new WheelIndicator({
                 elem: window,
                 callback: function(e) {
                     switch(e.direction) {
@@ -366,6 +369,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     constructor(router:Router) {
       router.events.forEach((event) => {
         if(event instanceof NavigationEnd) {
+            if(this.ws) {
+                this.ws.destroy();
+            }
         }
         // NavigationStart
         // NavigationEnd
