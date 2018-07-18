@@ -6,9 +6,19 @@
 <div class="searchContainer">
     <input type="text" #searchInput id="searchInput" placeholder="Try 'Mobile'"/>
 </div>
+<div id="searchModalBtn" (click)="openSearchModal()">
+    What can I search for?
+</div>
 <div class="searchWall">
     <div *ngFor="let skill of resultList" class="searchResult" (click)="searchThis(skill)">
         {{skill}}
     </div>
     <div *ngIf="resultList.length == 0" class="searchWallContent"></div>
+</div>
+<div id="searchModal">
+    <div id="modalContainer" class="blur-glass">
+        <div *ngFor="let feature of getKeys(featureList)" class="featureItem" (click)="searchThis(feature); dismissSearchModal()">
+            {{feature}}
+        </div>
+    </div>
 </div>

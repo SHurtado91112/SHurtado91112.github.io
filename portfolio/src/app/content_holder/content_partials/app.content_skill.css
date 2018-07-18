@@ -71,6 +71,76 @@
     width: 100%;
     transition: all 0.48s ease;
 }
+#searchModalBtn {
+    cursor: pointer;
+    color: var(--secondary-light-color);
+    font-weight: 100;
+    font-size: 14px;
+    opacity: 0.48;
+    transition: all 0.48s ease;
+}
+#searchModalBtn:hover {
+    opacity: 1.0;
+    color: var(--main-light-color);
+}
+#searchModal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.24);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    opacity: 0.0;
+    z-index: -1;
+    transition: opacity 0.48s ease;
+}
+#searchModal.show {
+    opacity: 1.0;
+    z-index: 3000;
+}
+#searchModal #modalContainer {
+    min-width: 300px;
+    height: 50vh;
+    border-radius: 12px;
+    min-height: 200px;
+    background: rgba(255, 255, 255, 0.48);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    padding: 8px;
+}
+
+.blur-glass::before {
+    content: '';
+    height: 50vh;
+    min-width: 300px;
+    background: inherit;
+    position: fixed;
+    box-shadow: inset 0 0 0 300px rgba(137, 137, 137, 0.68);
+     -webkit-filter: blur(10px); 
+    filter: blur(8px);
+    border-radius: 12px;
+    z-index: -1;
+}
+#searchModal #modalContainer .featureItem
+{
+    font-weight: 100;
+    font-size: 16px;
+    color: black;
+    text-shadow: var(--text-shadow-default);
+    cursor: pointer;
+    transition: all 0.48s ease;
+}
+#searchModal #modalContainer .featureItem:hover
+{
+    color: var(--main-light-color);
+}
 @media screen and (max-width: 400px) 
 {
     .searchResult {

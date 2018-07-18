@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, OnDestroy, AfterViewInit, ViewChild, HostListener } from '@angular/core';
 import {style, state, animate, transition, trigger} from '@angular/core';
 import {DetailService} from '../../app.detail_service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'content',
@@ -67,6 +68,19 @@ export class ContentComponent implements OnInit, AfterViewInit, OnDestroy {
         this.visible = false;
     }
 
+    contentClicked(ind) {
+        var router = this.router;
+        var flash = document.getElementById("loader-flash");
+        var sharedInstance = this;
+        flash.classList.add("active");
+
+        setTimeout(function() {
+            router.navigate(['detail', sharedInstance.index, ind]);
+            flash.classList.remove("out");
+            flash.classList.remove("active");
+        }, 480);
+    }
+    
     trackData(index, cont) {
         return cont.id;
     }
@@ -182,7 +196,7 @@ export class ContentComponent implements OnInit, AfterViewInit, OnDestroy {
         this.carouselTransform();
     }
 
-    constructor(public detailService: DetailService)
+    constructor(public detailService: DetailService, private route:ActivatedRoute, private router:Router)
     {
     }
 

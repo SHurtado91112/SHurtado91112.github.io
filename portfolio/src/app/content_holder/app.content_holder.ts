@@ -172,7 +172,51 @@ export class ContentHolderComponent implements OnInit, AfterViewInit {
         },
         {
             "title": "Experience", 
-            "items":[{"id" : "Adobe", "img" : "../assets/adobe-logo.svg", "color" : "#ff0000"}, {"id" : "Disney", "img" : "../assets/Disney_Logo.png", "color" : "#006e99"},{"id" : "Agora", "img" : "../assets/agora-logo.svg", "color" : "#184C7C"},{"id" : "University of Florida", "img" : "../assets/uf-logo.png", "color" : "#24f04b"},{"id" : "Wahi Ride", "img" : "../assets/wahi-logo.png", "color" : "#61b3ff"},{"id" : "iD Tech", "img" : "../assets/id-logo.png", "color" : "#24f04b"}]
+            "items": 
+            [
+                {
+                    "id" : "Adobe", 
+                    "img" : "../assets/adobe-logo.svg", 
+                    "color" : "#ff0000",
+                    "bio":"My 2018 Summer internship as a Full-Stack Mobile Development Intern on Adobe Acrobat's iOS team. I researched and built a demo of a handwriting-to-text proof of concept feature as my main project. I also built shippable features that were requested in high demand from customers.", 
+                    "images" : ["../assets/adobe-1.png", "../assets/adobe-2.jpg"],
+                    "links" : []
+                },
+                {
+                    "id" : "Disney", 
+                    "img" : "../assets/Disney_Logo.png", 
+                    "color" : "#006e99",
+                    "bio":"My 2018 Spring internship as a Software Engineering Intern at Walt Disney World's Central Shops. I updated an internal Xamarin based application for searching attraction documents, built and designed ASP .NET tools and UI Framework to make it easier for future developers on the team, and added Disney internal authentication for Central Shops’ customer facing websites.", 
+                    "images" : ["../assets/disney-1.jpg", "../assets/disney-2.jpeg"],
+                    "links" : []
+                },
+                {
+                    "id" : "Agora", 
+                    "img" : "../assets/agora-logo.svg", 
+                    "color" : "#184C7C",
+                    "bio":"My 2017 Summer internship as a Software Engineering Intern at Agora, a Gainesville based startup. I mainly worked developing various features on both their iOS and Android platforms. I added a point-system for Agora members, a notification subscription feature, and enhanced the UX and performance of the application on both platforms.",
+                    "images" : ["../assets/agora-1.jpg", "../assets/agora-2.png"],
+                    "links" : [{"link" : "https://www.agoraorg.com/about-us", 
+                     "img" : "../assets/web.png"}]
+                },
+                {
+                    "id" : "University of Florida", 
+                    "img" : "../assets/uf-logo.png", 
+                    "color" : "#ff0000",
+                    "bio":"I worked as a Teaching Assistant for Programming Fundamentals COP3502 at the University of Florida. I held labs and office hours to better develop students in basic programming concepts. In terms of involvement on campus, I also acted as the Vice President of Professional Affairs for UF's Association for Computing Machinery. In that role, I worked directly with sponsoring companies and related student organizations to provide opportunities for our members.", 
+                    "images" : ["../assets/uf-1.jpg", "../assets/uf-2.png"],
+                    "links" : [{"link" : "https://ufacm.xyz/", 
+                     "img" : "../assets/web.png"}]
+                },
+                {
+                    "id" : "iD Tech", 
+                    "img" : "../assets/id-logo.png", 
+                    "color" : "#24f04b",
+                    "bio":"Over the Summer of 2016 I worked as a C++/Java Programming Instructor for iD Tech Camps at their Boca Raton site. I instructed students between the ages of 13-17 in the C++/Java Programming Languages. I taught programming basics, including Object-Orientation and dynamic memory allocation.", 
+                    "images" : ["../assets/id-2.jpg"],
+                    "links" : []
+                }   
+            ]
         }];
     }
 

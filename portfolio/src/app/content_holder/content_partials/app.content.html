@@ -5,10 +5,10 @@
 </div>
 
 <section #carouselContent class="carouselContent" [@enterAnimation]>
-    
+<!--    [routerLink]="['/detail', this.index, ind]"-->
     <div id="carousel">
         <figure *ngFor="let cont of contentData; let ind = index">
-            <img class="logos" [src]="cont.img" draggable="false" [routerLink]="['/detail', this.index, ind]"/>
+            <img class="logos" [src]="cont.img" draggable="false" (click)="contentClicked(ind)"/>
         </figure>
     </div>
 </section>

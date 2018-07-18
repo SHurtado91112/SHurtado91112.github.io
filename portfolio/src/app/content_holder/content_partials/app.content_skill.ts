@@ -99,6 +99,11 @@ export class ContentSkillComponent implements OnInit, AfterViewInit {
         }           
     }
 
+    getKeys(list)
+    {
+        return Object.keys(list);
+    }
+    
     searchThis(skill) {
         var sharedInstance = this;
         this.inputElement.value = skill;
@@ -115,8 +120,8 @@ export class ContentSkillComponent implements OnInit, AfterViewInit {
             return;
         }
 
-        const keys = Object.keys(featureList);
-
+        const keys = this.getKeys(featureList);
+        
         var ind;
         for(ind in keys) {
             var key = keys[ind];
@@ -128,7 +133,14 @@ export class ContentSkillComponent implements OnInit, AfterViewInit {
 
         sharedInstance.resultList = resultList;
     }
-
+    openSearchModal() {
+        var searchModal = document.getElementById("searchModal");
+        searchModal.classList.add("show");
+    }
+    dismissSearchModal() {
+        var searchModal = document.getElementById("searchModal");
+        searchModal.classList.remove("show");
+    }
     setUpSearchWall(self)
     {
         
