@@ -85,11 +85,11 @@ export class ContentMusicComponent implements OnInit, AfterViewInit {
             document.getElementById("music-footer").classList.add("initted");
         }
            
-        var audio = document.getElementById("audio");
+        let  audio : HTMLVideoElement = (<HTMLVideoElement>document.getElementById("audio"));
         audio.play();
     }
     pauseCurrentSelected() {
-        var audio = document.getElementById("audio");
+        let  audio : HTMLVideoElement = (<HTMLVideoElement>document.getElementById("audio"));
         audio.pause();
     }
     playWithSelected(ind, link) {
@@ -101,12 +101,13 @@ export class ContentMusicComponent implements OnInit, AfterViewInit {
         this.playCurrentSelected();
         
         this.currentIndex = ind;
-        document.querySelectorAll('.grid-link').forEach(function(elem) {
+        var gridLinkArray = Array.from(document.querySelectorAll('.grid-link'));
+        gridLinkArray.forEach(function(elem) {
             elem.classList.remove("selected");
         });
         document.getElementsByClassName("grid-link")[ind].classList.add("selected");
         
-        var audio = document.getElementById("audio");
+        let  audio : HTMLVideoElement = (<HTMLVideoElement>document.getElementById("audio"));
         audio.src = link;  
         audio.play();
     }
@@ -118,14 +119,14 @@ export class ContentMusicComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         var sharedInstance = this;
-        var audio = document.getElementById("audio");
+        let  audio : HTMLVideoElement = (<HTMLVideoElement>document.getElementById("audio"));
         
         var context = new AudioContext();
         var src = context.createMediaElementSource(audio);
 
         var analyser = context.createAnalyser();
 
-        var canvas = document.getElementById("canvas");
+        let canvas : HTMLCanvasElement =<HTMLCanvasElement> document.getElementById("canvas");
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         var ctx = canvas.getContext("2d");

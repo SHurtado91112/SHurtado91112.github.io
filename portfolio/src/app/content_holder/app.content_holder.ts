@@ -102,9 +102,7 @@ export class ContentHolderComponent implements OnInit, AfterViewInit {
                 "color" : "#ff5a5a", 
                 "bio":"Miya is a personal research application for interactive AR-based home automation and indoor positioning. Tools and technology currently being used include: Swift iOS, Raspberry Pi, and Firebase by Google.", 
                 "images" : ["../assets/miya-1.jpeg", "../assets/miya-2.jpeg", "../assets/miya-3.jpg"], 
-                "links" : [
-                    {"link" : "github.com/SHurtado91112", 
-                     "img" : "../assets/web.png"}]
+                "links" : []
             }, 
             {
                 "id" : "Zippy Contact", 
