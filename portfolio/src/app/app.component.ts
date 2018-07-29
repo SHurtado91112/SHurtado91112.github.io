@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, AfterViewInit, HostListener } from '@angular/core';
-import { Router, NavigationStart, NavigationEnd, NavigationError, NavigationCancel, RoutesRecognized } from '@angular/router';
+import { Router, NavigationStart, NavigationEnd, NavigationError, NavigationCancel, RoutesRecognized, ActivatedRoute } from '@angular/router';
 import {DetailService} from './app.detail_service';
 
 import {style, state, animate, keyframes, transition, trigger} from '@angular/core';
@@ -366,8 +366,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
 
 
-    constructor(router:Router) {
-      router.events.forEach((event) => {
+    constructor(router:Router, private activeRoute: ActivatedRoute) {
+        
+        router.events.forEach((event) => {
         if(event instanceof NavigationEnd) {
             if(this.ws) {
                 this.ws.destroy();
@@ -380,7 +381,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         // RoutesRecognized
       });
     }
-
+    
     ngAfterViewInit() {
         var self = this.referenceInstance;
         setTimeout(()=>{
@@ -397,6 +398,17 @@ export class AppComponent implements OnInit, AfterViewInit {
             
             setTimeout(()=>{
                 self.stop = false;
+                let sec = this.activeRoute.snapshot.params['sec'];
+                let ind = this.activeRoute.snapshot.params['ind'];
+                if(sec != null && ind != null) {
+                    var i = sec + 1;
+                    if(i > 2) {
+                        i = 2;
+                    }
+                    while(i-- > 0) {
+                        self.scrollDown();
+                    }
+                }
             }, 840);
         }, 840);
         

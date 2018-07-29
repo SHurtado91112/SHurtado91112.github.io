@@ -199,7 +199,7 @@ export class ContentComponent implements OnInit, AfterViewInit, OnDestroy {
     constructor(public detailService: DetailService, private route:ActivatedRoute, private router:Router)
     {
     }
-
+    
     ngOnInit() {
         this.visible = false;
     }
@@ -253,5 +253,24 @@ export class ContentComponent implements OnInit, AfterViewInit, OnDestroy {
              }
              return false;
         }
+        setTimeout(()=>{
+            let sec = this.route.snapshot.params['sec'];
+            let ind = this.route.snapshot.params['ind'];
+            if(sec != null && ind != null) {
+                var validator = sharedInstance.titleData == "Portfolio" ? 0 : 1;
+                
+                if(validator != sec) {
+                    return;
+                }
+                
+                var i = parseInt(ind);
+                if(i > sharedInstance.contentData.length) {
+                    i = sharedInstance.contentData.length;
+                }
+                while(i-- > 0) {
+                    sharedInstance.turn(0);
+                }
+            }
+        }, 1480);
    }
 }

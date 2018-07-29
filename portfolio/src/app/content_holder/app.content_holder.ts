@@ -48,7 +48,7 @@ export class ContentHolderComponent implements OnInit, AfterViewInit {
         "Back-End" : [".NET", "Firebase", "JSON", "JSON.NET", "Database", "SQL", "MS SQL Server", "Oracle", "Java", "C#", "Angular", "REST", "SOAP", "Security"],
         "Design" : ["Adobe", "InDesign", "Illustrator", "Photoshop", "Animate", "Front-End", "Storyboards", "UX", "3D", "2D"],
         "2D" : ["Awesome Island", "GameMaker"],
-        "3D" : ["Awesome Island 2018", "Blender", "Unreal Engine"],
+        "3D" : ["Awesome Island 2018 (TBA)", "Blender", "Unreal Engine"],
         "Adobe" : ["Summer 2018", "iOS", "Apple Pencil", "InDesign", "Illustrator", "Photoshop", "Animate", "Front-End", "Back-End", "Full-Stack"],
         "Disney" : ["Spring 2018", "Xamarin", "C#", ".NET", "ASP .NET Core 2.0", ".NET MVC", "JSON.NET", "SQL", "Front-End", "Back-End", "Full-Stack"],
         "Full-Stack" : ["Front-End", "Back-End", "Mobile", "Web", "Adobe", "Disney"],
@@ -58,8 +58,7 @@ export class ContentHolderComponent implements OnInit, AfterViewInit {
         "Xamarin" : ["Hybrid", "Mobile", "iOS", "Android", "C#"],
         "JSON" : ["JSON.NET", "Newtonsoft", "REST"],
         "Java" : ["Back-End", "Android", "Mobile"],
-        "C#" : ["Xamarin", ".NET", ".NET MVC", "ASP .NET Core 2.0", "Back-End", "Security"],
-        "Security" : ["OAuth", "Authentication", "Back-End"],
+        "C#" : ["Xamarin", ".NET", ".NET MVC", "ASP .NET Core 2.0", "Back-End"],
         "Internships" : ["Check out the 'Experience' tab!"],
         "Experience" : ["Check out the 'Experience' tab!"],
         "Projects" : ["Check out the 'Portfolio' tab!"],
@@ -187,7 +186,7 @@ export class ContentHolderComponent implements OnInit, AfterViewInit {
                     "img" : "../assets/Disney_Logo.png", 
                     "color" : "#006e99",
                     "bio":"My 2018 Spring internship as a Software Engineering Intern at Walt Disney World's Central Shops. I updated an internal Xamarin based application for searching attraction documents, built and designed ASP .NET tools and UI Framework to make it easier for future developers on the team, and added Disney internal authentication for Central Shops’ customer facing websites.", 
-                    "images" : ["../assets/disney-1.jpg", "../assets/disney-2.jpeg"],
+                    "images" : ["../assets/disney-1.jpg", "../assets/disney-2.jpeg", "../assets/disney-3.jpeg"],
                     "links" : []
                 },
                 {
@@ -195,7 +194,7 @@ export class ContentHolderComponent implements OnInit, AfterViewInit {
                     "img" : "../assets/agora-logo.svg", 
                     "color" : "#184C7C",
                     "bio":"My 2017 Summer internship as a Software Engineering Intern at Agora, a Gainesville based startup. I mainly worked developing various features on both their iOS and Android platforms. I added a point-system for Agora members, a notification subscription feature, and enhanced the UX and performance of the application on both platforms.",
-                    "images" : ["../assets/agora-1.jpg", "../assets/agora-2.png"],
+                    "images" : ["../assets/agora-1.jpg", "../assets/agora-2.png", "../assets/agora-3.gif"],
                     "links" : [{"link" : "https://www.agoraorg.com/about-us", 
                      "img" : "../assets/web.png"}]
                 },
@@ -204,7 +203,7 @@ export class ContentHolderComponent implements OnInit, AfterViewInit {
                     "img" : "../assets/uf-logo.png", 
                     "color" : "#ff0000",
                     "bio":"I worked as a Teaching Assistant for Programming Fundamentals COP3502 at the University of Florida. I held labs and office hours to better develop students in basic programming concepts. In terms of involvement on campus, I also acted as the Vice President of Professional Affairs for UF's Association for Computing Machinery. In that role, I worked directly with sponsoring companies and related student organizations to provide opportunities for our members.", 
-                    "images" : ["../assets/uf-1.jpg", "../assets/uf-2.png"],
+                    "images" : ["../assets/uf-1.jpg", "../assets/uf-2.png", "../assets/uf-3.jpg"],
                     "links" : [{"link" : "https://ufacm.xyz/", 
                      "img" : "../assets/web.png"}]
                 },
@@ -213,7 +212,7 @@ export class ContentHolderComponent implements OnInit, AfterViewInit {
                     "img" : "../assets/id-logo.png", 
                     "color" : "#24f04b",
                     "bio":"Over the Summer of 2016 I worked as a C++/Java Programming Instructor for iD Tech Camps at their Boca Raton site. I instructed students between the ages of 13-17 in the C++/Java Programming Languages. I taught programming basics, including Object-Orientation and dynamic memory allocation.", 
-                    "images" : ["../assets/id-2.jpg"],
+                    "images" : ["../assets/id-1.jpg", "../assets/id-2.jpg", "../assets/id-3.jpg"],
                     "links" : []
                 }   
             ]

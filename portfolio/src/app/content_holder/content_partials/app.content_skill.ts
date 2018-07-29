@@ -130,16 +130,22 @@ export class ContentSkillComponent implements OnInit, AfterViewInit {
                 resultList.push.apply(resultList, list);
             }
         }
-
+        (<HTMLInputElement>document.getElementById("searchInput")).focus();
         sharedInstance.resultList = resultList;
     }
     openSearchModal() {
         var searchModal = document.getElementById("searchModal");
-        searchModal.classList.add("show");
+        searchModal.classList.add("display");
+        setTimeout(function() {
+            searchModal.classList.add("show");
+        }, 20);
     }
     dismissSearchModal() {
         var searchModal = document.getElementById("searchModal");
         searchModal.classList.remove("show");
+        setTimeout(function() {
+            searchModal.classList.remove("display");
+        }, 481);
     }
     setUpSearchWall(self)
     {

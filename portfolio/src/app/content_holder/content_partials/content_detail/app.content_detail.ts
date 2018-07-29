@@ -21,6 +21,19 @@ export class ContentDetailComponent implements OnInit, AfterViewInit {
 
     constructor(public detailService: DetailService, private route:ActivatedRoute,private router:Router) { }
     
+    goHome() {
+        var router = this.router;
+        var flash = document.getElementById("loader-flash");
+        var sharedInstance = this;
+        flash.classList.add("active");
+
+        setTimeout(function() {
+            router.navigate(['home', sharedInstance.section, sharedInstance.index]);
+            flash.classList.remove("out");
+            flash.classList.remove("active");
+        }, 480);
+    }
+    
     ngOnInit() {
         this.route.params.subscribe(params => {
             this.section = params['id'];
@@ -32,15 +45,13 @@ export class ContentDetailComponent implements OnInit, AfterViewInit {
             this.router.navigate(['home']);
         }
         
-        this.sections = this.detailService.content;
-        console.log(this.sections);
+        this.sections = this.detailService.content;    
         if(this.index >= this.sections[this.section].length)
         {
             this.router.navigate(['home']);
         }
         this.currentItem = this.sections[this.section]
         ['items'][this.index];
-        console.log(this.currentItem);
     }
 
     ngAfterViewInit() {

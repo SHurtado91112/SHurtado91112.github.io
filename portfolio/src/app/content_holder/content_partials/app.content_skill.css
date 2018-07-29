@@ -92,14 +92,16 @@
     background: rgba(0, 0, 0, 0.24);
     justify-content: center;
     align-items: center;
-    display: flex;
+    display: none;
     opacity: 0.0;
-    z-index: -1;
+    z-index: 3000;
     transition: opacity 0.48s ease;
+}
+#searchModal.display {
+    display: flex;
 }
 #searchModal.show {
     opacity: 1.0;
-    z-index: 3000;
 }
 #searchModal #modalContainer {
     min-width: 300px;

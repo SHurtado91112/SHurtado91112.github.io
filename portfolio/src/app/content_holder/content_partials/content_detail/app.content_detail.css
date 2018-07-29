@@ -24,6 +24,7 @@
     overflow: hidden;
 }
 #grid-home-link {
+    cursor: pointer;
     position: absolute;
     left: 0;
     top: 10vh;

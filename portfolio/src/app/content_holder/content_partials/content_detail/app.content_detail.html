@@ -2,8 +2,8 @@
 <div id="detail-page">
     <div class="grid-section">
         <div class="grid-title" [style.background-image]="'url('+this.currentItem['img']+')'">
-            <a id="grid-home-link" href="/">
-                <img src="../../../../assets/home.png"/>
+            <a id="grid-home-link" (click)="goHome()">
+                <img src="../../../../assets/back.png"/>
             </a>
             <h1>
                 {{currentItem['id']}}

@@ -17,7 +17,8 @@ import { SafePipe } from './content_holder/content_partials/content_music/safe.p
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: AppComponent},
+  {path: 'home/:sec/:ind', component: AppComponent},
+    {path: 'home', component: AppComponent},
   { path: 'music', component: ContentMusicComponent },
   { path: 'detail/:id/:ind', component: ContentDetailComponent }
 ];

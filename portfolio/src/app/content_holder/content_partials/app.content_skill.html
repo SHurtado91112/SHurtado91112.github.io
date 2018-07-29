@@ -15,7 +15,7 @@
     </div>
     <div *ngIf="resultList.length == 0" class="searchWallContent"></div>
 </div>
-<div id="searchModal">
+<div id="searchModal" (click)="dismissSearchModal()">
     <div id="modalContainer" class="blur-glass">
         <div *ngFor="let feature of getKeys(featureList)" class="featureItem" (click)="searchThis(feature); dismissSearchModal()">
             {{feature}}
