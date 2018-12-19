@@ -8,6 +8,9 @@
 </template>
 
 <script>
+import JQuery from 'jquery'
+let $ = JQuery
+
 export default {
   name: 'Grid',
   data () {
@@ -39,6 +42,48 @@ export default {
             },
         ]
     }
+  },
+  mounted: function() {
+      var cards = $('.card')
+      cards.hover(function() {
+          var siblings = $(this).siblings();
+          console.log(siblings);
+          //enter
+          switch(cards.index($(this)))
+          {
+            case 0:
+            case 1:
+                siblings.eq(0).addClass('hover-shrink-width');
+                siblings.eq(1).addClass('hover-shrink-height');
+                siblings.eq(2).addClass('hover-shrink-height');
+                break
+            default:
+                siblings.eq(0).addClass('hover-shrink-height');
+                siblings.eq(1).addClass('hover-shrink-height');
+                siblings.eq(2).addClass('hover-shrink-width');
+                break
+          }
+          
+      }, function(el) {
+          //leave
+          var siblings = $(this).siblings();
+          console.log(siblings);
+          //enter
+          switch(cards.index($(this)))
+          {
+            case 0:
+            case 1:
+                siblings.eq(0).removeClass('hover-shrink-width');
+                siblings.eq(1).removeClass('hover-shrink-height');
+                siblings.eq(2).removeClass('hover-shrink-height');
+                break
+            default:
+                siblings.eq(0).removeClass('hover-shrink-height');
+                siblings.eq(1).removeClass('hover-shrink-height');
+                siblings.eq(2).removeClass('hover-shrink-width');
+                break
+          }
+      })
   }
 }
 </script>
@@ -53,6 +98,14 @@ export default {
         right: 0;
         bottom: 0;
         
+/*
+        display: grid;
+        grid-gap: 0px;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: 25% 25% 25% 25%;
+*/
+        transition: all 0.4s ease;
+        
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -63,33 +116,42 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-basis: 50%;
-        height: 50%;
+        
         z-index: 1;
         color: #262020;
-/*
+        
         width: 50%;
         height: 50%;
-*/
-/*        flex-shrink: 0.5;*/
+
         transition: all 0.4s ease;
     }
+    
     .card:hover {
-        flex-basis: 60%;
+        width: 60%;
         height: 60%;
         -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
         -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
         box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
         z-index: 2;
     }
-    .grid:hover .card:not(:hover) {
-        flex-basis: 40%;
-        height: 40%;
-        opacity: 0.5;
-/*
+    
+    .card.hover-shrink-width {
         width: 40%;
+        height: 60%;
+    }
+    .card.hover-shrink-height {
+        width: 50%;
         height: 40%;
-        flex-grow: 1;
-*/
+    }
+    
+    @media screen and (min-width: 540px) {
+        .grid {
+            top: 95px;
+        }
+    }
+    @media screen and (max-width: 540px) {
+        .grid {
+            font-size: 22px;
+        }
     }
 </style>

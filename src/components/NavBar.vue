@@ -42,8 +42,7 @@ export default {
         align-items: center;
         justify-content: space-between;
         padding: 16px 32px 16px 32px;
-        border-bottom: solid 2px black;
-        
+        transition: all 0.4s ease;
         z-index: 10;
     }
     .nav-left {
@@ -51,5 +50,16 @@ export default {
     }
     .nav-right {
         
+    }
+    @media screen and (min-width: 540px) {
+        body .navbar {
+            font-size: 22px;
+        }
+        .navbar .large-text {
+            font-size: 32px;
+        }
+        .navbar {
+            max-height: 98px;
+        }
     }
 </style>
