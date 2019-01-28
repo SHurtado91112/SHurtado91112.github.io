@@ -45,7 +45,7 @@ export default {
         justify-content: center;
         align-items: center;
         font-size: 10vw;
-        color: whitesmoke;
+        color: #0A0908;
         opacity: 0.0;
         animation: intro-inv 2s;
     }

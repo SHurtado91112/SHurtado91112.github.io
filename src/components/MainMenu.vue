@@ -10,15 +10,18 @@
         </div>
         
         <!--    PROJECTS      -->
-        <Projects v-if="showProjects"/>
+        <Grid v-if="showProjects" :cards=projectCards />
         <!--    EXPERIENCE    -->
+        <Grid v-if="showExperience" :cards=experienceCards />
         <!--    MUSIC         -->
+<!--        <Grid v-if="showProjects"/>-->
         <!--    RESUME        -->
+<!--        <PDFViewer v-if="showProjects"/>-->
     </div>
 </template>
 
 <script>
-import Projects from '../components/Projects'
+import Grid from '../components/Grid'
 import JQuery from 'jquery'
 
 let $ = JQuery
@@ -26,7 +29,7 @@ let $ = JQuery
 export default {
   name: 'MainMenu',
   components: {
-    Projects
+    Grid
   },
   methods: {
       show: function (cardTitle) {
@@ -38,6 +41,9 @@ export default {
               switch(cardTitle) {
                   case "projects":
                       mainMenu.showProjects = true;
+                      break
+                  case "experience":
+                      mainMenu.showExperience = true;
                       break
                   default:
                       break
@@ -135,7 +141,67 @@ export default {
                 color: "#ED1C24",
                 highlight: "#F36E73"
             },
-        ]
+        ],
+        projectCards : [
+            {
+                title: "miya",
+                img: require('../assets/miya.jpeg')
+            },
+            {
+                title: "zippyContact",
+                img: require('../assets/zippy.png')
+            },
+            {
+                title: "autowise",
+                img: require('../assets/autowise.png')
+            },
+            {
+                title: "langua",
+                img: require('../assets/langua.png')
+            },
+            {
+                title: "miya",
+                img: require('../assets/miya.jpeg')
+            },
+            {
+                title: "chirpi",
+                img: require('../assets/chirpi.png')
+            },
+            {
+                title: "fiestagram",
+                img: require('../assets/fiesta.png')
+            },
+        ],
+        experienceCards : [
+            {
+                title: "zippyContact",
+                img: require('../assets/zippy.png')
+            },
+            {
+                title: "autowise",
+                img: require('../assets/autowise.png')
+            },
+            {
+                title: "autowise",
+                img: require('../assets/autowise.png')
+            },
+            {
+                title: "langua",
+                img: require('../assets/langua.png')
+            },
+            {
+                title: "miya",
+                img: require('../assets/miya.jpeg')
+            },
+            {
+                title: "chirpi",
+                img: require('../assets/chirpi.png')
+            },
+            {
+                title: "fiestagram",
+                img: require('../assets/fiesta.png')
+            },
+        ],
     }
   },
   watch: {
@@ -178,7 +244,7 @@ export default {
     
     .card {
         z-index: 1;
-        color: whitesmoke;
+        color: #0A0908;
         
         width: 46%;
         height: 46%;
@@ -191,7 +257,7 @@ export default {
         width: 56%;
         height: 56%;
         padding: 1%;        
-        color: #0A0908
+        color: whitesmoke
     }
     
     .main-menu .card.hover-shrink-width {
@@ -212,7 +278,7 @@ export default {
         width: 100%;
         height: 100%;
         
-        border: solid whitesmoke 1px;
+        border: solid #0A0908 1px;
         border-radius: 12px;
         
         transition: all 0.2s ease;
@@ -226,7 +292,7 @@ export default {
 */
         z-index: 2;
         border-width: 4px;
-        background: whitesmoke;
+        background: #0A0908;
     }
     
     @media screen and (min-width: 540px) {

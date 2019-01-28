@@ -1,6 +1,6 @@
 <template>
 <div class="grid">
-    <div class="card" v-for="card in projectCards">
+    <div class="card" v-for="card in cards">
         <img :src="card.img"/>
 <!--
         <div class="border-container">
@@ -21,41 +21,12 @@
 import JQuery from 'jquery'
 let $ = JQuery
 export default {
-  name: 'Projects',
+  name: 'Grid',
   methods: {
   },
+  props: ['cards'],
   data () {
-    return {
-        projectCards : [
-            {
-                title: "miya",
-                img: require('../assets/miya.jpeg')
-            },
-            {
-                title: "zippyContact",
-                img: require('../assets/zippy.png')
-            },
-            {
-                title: "autowise",
-                img: require('../assets/autowise.png')
-            },
-            {
-                title: "langua",
-                img: require('../assets/langua.png')
-            },
-            {
-                title: "miya",
-                img: require('../assets/miya.jpeg')
-            },
-            {
-                title: "chirpi",
-                img: require('../assets/chirpi.png')
-            },
-            {
-                title: "fiestagram",
-                img: require('../assets/fiesta.png')
-            },
-        ]
+    return {   
     }
   }
 }

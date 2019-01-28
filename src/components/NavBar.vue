@@ -60,8 +60,8 @@ export default {
 
 <style>
     .navbar {
-        background: #0A0908;
-        color: whitesmoke;
+        background: whitesmoke;
+        color: #0A0908;
         position: fixed;
         top: 0;
         left: 0;
@@ -75,7 +75,7 @@ export default {
         padding: 16px 32px 16px 32px;
         transition: all 0.4s ease;
         z-index: 10;
-        border-bottom: 1px whitesmoke solid;
+        border-bottom: 1px #0A0908 solid;
     }
     
     .nav-left {
@@ -88,9 +88,9 @@ export default {
         height: 100%;
         left: 0px;
         width: 32px;
-        color: #0A0908;
-        background: whitesmoke;
-        opacity: 0.5;
+        color: whitesmoke;
+        background: #0A0908;
+        opacity: 1.0;
         cursor: pointer;
         z-index: 10;
         animation: nav-left-appear 0.4s ease;
@@ -98,7 +98,7 @@ export default {
     }
     
     .nav-left:hover {
-        opacity: 1;
+        opacity: 0.5;
     }
     
     @keyframes nav-left-appear {
@@ -130,9 +130,9 @@ export default {
         height: 24px;
         padding: 6px;
         margin: 2px;
-        background: whitesmoke;
-        color: #0A0908;
-        opacity: 0.5;
+        background: #0A0908;
+        color: whitesmoke;
+        opacity: 1.0;
         border-radius: 50%;
         cursor: pointer;
         -webkit-transition: all 0.4s ease;
@@ -140,7 +140,7 @@ export default {
     }
     
     .nav-right .icon-container:hover {
-        opacity: 1.0;
+        opacity: 0.5;
     }
     
     @media screen and (max-width: 416px) {
