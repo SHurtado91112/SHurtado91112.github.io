@@ -1,14 +1,8 @@
 <template>
     <div class="navbar">
-        <div id="back-navigator" class="nav-left" v-if="!$parent.showHome" v-on:click="backPressed">
-            <font-awesome-icon :icon="['fas', 'arrow-left']"/>
-        </div>
         <div class="nav-title">
-            <div class="large-text">
+            <div class="larger-text">
             {{title}}
-            </div>
-            <div class="raleway-light">
-                {{subtitle}}
             </div>
         </div>
         <div class="nav-right">
@@ -17,16 +11,16 @@
             <font-awesome-icon icon="laptop-code" size="2x" />
 -->
             <a class="icon-container" href="https://www.shurtado.site" target="_blank">
-                <font-awesome-icon :icon="['fas', 'envelope']" size="2x" />
+                <img src="https://img.icons8.com/ios/50/000000/email.png">
             </a>
             <a class="icon-container" href="https://www.linkedin.com/in/steven-hurtado" target="_blank">
-                <font-awesome-icon :icon="['fab', 'linkedin-in']" size="2x" />
+                <img src="https://img.icons8.com/ios/50/000000/linkedin-2.png">
             </a>
             <a class="icon-container" href="https://www.github.com/SHurtado91112" target="_blank">
-                <font-awesome-icon :icon="['fab', 'github-alt']" size="2x" />
+                <img src="https://img.icons8.com/ios/50/000000/github-2.png">
             </a>
             <a class="icon-container" href="https://www.soundcloud.com/steveshidae" target="_blank">
-                <font-awesome-icon :icon="['fab', 'soundcloud']" size="2x" />
+                <img src="https://img.icons8.com/ios/50/000000/soundcloud.png">
             </a>
         </div>
     </div>
@@ -75,7 +69,6 @@ export default {
         padding: 16px 32px 16px 32px;
         transition: all 0.4s ease;
         z-index: 10;
-        border-bottom: 1px #0A0908 solid;
     }
     
     .nav-left {
@@ -114,6 +107,10 @@ export default {
         margin-left: 8px;
     }
     
+    .larger-text {
+        font-size: 8vw;
+    }
+    
     .nav-right {
         font-size: 12px;
         max-width: 160px;
@@ -126,12 +123,9 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 24px;
-        height: 24px;
         padding: 6px;
         margin: 2px;
-        background: #0A0908;
-        color: whitesmoke;
+        color: black;
         opacity: 1.0;
         border-radius: 50%;
         cursor: pointer;
@@ -143,26 +137,27 @@ export default {
         opacity: 0.5;
     }
     
-    @media screen and (max-width: 416px) {
+    @media screen and (max-width: 420px) {
         .nav-right {
-            width: 80px;
-            font-size: 8px;
+            width: 200px;
         }
-        .nav-right .icon-container {
-            width: 12px;
-            height: 12px;
+        .nav-right .icon-container img {
+            width: 24px;
         }
     }
     
-    @media screen and (min-width: 540px) {
-        body .navbar {
-            font-size: 22px;
+    @media screen and (max-width: 500px) and (min-width: 420px) {
+        .nav-right {
+            width: 200px;
         }
-        .navbar .large-text {
-            font-size: 32px;
+        .nav-right .icon-container img {
+            width: 32px;
         }
-        .navbar {
-            max-height: 98px;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .navbar .larger-text {
+            font-size: 8vh;
         }
     }
 </style>

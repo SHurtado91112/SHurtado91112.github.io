@@ -2,7 +2,7 @@
   <div id="app">
     <div class="app-container">
         <NavBar/>
-        <MainMenu v-bind:homeVisible="showHome"/> 
+        <MainMenu v-bind:homeVisible="showHome"/>
     </div>
     <div class="logo">
         {{ title }}

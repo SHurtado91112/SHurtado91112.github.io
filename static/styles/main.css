@@ -1,13 +1,44 @@
 /* MAIN : ghostwhite*/
 /* SECONDARY: 0A0908*/
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Lora', serif;
     font-size: 4vw;
     background: whitesmoke;
 }
 
+.icon8 {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    font-size: 8px;
+}
+
 .large-text {
     font-size: 6vw;
+}
+
+.lora {
+    font-family: 'Lora', serif;
+}
+
+.barlow {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+}
+
+.barlow-light {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 200;
+}
+
+.noto {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 400;
+}
+
+.noto-light {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 300;
 }
 
 .raleway {

@@ -26,7 +26,7 @@ export default {
   },
   props: ['cards'],
   data () {
-    return {   
+    return {
     }
   }
 }
@@ -39,13 +39,13 @@ export default {
         
         overflow-y: scroll;
         height: auto;
-        max-width: 1250px;
-        position: absolute;
+/*        position: absolute;*/
         top: 0;
-        left: 0;
         right: 0;
         padding: 16px;
         margin: auto;
+        
+        border-left: 2px solid black;
     }    
     
     .grid .card {
